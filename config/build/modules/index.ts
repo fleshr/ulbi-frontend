@@ -8,7 +8,7 @@ import { getFileLoader } from "./loaders/fileLoader";
 export const getModules = (options: BuildOptions): ModuleOptions => {
   return {
     rules: [
-      getTsLoader(),
+      getTsLoader(options),
       getCssLoader(options),
       getFileLoader(),
       getSvgLoader(),
