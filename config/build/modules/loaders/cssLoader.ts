@@ -13,6 +13,7 @@ export const getCssLoader = ({ isDev }: BuildOptions): RuleSetRule => {
           modules: {
             auto: /\.module\.s[ac]ss$/i,
             namedExport: false,
+            exportLocalsConvention: "as-is",
             localIdentName: isDev
               ? "[path][name]__[local]--[hash:base64:5]"
               : "[hash:base64:8]",
