@@ -3,9 +3,9 @@ import { classNames } from "@/shared/lib";
 import styles from "./Sidebar.module.scss";
 import { Button, LangSwitcher, ThemeSwitcher } from "@/shared/ui";
 
-type SidebarProps = {
+interface SidebarProps {
   className?: string;
-};
+}
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
   const [collapsed, setCollapsed] = useState(false);

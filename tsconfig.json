@@ -5,7 +5,9 @@
     "esModuleInterop": true,
     "moduleResolution": "bundler",
     "strict": true,
+    "checkJs": true,
     "jsx": "react-jsx",
+    "skipLibCheck": true,
     "plugins": [
       {
         "name": "typescript-plugin-css-modules",
@@ -16,6 +18,7 @@
       "@/*": ["./src/*"]
     }
   },
+  "include": ["**/*.ts", "**/*.tsx", "prettier.config.mjs"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

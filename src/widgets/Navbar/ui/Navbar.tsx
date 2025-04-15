@@ -1,11 +1,11 @@
 import { classNames } from "@/shared/lib";
 import { FC } from "react";
 import styles from "./Navbar.module.scss";
-import { AppLink, ThemeSwitcher } from "@/shared/ui";
+import { AppLink } from "@/shared/ui";
 
-type NavbarProps = {
+interface NavbarProps {
   className?: string;
-};
+}
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
   return (

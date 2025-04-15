@@ -1,4 +1,7 @@
-declare module "*.module.scss";
+declare module "*.module.scss" {
+  const classes: Record<string, string>;
+  export default classes;
+}
 
 declare module "*.png";
 declare module "*.jpg";

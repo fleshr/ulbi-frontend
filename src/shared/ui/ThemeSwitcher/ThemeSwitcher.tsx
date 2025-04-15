@@ -5,10 +5,11 @@ import { Button } from "../Button/Button";
 import { useTheme } from "@/app/providers/ThemeProvider";
 import ThemeDarkIcon from "../../assets/icons/theme-dark.svg";
 import ThemeLighIcon from "../../assets/icons/theme-light.svg";
+import { Theme } from "@/app/providers/ThemeProvider/lib/ThemeContext";
 
-type ThemeSwitcherProps = {
+interface ThemeSwitcherProps {
   className?: string;
-};
+}
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
   const { theme, toogleTheme } = useTheme();
@@ -18,7 +19,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
       onClick={toogleTheme}
       className={classNames(styles.ThemeSwitcher, {}, [className])}
     >
-      {theme === "dark" ? <ThemeLighIcon /> : <ThemeDarkIcon />}
+      {theme === Theme.DARK ? <ThemeLighIcon /> : <ThemeDarkIcon />}
     </Button>
   );
 };
