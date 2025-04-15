@@ -10,9 +10,7 @@ type NavbarProps = {
 export const Navbar: FC<NavbarProps> = ({ className }) => {
   return (
     <div className={classNames(styles.Navbar, {}, [className])}>
-      <div>
-        <ThemeSwitcher />
-      </div>
+      <div>Navbar</div>
       <div className={styles.links}>
         <AppLink to="/">Main</AppLink>
         <AppLink to="/about">About</AppLink>
