@@ -1,18 +1,16 @@
-import { Link } from "react-router";
 import { classNames } from "@/shared/lib";
 import { useTheme } from "./providers/ThemeProvider";
 import { AppRouter } from "./providers/AppRouter";
 import "./styles/index.scss";
-import { NavBar } from "@/widgets/NavBar";
+import { Navbar } from "@/widgets/Navbar";
 
 export const App = () => {
-  const { theme, toogleTheme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <div className={classNames("app", {}, [theme])}>
-      <NavBar />
+      <Navbar />
       <AppRouter />
-      <button onClick={toogleTheme}>Toogle theme</button>
     </div>
   );
 };
