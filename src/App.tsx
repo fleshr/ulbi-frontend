@@ -1,13 +1,16 @@
 import { Counter } from "./components/Counter";
-import "./App.scss";
 import { Link, Route, Routes } from "react-router";
 import { MainPageLazy } from "./pages/MainPage/MainPageLazy";
 import { AboutPageLazy } from "./pages/AboutPage/AboutPageLazy";
 import { Suspense } from "react";
+import { useTheme } from "./theme/useTheme";
 
 export const App = () => {
+  const { theme, toogleTheme } = useTheme();
+
   return (
-    <div className="app">
+    <div className={`app ${theme}`}>
+      <button onClick={toogleTheme}>Toogle theme</button>
       <Link to="/">Main</Link>
       <Link to="/about">About</Link>
       <Suspense fallback={<div>Loading...</div>}>
