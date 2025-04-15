@@ -1,13 +1,18 @@
 import { resolve } from "path";
 import { getConfig } from "./config/build/config";
+import { BuildEnv } from "./config/build/types/config";
 
-const mode = "development";
-const isDev = mode === "development";
+export default (env: BuildEnv) => {
+  const mode = env.mode ?? "development";
+  const port = env.port ?? 3000;
 
-const paths = {
-  entry: resolve(__dirname, "src", "index.ts"),
-  output: resolve(__dirname, "dist"),
-  html: resolve(__dirname, "public", "index.html"),
+  const isDev = mode === "development";
+
+  const paths = {
+    entry: resolve(__dirname, "src", "index.ts"),
+    output: resolve(__dirname, "dist"),
+    html: resolve(__dirname, "public", "index.html"),
+  };
+
+  return getConfig({ mode, paths, isDev, port });
 };
-
-export default getConfig({ mode, paths, isDev });
