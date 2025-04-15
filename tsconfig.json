@@ -10,7 +10,10 @@
       {
         "name": "typescript-plugin-css-modules"
       }
-    ]
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "ts-node": {
     "compilerOptions": {

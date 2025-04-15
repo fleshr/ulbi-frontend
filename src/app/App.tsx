@@ -1,10 +1,10 @@
-import { Counter } from "./components/Counter";
 import { Link, Route, Routes } from "react-router";
-import { MainPageLazy } from "./pages/MainPage/MainPageLazy";
-import { AboutPageLazy } from "./pages/AboutPage/AboutPageLazy";
 import { Suspense } from "react";
-import { useTheme } from "./theme/useTheme";
-import { classNames } from "./helpers/classNames/classNames";
+import { MainPageLazy } from "@/pages/MainPage";
+import { AboutPageLazy } from "@/pages/AboutPage";
+import { classNames } from "@/shared/lib";
+import { useTheme } from "./providers/ThemeProvider";
+import "./styles/index.scss";
 
 export const App = () => {
   const { theme, toogleTheme } = useTheme();
@@ -20,7 +20,6 @@ export const App = () => {
           <Route path="/about" element={<AboutPageLazy />} />
         </Routes>
       </Suspense>
-      <Counter />
     </div>
   );
 };
