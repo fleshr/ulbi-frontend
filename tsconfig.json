@@ -4,7 +4,8 @@
     "module": "ESNext",
     "esModuleInterop": true,
     "moduleResolution": "bundler",
-    "strict": true
+    "strict": true,
+    "jsx": "react-jsx"
   },
   "ts-node": {
     "compilerOptions": {
