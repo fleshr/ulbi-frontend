@@ -1,9 +1,10 @@
 import { ModuleOptions } from "webpack";
-import { tsLoader } from "./loaders/tsLoader";
-import { cssLoader } from "./loaders/cssLoader";
+import { getTsLoader } from "./loaders/tsLoader";
+import { getCssLoader } from "./loaders/cssLoader";
+import { BuildOptions } from "../types/config";
 
-export const getModules = (): ModuleOptions => {
+export const getModules = (options: BuildOptions): ModuleOptions => {
   return {
-    rules: [tsLoader, cssLoader],
+    rules: [getTsLoader(), getCssLoader(options)],
   };
 };

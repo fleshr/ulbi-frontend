@@ -5,7 +5,12 @@
     "esModuleInterop": true,
     "moduleResolution": "bundler",
     "strict": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
   },
   "ts-node": {
     "compilerOptions": {

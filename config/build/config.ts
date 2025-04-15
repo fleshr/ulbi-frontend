@@ -11,7 +11,7 @@ export const getConfig = (options: BuildOptions): Configuration => {
   return {
     mode,
     entry: paths.entry,
-    module: getModules(),
+    module: getModules(options),
     resolve: getResolvers(),
     output: {
       filename: "[name].[contenthash].js",
