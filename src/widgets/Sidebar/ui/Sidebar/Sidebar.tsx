@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { classNames } from "@/shared/lib";
 import styles from "./Sidebar.module.scss";
-import { Button, ThemeSwitcher } from "@/shared/ui";
+import { Button, LangSwitcher, ThemeSwitcher } from "@/shared/ui";
 
 type SidebarProps = {
   className?: string;
@@ -23,6 +23,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       <div className={styles.content}>Sidebar</div>
       <div className={styles.switchers}>
         <Button onClick={toggleCollapsed}>TOOGLE</Button>
+        <LangSwitcher />
         <ThemeSwitcher />
       </div>
     </div>
