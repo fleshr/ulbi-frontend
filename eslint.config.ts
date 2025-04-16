@@ -23,7 +23,7 @@ export default tseslint.config([
   i18next.configs["flat/recommended"] as InfiniteDepthConfigWithExtends,
   eslintPluginPrettierRecommended,
   {
-    files: ["**/*.spec.js", "**/*.test.js"],
+    files: ["**/*.test.ts", "**/*.test.tsx"],
     plugins: { jest: pluginJest },
     languageOptions: {
       globals: pluginJest.environments.globals.globals,
@@ -34,6 +34,7 @@ export default tseslint.config([
       "jest/no-identical-title": "error",
       "jest/prefer-to-have-length": "warn",
       "jest/valid-expect": "error",
+      "i18next/no-literal-string": "off",
     },
   },
   {
