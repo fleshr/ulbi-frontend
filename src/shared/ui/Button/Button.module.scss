@@ -10,3 +10,8 @@
 .clear {
   background-color: transparent;
 }
+
+.outline {
+  background-color: transparent;
+  border: 1px solid var(--inverted-primary-color);
+}

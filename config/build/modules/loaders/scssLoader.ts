@@ -1,8 +1,7 @@
 import { RuleSetRule } from "webpack";
-import { BuildOptions } from "../../types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-export const getCssLoader = ({ isDev }: BuildOptions): RuleSetRule => {
+export const getScssLoader = (isDev: boolean): RuleSetRule => {
   return {
     test: /\.s[ac]ss$/i,
     use: [

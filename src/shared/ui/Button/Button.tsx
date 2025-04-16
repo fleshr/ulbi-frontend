@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, FC } from "react";
 import { classNames } from "@/shared/lib";
 import styles from "./Button.module.scss";
 
-type Variant = "clear";
+type Variant = "clear" | "outline";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string;

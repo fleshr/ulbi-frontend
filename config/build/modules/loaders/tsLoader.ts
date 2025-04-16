@@ -1,8 +1,7 @@
 import { RuleSetRule } from "webpack";
-import { BuildOptions } from "../../types/config";
 import ReactRefreshTypeScript from "react-refresh-typescript";
 
-export const getTsLoader = ({ isDev }: BuildOptions): RuleSetRule => {
+export const getTsLoader = (isDev: boolean): RuleSetRule => {
   return {
     test: /\.tsx?$/,
     exclude: /node_modules/,

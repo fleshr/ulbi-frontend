@@ -7,5 +7,5 @@ interface SpinnerProps {
 }
 
 export const Spinner: FC<SpinnerProps> = ({ className }) => {
-  return <span className={classNames(styles.loader, {}, [className])} />;
+  return <div className={classNames(styles.loader, {}, [className])} />;
 };
