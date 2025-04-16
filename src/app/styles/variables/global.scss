@@ -1,16 +1,12 @@
 :root {
-  --font-family-main: Cosolas, monospace;
-
+  --font-family-main: cosolas, monospace;
   --font-size-md: 16px;
   --font-line-md: 24px;
   --font-md: var(--font-size-md) / var(--font-line-md) var(--font-family-main);
-
   --font-size-lg: 24px;
   --font-line-lg: 32px;
   --font-lg: var(--font-size-lg) / var(--font-line-lg) var(--font-family-main);
-
   --navbar-height: 50px;
-
   --sidebar-width: 300px;
   --sidebar-width-collapsed: 80px;
 }

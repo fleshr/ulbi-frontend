@@ -1,8 +1,9 @@
 import js from "@eslint/js";
 import globals from "globals";
-import tseslint from "typescript-eslint";
+import tseslint, { InfiniteDepthConfigWithExtends } from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import i18next from "eslint-plugin-i18next";
 
 export default tseslint.config([
   {
@@ -18,6 +19,7 @@ export default tseslint.config([
   tseslint.configs.stylisticTypeChecked,
   pluginReact.configs.flat.recommended,
   pluginReact.configs.flat["jsx-runtime"],
+  i18next.configs["flat/recommended"] as InfiniteDepthConfigWithExtends,
   eslintPluginPrettierRecommended,
   {
     languageOptions: {

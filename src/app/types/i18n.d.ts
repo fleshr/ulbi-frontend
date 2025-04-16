@@ -1,13 +1,13 @@
 import "i18next";
 import mainPage from "../../../public/locales/ru/mainPage.json";
 import aboutPage from "../../../public/locales/ru/aboutPage.json";
-import translation from "../../../public/locales/ru/translation.json";
+import common from "../../../public/locales/ru/common.json";
 
 declare module "i18next" {
   interface CustomTypeOptions {
-    defaultNS: "translation";
+    defaultNS: "common";
     resources: {
-      translation: typeof translation;
+      common: typeof common;
       mainPage: typeof mainPage;
       aboutPage: typeof aboutPage;
     };

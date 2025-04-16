@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noEmit": true,
     "target": "ES2015",
     "module": "ESNext",
     "esModuleInterop": true,
@@ -18,7 +19,13 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "prettier.config.mjs"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "prettier.config.mjs",
+    "stylelint.config.mjs"
+  ],
+  "exclude": ["node_modules", "dist"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
