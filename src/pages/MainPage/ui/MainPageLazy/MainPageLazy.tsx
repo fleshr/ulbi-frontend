@@ -1,6 +1,6 @@
 import { lazy } from "react";
 
-export const AboutPageLazy = lazy(async () => {
+export const MainPageLazy = lazy(async () => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  return import("./AboutPage");
+  return import("../MainPage/MainPage");
 });

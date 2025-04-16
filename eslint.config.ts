@@ -5,6 +5,7 @@ import pluginReact from "eslint-plugin-react";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import i18next from "eslint-plugin-i18next";
 import pluginJest from "eslint-plugin-jest";
+import pluginStorybook from "eslint-plugin-storybook";
 
 export default tseslint.config([
   {
@@ -22,6 +23,7 @@ export default tseslint.config([
   pluginReact.configs.flat["jsx-runtime"],
   i18next.configs["flat/recommended"] as InfiniteDepthConfigWithExtends,
   eslintPluginPrettierRecommended,
+  pluginStorybook.configs["flat/recommended"],
   {
     files: ["**/*.test.ts", "**/*.test.tsx"],
     plugins: { jest: pluginJest },
