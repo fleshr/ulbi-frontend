@@ -4,6 +4,7 @@ import tseslint, { InfiniteDepthConfigWithExtends } from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import i18next from "eslint-plugin-i18next";
+import pluginJest from "eslint-plugin-jest";
 
 export default tseslint.config([
   {
@@ -21,6 +22,20 @@ export default tseslint.config([
   pluginReact.configs.flat["jsx-runtime"],
   i18next.configs["flat/recommended"] as InfiniteDepthConfigWithExtends,
   eslintPluginPrettierRecommended,
+  {
+    files: ["**/*.spec.js", "**/*.test.js"],
+    plugins: { jest: pluginJest },
+    languageOptions: {
+      globals: pluginJest.environments.globals.globals,
+    },
+    rules: {
+      "jest/no-disabled-tests": "warn",
+      "jest/no-focused-tests": "error",
+      "jest/no-identical-title": "error",
+      "jest/prefer-to-have-length": "warn",
+      "jest/valid-expect": "error",
+    },
+  },
   {
     languageOptions: {
       parserOptions: {
