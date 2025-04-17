@@ -10,12 +10,12 @@
     "lint:scss": "stylelint **/*.scss",
     "lint:scss:fix": "stylelint **/*.scss --fix",
     "typecheck": "tsc --noEmit",
-    "test:unit": "jest --config=./config/jest/jest.config.ts",
+    "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "testplane --storybook --config ./config/testplane/testplane.storybook.config.ts",
     "test:ui:update": "testplane --storybook --update-refs --config ./config/testplane/testplane.storybook.config.ts",
     "test:ui:gui": "testplane gui --storybook --config ./config/testplane/testplane.storybook.config.ts",
-    "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "storybook:build": "storybook build"
+    "storybook": "storybook dev --port 6006 --config-dir ./config/storybook",
+    "storybook:build": "storybook build --config-dir ./config/storybook"
   },
   "devDependencies": {
     "@eslint/js": "^9.24.0",

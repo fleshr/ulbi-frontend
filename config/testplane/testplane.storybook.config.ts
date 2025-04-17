@@ -9,6 +9,9 @@ const config: ConfigInput = {
       headless: true,
       desiredCapabilities: {
         browserName: "chrome",
+        "goog:chromeOptions": {
+          args: ["--no-sandbox"],
+        },
       },
     },
   },

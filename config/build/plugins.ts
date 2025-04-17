@@ -9,7 +9,7 @@ export const getPlugins = ({
   paths,
   isDev,
 }: BuildOptions): WebpackPluginInstance[] => {
-  return [
+  const plugins: WebpackPluginInstance[] = [
     new ProgressPlugin(),
     new HtmlWebpackPlugin({ template: paths.html }),
     new MiniCssExtractPlugin({
@@ -17,7 +17,12 @@ export const getPlugins = ({
       chunkFilename: "css/[name].[contenthash].css",
     }),
     new DefinePlugin({ __IS_DEV__: isDev }),
-    isDev ? new ReactRefreshWebpackPlugin() : undefined,
-    new BundleAnalyzerPlugin(),
-  ].filter(<T>(plugin: T): plugin is NonNullable<T> => Boolean(plugin));
+  ];
+
+  if (isDev) {
+    plugins.push(new ReactRefreshWebpackPlugin());
+    plugins.push(new BundleAnalyzerPlugin());
+  }
+
+  return plugins;
 };

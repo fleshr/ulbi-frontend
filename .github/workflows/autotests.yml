@@ -1,0 +1,54 @@
+name: Autotests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  autotests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.x
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install npm deps
+        run: npm ci
+
+      - name: Run linter SCSS
+        run: npm run lint:scss
+
+      - name: Run linter TS
+        run: npm run lint:ts
+
+      - name: Run typecheck
+        run: npm run typecheck
+
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Run UI tests
+        id: testplane
+        uses: gemini-testing/gh-actions-testplane@v1
+        with:
+          config-path: "config/testplane/testplane.storybook.config.ts"
+          storybook: "true"
+
+      - name: Archive UI tests report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-tests-report
+          path: testplane-reports
