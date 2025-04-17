@@ -1,9 +1,14 @@
-import { FC, PropsWithChildren, useMemo, useState } from "react";
 import {
-  LOCAL_STORAGE_THEME_KEY,
-  Theme,
-  ThemeContext,
-} from "../lib/ThemeContext";
+  FC,
+  PropsWithChildren,
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+  useState,
+} from "react";
+import { Theme, ThemeContext } from "../lib/ThemeContext";
+
+export const LOCAL_STORAGE_THEME_KEY = "theme";
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(() => {
@@ -11,7 +16,21 @@ export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
     return Object.values(Theme).includes(value) ? value : Theme.LIGHT;
   });
 
-  const value = useMemo(() => ({ theme, setTheme }), [theme]);
+  useLayoutEffect(() => {
+    if (theme === Theme.DARK) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const toogleTheme = useCallback(() => {
+    const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
+    setTheme(newTheme);
+    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+  }, [theme]);
+
+  const value = useMemo(() => ({ theme, toogleTheme }), [theme, toogleTheme]);
 
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
