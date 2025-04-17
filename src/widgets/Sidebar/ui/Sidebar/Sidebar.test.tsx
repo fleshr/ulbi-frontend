@@ -1,25 +1,17 @@
-import { ThemeProvider } from "@/app/providers/ThemeProvider";
 import { Sidebar } from "./Sidebar";
-import { renderWithTranslations } from "@/shared/lib/tests";
 import { fireEvent } from "@testing-library/dom";
+import { render } from "@testing-library/react";
+import { withProviders } from "@/shared/lib/tests";
 
 describe("Sidebar", () => {
   it("Sidebar exist in document", () => {
-    const { getByTestId } = renderWithTranslations(
-      <ThemeProvider>
-        <Sidebar />
-      </ThemeProvider>,
-    );
+    const { getByTestId } = render(withProviders(<Sidebar />));
 
     expect(getByTestId("Sidebar")).toBeInTheDocument();
   });
 
   it("Sidebar collapsed", () => {
-    const { getByTestId } = renderWithTranslations(
-      <ThemeProvider>
-        <Sidebar />
-      </ThemeProvider>,
-    );
+    const { getByTestId } = render(withProviders(<Sidebar />));
 
     const toggleButton = getByTestId("Sidebar.Toggle");
     fireEvent.click(toggleButton);

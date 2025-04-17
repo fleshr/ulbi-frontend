@@ -10,8 +10,30 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Clear: Story = {};
+export const Clear: Story = {
+  args: { variant: "clear" },
+};
 
 export const Outline: Story = {
   args: { variant: "outline" },
+};
+
+export const Filled: Story = {
+  args: { variant: "filled" },
+};
+
+export const SizeSm: Story = {
+  args: { variant: "filled", size: "sm" },
+};
+
+export const SizeMd: Story = {
+  args: { variant: "filled", size: "md" },
+};
+
+export const SizeLg: Story = {
+  args: { variant: "filled", size: "lg" },
+};
+
+export const SizeXl: Story = {
+  args: { variant: "filled", size: "xl" },
 };

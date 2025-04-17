@@ -1,14 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Sidebar } from "./Sidebar";
-import { withTheme } from "@/shared/lib/decorators";
+import { withRouter, withTheme } from "@/shared/lib/decorators";
 
 const meta = {
   title: "widgets/Sidebar",
   component: Sidebar,
-  decorators: [withTheme],
+  decorators: [withTheme, withRouter],
 } satisfies Meta<typeof Sidebar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: { defaultCollapsed: false },
+};
+
+export const Collapsed: Story = {
+  args: { defaultCollapsed: true },
+};

@@ -3,8 +3,15 @@
 @use "themes/light";
 @use "variables/global";
 
+html,
+body,
+#root,
+#storybook-root,
 .app {
-  min-height: 100dvh;
+  height: 100%;
+}
+
+.app {
   font: var(--font-md);
   background-color: var(--bg-color);
   color: var(--primary-color);
