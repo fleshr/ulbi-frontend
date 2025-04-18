@@ -16,7 +16,8 @@
     "test:ui:update": "testplane --storybook --update-refs --config ./config/testplane/testplane.storybook.config.ts",
     "test:ui:gui": "testplane gui --storybook --config ./config/testplane/testplane.storybook.config.ts",
     "storybook": "storybook dev --port 6006 --config-dir ./config/storybook",
-    "storybook:build": "storybook build --config-dir ./config/storybook"
+    "storybook:build": "storybook build --config-dir ./config/storybook",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@eslint/js": "^9.24.0",
@@ -53,11 +54,13 @@
     "globals": "^16.0.0",
     "html-reporter": "^10.16.0",
     "html-webpack-plugin": "^5.6.3",
+    "husky": "^9.1.7",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jiti": "^2.4.2",
     "json-server": "^0.17.4",
+    "lint-staged": "^15.5.1",
     "mini-css-extract-plugin": "^2.9.2",
     "prettier": "^3.5.3",
     "react-refresh-typescript": "^2.0.10",

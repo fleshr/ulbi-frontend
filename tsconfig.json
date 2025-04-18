@@ -23,7 +23,8 @@
     "**/*.ts",
     "**/*.tsx",
     "prettier.config.mjs",
-    "stylelint.config.mjs"
+    "stylelint.config.mjs",
+    "lint-staged.config.mjs"
   ],
   "exclude": ["node_modules", "dist"],
   "ts-node": {
