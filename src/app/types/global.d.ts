@@ -15,3 +15,7 @@ declare module "*.svg" {
 }
 
 declare const __IS_DEV__: boolean;
+
+declare type AppStore = import("../providers/StoreProvider").AppStore;
+declare type RootState = import("../providers/StoreProvider").RootState;
+declare type AppDispatch = import("../providers/StoreProvider").AppDispatch;

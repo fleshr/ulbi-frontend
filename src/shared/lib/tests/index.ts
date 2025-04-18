@@ -1,1 +1,1 @@
-export { withProviders } from "./withProviders";
+export { renderWithProviders } from "./renderWithProviders";

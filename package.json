@@ -32,6 +32,7 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@testplane/storybook": "^1.6.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.14.1",
@@ -77,12 +78,14 @@
     "webpack-dev-server": "^5.2.1"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.7.0",
     "i18next": "^25.0.0",
     "i18next-browser-languagedetector": "^8.0.4",
     "i18next-http-backend": "^3.0.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-i18next": "^15.4.1",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^6.30.0"
   }
 }
