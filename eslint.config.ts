@@ -1,41 +1,28 @@
-import js from "@eslint/js";
-import globals from "globals";
-import tseslint, { InfiniteDepthConfigWithExtends } from "typescript-eslint";
+import tseslint from "typescript-eslint";
+import pluginJs from "@eslint/js";
 import pluginReact from "eslint-plugin-react";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-import i18next from "eslint-plugin-i18next";
-import pluginJest from "eslint-plugin-jest";
+import pluginReactHooks from "eslint-plugin-react-hooks";
+import pluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import pluginStorybook from "eslint-plugin-storybook";
+import pluginJest from "eslint-plugin-jest";
+import pluginI18next from "eslint-plugin-i18next";
+import { Linter } from "eslint";
 
 export default tseslint.config([
-  {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
-    plugins: { js },
-    extends: [js.configs.recommended],
-  },
-  {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
-    languageOptions: { globals: globals.browser },
-  },
-  tseslint.configs.recommendedTypeChecked,
+  pluginJs.configs.recommended,
+  tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
   pluginReact.configs.flat.recommended,
   pluginReact.configs.flat["jsx-runtime"],
-  i18next.configs["flat/recommended"] as InfiniteDepthConfigWithExtends,
-  eslintPluginPrettierRecommended,
+  pluginReactHooks.configs["recommended-latest"],
+  pluginI18next.configs["flat/recommended"] as Linter.Config,
+  pluginJest.configs["flat/style"],
+  pluginJest.configs["flat/recommended"],
   pluginStorybook.configs["flat/recommended"],
+  pluginPrettierRecommended,
   {
-    files: ["**/*.test.ts", "**/*.test.tsx"],
-    plugins: { jest: pluginJest },
-    languageOptions: {
-      globals: pluginJest.environments.globals.globals,
-    },
+    files: ["**/*.{test,stories}.{ts,tsx}"],
     rules: {
-      "jest/no-disabled-tests": "warn",
-      "jest/no-focused-tests": "error",
-      "jest/no-identical-title": "error",
-      "jest/prefer-to-have-length": "warn",
-      "jest/valid-expect": "error",
       "i18next/no-literal-string": "off",
     },
   },

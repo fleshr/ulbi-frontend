@@ -1,4 +1,10 @@
-import { FC, PropsWithChildren, useCallback, useEffect } from "react";
+import {
+  FC,
+  PropsWithChildren,
+  useCallback,
+  useEffect,
+  MouseEvent,
+} from "react";
 import styles from "./Modal.module.scss";
 import { classNames } from "@/shared/lib";
 
@@ -25,12 +31,9 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
     handleClose();
   }, [handleClose]);
 
-  const handleContentClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      e.stopPropagation();
-    },
-    [],
-  );
+  const handleContentClick = useCallback((e: MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  }, []);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
@@ -38,7 +41,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [handleKeyDown]);
 
   return (
     <div

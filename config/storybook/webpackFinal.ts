@@ -6,7 +6,7 @@ import { getSvgLoader } from "../build/modules/loaders/svgLoader";
 export const webpackFinal = (config: Configuration) => {
   if (config.resolve) {
     config.resolve.alias = {
-      ...config.resolve?.alias,
+      ...(config.resolve.alias as Record<string, string>),
       "@": resolve(__dirname, "..", "..", "src"),
     };
   }
@@ -14,7 +14,7 @@ export const webpackFinal = (config: Configuration) => {
   if (config.module?.rules) {
     config.module.rules.map((rule) => {
       if (
-        (rule as RuleSetRule)?.test &&
+        (rule as RuleSetRule).test &&
         ((rule as RuleSetRule).test as RegExp).test(".svg")
       ) {
         (rule as RuleSetRule).exclude = /\.svg$/;
@@ -22,7 +22,7 @@ export const webpackFinal = (config: Configuration) => {
       return rule;
     });
     config.module.rules.push(getScssLoader(true));
-    config.module?.rules?.push(getSvgLoader());
+    config.module.rules.push(getSvgLoader());
   }
 
   return config;
