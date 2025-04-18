@@ -6,3 +6,4 @@ export { Spinner } from "./Spinner/Spinner";
 export { PageLoader } from "./PageLoader/PageLoader";
 export { Modal } from "./Modal/Modal";
 export { Portal } from "./Portal/Portal";
+export { Input } from "./Input/Input";

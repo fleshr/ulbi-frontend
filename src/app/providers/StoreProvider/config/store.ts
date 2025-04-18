@@ -1,7 +1,11 @@
 import { counterReducer } from "@/entities/Counter";
+import { userReducer } from "@/entities/User";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-const rootReducer = combineReducers({ counter: counterReducer });
+const rootReducer = combineReducers({
+  counter: counterReducer,
+  user: userReducer,
+});
 
 export const setupStore = (preloadedState?: Partial<RootState>) => {
   return configureStore({

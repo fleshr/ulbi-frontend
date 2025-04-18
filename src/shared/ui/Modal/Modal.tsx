@@ -41,7 +41,10 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
   }, []);
 
   return (
-    <div className={classNames(styles.Modal, { [styles.open]: isOpen })}>
+    <div
+      data-testid="Modal"
+      className={classNames(styles.Modal, { [styles.open]: isOpen })}
+    >
       <div onClick={handleOverlayClick} className={styles.overlay}>
         <div onClick={handleContentClick} className={styles.content}>
           {children}
