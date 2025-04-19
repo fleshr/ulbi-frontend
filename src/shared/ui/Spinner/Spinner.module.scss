@@ -13,7 +13,7 @@
   inset: 0;
   border-radius: 50%;
   border: 5px solid var(--inverted-bg-color);
-  animation: prixClipFix 2s linear infinite;
+  animation: loader-animation 2s linear infinite;
 }
 
 @keyframes rotate {
@@ -22,7 +22,7 @@
   }
 }
 
-@keyframes prixClipFix {
+@keyframes loader-animation {
   0% {
     clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
   }

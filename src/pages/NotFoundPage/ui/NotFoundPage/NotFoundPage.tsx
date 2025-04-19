@@ -5,5 +5,5 @@ import styles from "./NotFoundPage.module.scss";
 export const NotFoundPage: FC = () => {
   const { t } = useTranslation("common");
 
-  return <div className={styles.NotFoundPage}>{t("Страница не найдена")}</div>;
+  return <div className={styles.notFoundPage}>{t("Страница не найдена")}</div>;
 };

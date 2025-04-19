@@ -22,7 +22,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   }, []);
 
   return (
-    <div className={classNames(styles.Navbar, {}, [className])}>
+    <div className={classNames(styles.navbar, {}, [className])}>
       <div></div>
       <div className={styles.links}>
         <Button data-testid="Navbar.LoginBtn" onClick={openAuthModal}>

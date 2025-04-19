@@ -26,7 +26,7 @@ export const Input: FC<InputProps> = ({
     <input
       value={value}
       onChange={handleInputChange}
-      className={classNames(styles.Input, {}, [className])}
+      className={classNames(styles.input, {}, [className])}
       {...props}
     />
   );

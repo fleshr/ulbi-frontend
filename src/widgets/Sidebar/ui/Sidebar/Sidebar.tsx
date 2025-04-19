@@ -25,7 +25,7 @@ export const Sidebar: FC<SidebarProps> = ({
   return (
     <div
       data-testid="Sidebar"
-      className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [
+      className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [
         className,
       ])}
     >
@@ -48,7 +48,7 @@ export const Sidebar: FC<SidebarProps> = ({
         >
           {collapsed ? ">" : "<"}
         </Button>
-        <LangSwitcher />
+        <LangSwitcher short={collapsed} />
         <ThemeSwitcher />
       </div>
     </div>

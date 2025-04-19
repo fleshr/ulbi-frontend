@@ -12,7 +12,7 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
   const { t } = useTranslation("common");
 
   return (
-    <div className={classNames(styles.LoginForm, {}, [className])}>
+    <div className={classNames(styles.loginForm, {}, [className])}>
       <Input placeholder={t("Имя пользователя")} />
       <Input placeholder={t("Пароль")} />
       <Button

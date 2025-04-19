@@ -12,7 +12,7 @@ export const getScssLoader = (isDev: boolean): RuleSetRule => {
           modules: {
             auto: /\.module\.s[ac]ss$/i,
             namedExport: false,
-            exportLocalsConvention: "as-is",
+            exportLocalsConvention: "camel-case-only",
             localIdentName: isDev
               ? "[path][name]__[local]--[hash:base64:5]"
               : "[hash:base64:8]",

@@ -22,7 +22,7 @@ export const Button: FC<ButtonProps> = ({
   return (
     <button
       data-testid="Button"
-      className={classNames(styles.Button, {}, style)}
+      className={classNames(styles.button, {}, style)}
       {...props}
     />
   );
