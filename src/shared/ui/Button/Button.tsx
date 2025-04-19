@@ -9,20 +9,27 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   variant?: Variant;
   size?: Size;
+  disabled?: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({
   className,
   variant = "clear",
   size = "md",
+  disabled = false,
   ...props
 }) => {
   const style = [className, styles[variant], styles[size]];
 
   return (
     <button
+      disabled={disabled}
       data-testid="Button"
-      className={classNames(styles.button, {}, style)}
+      className={classNames(
+        styles.button,
+        { [styles.disabled]: disabled },
+        style,
+      )}
       {...props}
     />
   );

@@ -22,6 +22,18 @@ export const Filled: Story = {
   args: { variant: "filled" },
 };
 
+export const ClearDisabled: Story = {
+  args: { variant: "clear", disabled: true },
+};
+
+export const OutlineDisabled: Story = {
+  args: { variant: "outline", disabled: true },
+};
+
+export const FilledDisabled: Story = {
+  args: { variant: "filled", disabled: true },
+};
+
 export const SizeSm: Story = {
   args: { variant: "filled", size: "sm" },
 };

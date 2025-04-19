@@ -1,5 +1,5 @@
 import { resolve } from "path";
-import { Configuration, RuleSetRule } from "webpack";
+import { Configuration, DefinePlugin, RuleSetRule } from "webpack";
 import { getScssLoader } from "../build/modules/loaders/scssLoader";
 import { getSvgLoader } from "../build/modules/loaders/svgLoader";
 
@@ -24,6 +24,12 @@ export const webpackFinal = (config: Configuration) => {
     config.module.rules.push(getScssLoader(true));
     config.module.rules.push(getSvgLoader());
   }
+
+  config.plugins?.push(
+    new DefinePlugin({
+      __IS_DEV__: true,
+    }),
+  );
 
   return config;
 };

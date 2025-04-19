@@ -17,3 +17,7 @@ export const Default: Story = {
 export const WithValue: Story = {
   args: { onChange: fn(), value: "Some value" },
 };
+
+export const Disabled: Story = {
+  args: { onChange: fn(), value: "Some value", disabled: true },
+};

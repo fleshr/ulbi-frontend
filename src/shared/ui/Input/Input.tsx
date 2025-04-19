@@ -7,12 +7,14 @@ interface InputProps
   className?: string;
   value?: string;
   onChange?: (value: string) => void;
+  disabled?: boolean;
 }
 
 export const Input: FC<InputProps> = ({
   className,
   value = "",
   onChange,
+  disabled = false,
   ...props
 }) => {
   const handleInputChange = useCallback(
@@ -24,9 +26,12 @@ export const Input: FC<InputProps> = ({
 
   return (
     <input
+      disabled={disabled}
       value={value}
       onChange={handleInputChange}
-      className={classNames(styles.input, {}, [className])}
+      className={classNames(styles.input, { [styles.disabled]: disabled }, [
+        className,
+      ])}
       {...props}
     />
   );

@@ -19,6 +19,10 @@ const config: Config = {
     "^.+\\.tsx?$": ["ts-jest", {}],
   },
   setupFilesAfterEnv: ["<rootDir>/config/jest/jest.setup.ts"],
+  globals: {
+    __IS_DEV__: true,
+  },
+  maxConcurrency: 1,
 };
 
 export default config;
