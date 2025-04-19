@@ -4,8 +4,11 @@ import styles from "./LoginForm.module.scss";
 import { Button, Input, Text } from "@/shared/ui";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { getUserData } from "../../model/selectors/getUserData";
-import { setPassword, setUsername } from "../../model/loginSlice";
+import {
+  getLoginState,
+  setPassword,
+  setUsername,
+} from "../../model/loginSlice";
 import { loginByUsername } from "../../model/services/loginByUsername";
 
 interface LoginFormProps {
@@ -15,7 +18,8 @@ interface LoginFormProps {
 export const LoginForm: FC<LoginFormProps> = ({ className }) => {
   const { t } = useTranslation("common");
   const dispatch = useAppDispatch();
-  const { username, password, isLoading, error } = useAppSelector(getUserData);
+  const { username, password, isLoading, error } =
+    useAppSelector(getLoginState);
 
   const handleUsernameChange = useCallback(
     (value: string) => {

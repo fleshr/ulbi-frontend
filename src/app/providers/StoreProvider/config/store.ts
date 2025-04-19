@@ -1,13 +1,16 @@
-import { counterReducer } from "@/entities/Counter";
-import { userReducer } from "@/entities/User";
-import { loginReducer } from "@/features/AuthByUsername";
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { counterSlice } from "@/entities/Counter";
+import { userSlice } from "@/entities/User";
+import { LoginState } from "@/features/AuthByUsername";
+import { combineSlices, configureStore } from "@reduxjs/toolkit";
 
-const rootReducer = combineReducers({
-  counter: counterReducer,
-  user: userReducer,
-  login: loginReducer,
-});
+export interface LazyLoadedSlices {
+  login: LoginState;
+}
+
+export const rootReducer = combineSlices(
+  counterSlice,
+  userSlice,
+).withLazyLoadedSlices<LazyLoadedSlices>();
 
 export const setupStore = (preloadedState?: Partial<RootState>) => {
   return configureStore({

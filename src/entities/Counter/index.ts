@@ -1,1 +1,2 @@
-export { counterReducer } from "./model/counterSlice";
+export { counterSlice } from "./model/counterSlice";
+export { Counter } from "./ui/Counter/Counter";

@@ -1,12 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Navbar } from "./Navbar";
-import { withRouter, withStoreProvider } from "@/shared/lib/decorators";
+import {
+  withRouter,
+  withStoreProvider,
+} from "../../../../shared/lib/decorators";
+import { WithTestplane } from "@testplane/storybook";
 
 const meta = {
   title: "widgets/Navbar",
   component: Navbar,
   decorators: [withRouter],
-} satisfies Meta<typeof Navbar>;
+  testplaneConfig: {
+    assertViewOpts: {
+      screenshotDelay: 5000,
+    },
+  },
+} satisfies WithTestplane<Meta<typeof Navbar>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

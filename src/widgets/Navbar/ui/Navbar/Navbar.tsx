@@ -31,7 +31,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
   if (user) {
     return (
-      <div className={classNames(styles.navbar, {}, [className])}>
+      <div id="Navbar" className={classNames(styles.navbar, {}, [className])}>
         <div></div>
         <div className={styles.links}>
           <span>{user.username}</span>
@@ -44,7 +44,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   }
 
   return (
-    <div className={classNames(styles.navbar, {}, [className])}>
+    <div id="Navbar" className={classNames(styles.navbar, {}, [className])}>
       <div></div>
       <div className={styles.links}>
         <Button data-testid="Navbar.LoginBtn" onClick={openAuthModal}>

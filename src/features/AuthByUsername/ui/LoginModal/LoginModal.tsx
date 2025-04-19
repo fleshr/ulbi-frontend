@@ -16,3 +16,5 @@ export const LoginModal: FC<LoginModalProps> = ({ isOpen, onClose }) => {
     </Portal>
   );
 };
+
+export default LoginModal;

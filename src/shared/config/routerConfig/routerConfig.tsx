@@ -1,5 +1,5 @@
-import { AboutPageLazy } from "@/pages/AboutPage";
-import { MainPageLazy } from "@/pages/MainPage";
+import { AboutPage } from "@/pages/AboutPage";
+import { MainPage } from "@/pages/MainPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { RouteProps } from "react-router-dom";
 
@@ -16,7 +16,7 @@ export const RoutePath: Record<AppRoutes, string> = {
 };
 
 export const routeConfig: RouteProps[] = [
-  { path: RoutePath.main, element: <MainPageLazy /> },
-  { path: RoutePath.about, element: <AboutPageLazy /> },
+  { path: RoutePath.main, element: <MainPage /> },
+  { path: RoutePath.about, element: <AboutPage /> },
   { path: RoutePath.not_found, element: <NotFoundPage /> },
 ];

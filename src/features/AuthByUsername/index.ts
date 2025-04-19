@@ -1,3 +1,2 @@
-export { LoginModal } from "./ui/LoginModal/LoginModal";
-export { loginReducer } from "./model/loginSlice";
-export { getUserData } from "./model/selectors/getUserData";
+export { LoginModal } from "./ui/LoginModal/LoginModal.lazy";
+export type { LoginState } from "./model/types";

@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { LoginState } from "./types";
 import { loginByUsername } from "./services/loginByUsername";
+import { rootReducer } from "@/app/providers/StoreProvider/config/store";
 
 const initialState: LoginState = {
   username: "",
@@ -18,6 +19,9 @@ export const loginSlice = createSlice({
     setPassword: (state, action: PayloadAction<string>) => {
       state.password = action.payload;
     },
+  },
+  selectors: {
+    getLoginState: (state) => state,
   },
   extraReducers: (builder) => {
     builder
@@ -38,5 +42,8 @@ export const loginSlice = createSlice({
   },
 });
 
-export const { setUsername, setPassword } = loginSlice.actions;
-export const loginReducer = loginSlice.reducer;
+const injectedLoginSlice = loginSlice.injectInto(rootReducer);
+
+export const { setUsername, setPassword } = injectedLoginSlice.actions;
+export const { getLoginState } = injectedLoginSlice.selectors;
+export const loginReducer = injectedLoginSlice.reducer;
