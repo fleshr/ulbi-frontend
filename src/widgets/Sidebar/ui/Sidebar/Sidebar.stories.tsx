@@ -1,9 +1,9 @@
+import { withRouter, withTheme } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Sidebar } from "./Sidebar";
-import { withRouter, withTheme } from "@/shared/lib/decorators";
 
 const meta = {
-  title: "widgets/Sidebar",
+  title: "widgets/Sidebar/Sidebar",
   component: Sidebar,
   decorators: [withTheme, withRouter],
 } satisfies Meta<typeof Sidebar>;

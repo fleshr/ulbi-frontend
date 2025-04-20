@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { classNames } from "@/shared/lib";
 import { Link, LinkProps } from "react-router-dom";
 import styles from "./AppLink.module.scss";
@@ -10,15 +10,15 @@ type AppLinkProps = LinkProps & {
   className?: string;
 };
 
-export const AppLink: FC<AppLinkProps> = ({
+export const AppLink: FC<AppLinkProps> = memo(function AppLink({
   className,
   variant = "primary",
   ...props
-}) => {
+}: AppLinkProps) {
   return (
     <Link
       className={classNames(styles.appLink, {}, [className, styles[variant]])}
       {...props}
     />
   );
-};
+});

@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, InputHTMLAttributes, useCallback } from "react";
+import { ChangeEvent, InputHTMLAttributes, memo, useCallback } from "react";
 import { classNames } from "@/shared/lib";
 import styles from "./Input.module.scss";
 
@@ -10,13 +10,13 @@ interface InputProps
   disabled?: boolean;
 }
 
-export const Input: FC<InputProps> = ({
+export const Input = memo(function Input({
   className,
   value = "",
   onChange,
   disabled = false,
   ...props
-}) => {
+}: InputProps) {
   const handleInputChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       onChange?.(e.target.value);
@@ -35,4 +35,4 @@ export const Input: FC<InputProps> = ({
       {...props}
     />
   );
-};
+});

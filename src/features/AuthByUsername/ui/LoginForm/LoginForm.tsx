@@ -16,7 +16,7 @@ interface LoginFormProps {
 }
 
 export const LoginForm: FC<LoginFormProps> = ({ className }) => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("translation", { keyPrefix: "LofinForm" });
   const dispatch = useAppDispatch();
   const { username, password, isLoading, error } =
     useAppSelector(getLoginState);

@@ -1,10 +1,12 @@
 import { counterSlice } from "@/entities/Counter";
+import { type ProfileState } from "@/entities/Profile";
 import { userSlice } from "@/entities/User";
-import { LoginState } from "@/features/AuthByUsername";
+import { type LoginState } from "@/features/AuthByUsername";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 
 export interface LazyLoadedSlices {
   login: LoginState;
+  profile: ProfileState;
 }
 
 export const rootReducer = combineSlices(

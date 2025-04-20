@@ -1,6 +1,6 @@
-import { Sidebar } from "./Sidebar";
-import { fireEvent } from "@testing-library/dom";
 import { renderWithProviders } from "@/shared/lib/tests";
+import { fireEvent } from "@testing-library/dom";
+import { Sidebar } from "./Sidebar";
 
 describe("Sidebar", () => {
   it("Sidebar exist in document", () => {

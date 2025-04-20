@@ -22,25 +22,9 @@
   justify-content: center;
 }
 
-.link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 5px 0;
-  line-height: 1;
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
   padding: 10px;
-
-  .link {
-    justify-content: center;
-  }
-
-  .link span {
-    display: none;
-  }
 }
 
 .collapse-btn {

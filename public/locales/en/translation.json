@@ -1,0 +1,20 @@
+{
+  "LangSwitcher": {
+    "Язык": "Русский"
+  },
+  "SidebarItem": {
+    "Главная": "Main",
+    "О нас": "About",
+    "Профиль": "Profile"
+  },
+  "LofinForm": {
+    "Форма авторизации": "Authorization form",
+    "Имя пользователя": "Username",
+    "Пароль": "Password",
+    "Войти": "Log in"
+  },
+  "Navbar": {
+    "Войти": "Log in",
+    "Выйти": "Log out"
+  }
+}

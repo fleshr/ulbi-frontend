@@ -1,21 +1,19 @@
-import { FC, useState } from "react";
 import { classNames } from "@/shared/lib";
+import { Button, LangSwitcher, ThemeSwitcher } from "@/shared/ui";
+import { memo, useState } from "react";
+import { sidebarItemsList } from "../../constants/items";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 import styles from "./Sidebar.module.scss";
-import { AppLink, Button, LangSwitcher, ThemeSwitcher } from "@/shared/ui";
-import { useTranslation } from "react-i18next";
-import MainIcon from "@/shared/assets/icons/main.svg";
-import AboutIcon from "@/shared/assets/icons/about.svg";
 
 interface SidebarProps {
   className?: string;
   defaultCollapsed?: boolean;
 }
 
-export const Sidebar: FC<SidebarProps> = ({
+export const Sidebar = memo(function Sidebar({
   className,
   defaultCollapsed = false,
-}) => {
-  const { t } = useTranslation("common", { keyPrefix: "Sidebar" });
+}: SidebarProps) {
   const [collapsed, setCollapsed] = useState(defaultCollapsed);
 
   const toggleCollapsed = () => {
@@ -30,14 +28,9 @@ export const Sidebar: FC<SidebarProps> = ({
       ])}
     >
       <div className={styles.content}>
-        <AppLink className={styles.link} to="/">
-          <MainIcon />
-          <span>{t("Главная")}</span>
-        </AppLink>
-        <AppLink className={styles.link} to="/about">
-          <AboutIcon />
-          <span>{t("О нас")}</span>
-        </AppLink>
+        {sidebarItemsList.map((item) => (
+          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+        ))}
       </div>
       <div className={styles.switchers}>
         <Button
@@ -53,4 +46,4 @@ export const Sidebar: FC<SidebarProps> = ({
       </div>
     </div>
   );
-};
+});

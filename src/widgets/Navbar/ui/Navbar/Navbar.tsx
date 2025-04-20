@@ -1,18 +1,18 @@
-import { classNames } from "@/shared/lib";
-import { FC, useCallback, useState } from "react";
-import styles from "./Navbar.module.scss";
-import { Button } from "@/shared/ui";
-import { useTranslation } from "react-i18next";
-import { LoginModal } from "@/features/AuthByUsername";
-import { useAppDispatch, useAppSelector } from "@/shared/model";
 import { getUserData, logout } from "@/entities/User";
+import { LoginModal } from "@/features/AuthByUsername";
+import { classNames } from "@/shared/lib";
+import { useAppDispatch, useAppSelector } from "@/shared/model";
+import { Button } from "@/shared/ui";
+import { memo, useCallback, useState } from "react";
+import { useTranslation } from "react-i18next";
+import styles from "./Navbar.module.scss";
 
 interface NavbarProps {
   className?: string;
 }
 
-export const Navbar: FC<NavbarProps> = ({ className }) => {
-  const { t } = useTranslation("common");
+export const Navbar = memo(function Navbar({ className }: NavbarProps) {
+  const { t } = useTranslation("translation", { keyPrefix: "Navbar" });
   const [isAuthModelOpen, setIsAuthModelOpen] = useState(false);
   const user = useAppSelector(getUserData);
   const dispatch = useAppDispatch();
@@ -54,4 +54,4 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
       </div>
     </div>
   );
-};
+});

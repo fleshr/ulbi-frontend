@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Navbar } from "./Navbar";
+import { WithTestplane } from "@testplane/storybook";
 import {
   withRouter,
   withStoreProvider,
 } from "../../../../shared/lib/decorators";
-import { WithTestplane } from "@testplane/storybook";
+import { Navbar } from "./Navbar";
 
 const meta = {
   title: "widgets/Navbar",

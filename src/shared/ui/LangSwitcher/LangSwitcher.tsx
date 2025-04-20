@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { memo } from "react";
 import { Button } from "../Button/Button";
 import { useTranslation } from "react-i18next";
 
@@ -7,11 +7,13 @@ interface LangSwitcherProps {
   short?: boolean;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = ({
+export const LangSwitcher = memo(function LangSwitcher({
   className,
   short = false,
-}) => {
-  const { t, i18n } = useTranslation("common");
+}: LangSwitcherProps) {
+  const { t, i18n } = useTranslation("translation", {
+    keyPrefix: "LangSwitcher",
+  });
 
   const changeLanguage = () => {
     void i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
@@ -24,4 +26,4 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({
       {lang}
     </Button>
   );
-};
+});

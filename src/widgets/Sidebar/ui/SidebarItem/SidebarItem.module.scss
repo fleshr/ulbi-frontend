@@ -1,0 +1,15 @@
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  line-height: 1;
+}
+
+.collapsed {
+  justify-content: center;
+
+  span {
+    display: none;
+  }
+}

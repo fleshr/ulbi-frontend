@@ -1,6 +1,6 @@
 import { renderWithProviders } from "@/shared/lib/tests";
-import { Navbar } from "./Navbar";
 import userEvent from "@testing-library/user-event";
+import { Navbar } from "./Navbar";
 
 describe("Navbar", () => {
   it("Auth modal hidden by default", async () => {
