@@ -1,21 +1,18 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { LoginSchema } from "../types";
-import axios from "axios";
+import { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
 import { setUser, User } from "@/entities/User";
 import { USER_LOCALSTORAGE_KEY } from "@/shared/constants";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { LoginSchema } from "../types";
 
 export const loginByUsername = createAsyncThunk<
   User,
   LoginSchema,
-  { rejectValue: string }
+  ThunkOptions<string>
 >(
   "login/loginByUsername",
-  async (args: LoginSchema, { rejectWithValue, dispatch }) => {
+  async (args: LoginSchema, { rejectWithValue, dispatch, extra: { api } }) => {
     try {
-      const { data } = await axios.post<User | null>(
-        "http://localhost:8000/login",
-        args,
-      );
+      const { data } = await api.post<User | null>("/login", args);
 
       if (!data) {
         return rejectWithValue("error");

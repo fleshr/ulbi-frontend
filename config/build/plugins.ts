@@ -1,13 +1,14 @@
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { DefinePlugin, ProgressPlugin, WebpackPluginInstance } from "webpack";
-import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
-import { BuildOptions } from "./types/config";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import { BuildOptions } from "./types/config";
 
 export const getPlugins = ({
   paths,
   isDev,
+  apiUrl,
 }: BuildOptions): WebpackPluginInstance[] => {
   const plugins: WebpackPluginInstance[] = [
     new ProgressPlugin(),
@@ -16,7 +17,10 @@ export const getPlugins = ({
       filename: "css/[name].[contenthash].css",
       chunkFilename: "css/[name].[contenthash].css",
     }),
-    new DefinePlugin({ __IS_DEV__: isDev }),
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl),
+    }),
   ];
 
   if (isDev) {

@@ -5,6 +5,7 @@ import { BuildEnv, BuildPaths } from "./config/build/types/config";
 export default (env: BuildEnv) => {
   const mode = env.mode ?? "development";
   const port = env.port ?? 3000;
+  const apiUrl = env.apiUrl ?? "http://localhost:8000";
 
   const isDev = mode === "development";
 
@@ -15,5 +16,5 @@ export default (env: BuildEnv) => {
     src: resolve(__dirname, "src"),
   };
 
-  return getConfig({ mode, paths, isDev, port });
+  return getConfig({ mode, paths, isDev, port, apiUrl });
 };

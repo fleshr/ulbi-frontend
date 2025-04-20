@@ -21,6 +21,7 @@ const config: Config = {
   setupFilesAfterEnv: ["<rootDir>/config/jest/jest.setup.ts"],
   globals: {
     __IS_DEV__: true,
+    __API__: "",
   },
   maxConcurrency: 1,
 };

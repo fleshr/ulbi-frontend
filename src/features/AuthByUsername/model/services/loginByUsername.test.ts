@@ -1,7 +1,7 @@
-import { Dispatch } from "@reduxjs/toolkit";
-import { loginByUsername } from "./loginByUsername";
-import axios from "axios";
 import { setUser } from "@/entities/User";
+import { Dispatch } from "@reduxjs/toolkit";
+import axios from "axios";
+import { loginByUsername } from "./loginByUsername";
 
 jest.mock("axios");
 const mockedAxios = jest.mocked(axios);
@@ -14,7 +14,7 @@ describe("loginByUsername", () => {
     const dispatch: Dispatch = jest.fn();
     const getState: () => unknown = jest.fn();
     const action = loginByUsername({ username: "123", password: "123" });
-    const res = await action(dispatch, getState, undefined);
+    const res = await action(dispatch, getState, { api: mockedAxios });
 
     expect(dispatch).toHaveBeenCalledWith(
       setUser({ id: "1", username: "123" }),
@@ -31,7 +31,7 @@ describe("loginByUsername", () => {
     const dispatch: Dispatch = jest.fn();
     const getState: () => unknown = jest.fn();
     const action = loginByUsername({ username: "123", password: "123" });
-    const res = await action(dispatch, getState, undefined);
+    const res = await action(dispatch, getState, { api: mockedAxios });
 
     expect(dispatch).toHaveBeenCalledTimes(2);
     // eslint-disable-next-line @typescript-eslint/unbound-method

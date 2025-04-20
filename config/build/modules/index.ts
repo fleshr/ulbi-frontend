@@ -1,9 +1,9 @@
 import { ModuleOptions } from "webpack";
-import { getTsLoader } from "./loaders/tsLoader";
-import { getScssLoader } from "./loaders/scssLoader";
 import { BuildOptions } from "../types/config";
-import { getSvgLoader } from "./loaders/svgLoader";
 import { getFileLoader } from "./loaders/fileLoader";
+import { getScssLoader } from "./loaders/scssLoader";
+import { getSvgLoader } from "./loaders/svgLoader";
+import { getTsLoader } from "./loaders/tsLoader";
 
 export const getModules = ({ isDev }: BuildOptions): ModuleOptions => {
   return {
