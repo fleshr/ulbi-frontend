@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Input } from "./Input";
 import { fn } from "@storybook/test";
+import { Input } from "./Input";
 
 const meta = {
   title: "shared/Input",
@@ -20,4 +20,8 @@ export const WithValue: Story = {
 
 export const Disabled: Story = {
   args: { onChange: fn(), value: "Some value", disabled: true },
+};
+
+export const WithLabel: Story = {
+  args: { onChange: fn(), value: "Some value", label: "Label" },
 };

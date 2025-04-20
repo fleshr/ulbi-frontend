@@ -10,7 +10,7 @@ export const loginByUsername = createAsyncThunk<
   ThunkOptions<string>
 >(
   "login/loginByUsername",
-  async (args: LoginSchema, { rejectWithValue, dispatch, extra: { api } }) => {
+  async (args, { rejectWithValue, dispatch, extra: { api } }) => {
     try {
       const { data } = await api.post<User | null>("/login", args);
 

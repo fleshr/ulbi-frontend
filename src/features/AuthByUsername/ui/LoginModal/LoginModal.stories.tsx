@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { LoginModal } from "./LoginModal";
-import { fn } from "@storybook/test";
 import { withStoreProvider } from "@/shared/lib/decorators";
+import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
+import { LoginModal } from "./LoginModal";
 
 const meta = {
   title: "features/AuthByUsername/LoginModal",

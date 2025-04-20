@@ -1,5 +1,5 @@
-import { ChangeEvent, InputHTMLAttributes, memo, useCallback } from "react";
 import { classNames } from "@/shared/lib";
+import { ChangeEvent, InputHTMLAttributes, memo, useCallback } from "react";
 import styles from "./Input.module.scss";
 
 interface InputProps
@@ -7,13 +7,14 @@ interface InputProps
   className?: string;
   value?: string;
   onChange?: (value: string) => void;
-  disabled?: boolean;
+  label?: string;
 }
 
 export const Input = memo(function Input({
   className,
   value = "",
   onChange,
+  label,
   disabled = false,
   ...props
 }: InputProps) {
@@ -25,14 +26,17 @@ export const Input = memo(function Input({
   );
 
   return (
-    <input
-      disabled={disabled}
-      value={value}
-      onChange={handleInputChange}
-      className={classNames(styles.input, { [styles.disabled]: disabled }, [
-        className,
-      ])}
-      {...props}
-    />
+    <div className={styles.inputWrapper}>
+      {label && <span>{label}</span>}
+      <input
+        disabled={disabled}
+        value={value}
+        onChange={handleInputChange}
+        className={classNames(styles.input, { [styles.disabled]: disabled }, [
+          className,
+        ])}
+        {...props}
+      />
+    </div>
   );
 });

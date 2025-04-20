@@ -1,3 +1,8 @@
 {
-  "Профиль": "Profile"
+  "ProfileCard": {
+    "Профиль": "Profile",
+    "Редактировать": "Edit",
+    "Имя": "Name",
+    "Фамилия": "Lastname"
+  }
 }

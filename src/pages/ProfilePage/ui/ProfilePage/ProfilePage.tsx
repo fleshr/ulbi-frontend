@@ -1,10 +1,19 @@
-import { memo } from "react";
-import { useTranslation } from "react-i18next";
+import { fetchProfileData, ProfileCard } from "@/entities/Profile";
+import { useAppDispatch } from "@/shared/model";
+import { FC, memo, useEffect } from "react";
 
-export const ProfilePage = memo(function ProfilePage() {
-  const { t } = useTranslation("profilePage");
+export const ProfilePage: FC = memo(function ProfilePage() {
+  const dispatch = useAppDispatch();
 
-  return <div>{t("Профиль")}</div>;
+  useEffect(() => {
+    void dispatch(fetchProfileData());
+  }, [dispatch]);
+
+  return (
+    <div>
+      <ProfileCard />
+    </div>
+  );
 });
 
 export default ProfilePage;

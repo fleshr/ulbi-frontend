@@ -10,7 +10,7 @@ server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
 // eslint-disable-next-line @typescript-eslint/no-misused-promises
-server.use(async (req, res, next) => {
+server.use(async (_req, _res, next) => {
   await new Promise((res) => setTimeout(res, 800));
   next();
 });

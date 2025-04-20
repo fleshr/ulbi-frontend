@@ -6,7 +6,9 @@
     "esModuleInterop": true,
     "moduleResolution": "bundler",
     "strict": true,
-    "checkJs": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowJs": true,
     "jsx": "react-jsx",
     "skipLibCheck": true,
     "plugins": [
