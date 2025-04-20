@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { MainPage } from "./MainPage";
 
 const meta = {
-  title: "pages/MainPage",
+  title: "pages/MainPage/MainPage",
   component: MainPage,
 } satisfies Meta<typeof MainPage>;
 

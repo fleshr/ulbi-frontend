@@ -22,6 +22,10 @@ export const Disabled: Story = {
   args: { onChange: fn(), value: "Some value", disabled: true },
 };
 
+export const Readonly: Story = {
+  args: { onChange: fn(), value: "Some value", readOnly: true },
+};
+
 export const WithLabel: Story = {
   args: { onChange: fn(), value: "Some value", label: "Label" },
 };

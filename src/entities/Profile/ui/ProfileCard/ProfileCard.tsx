@@ -1,9 +1,12 @@
+import { CountrySelect } from "@/entities/Country";
+import { CurrencySelect } from "@/entities/Currency";
 import { classNames } from "@/shared/lib";
-import { useAppSelector } from "@/shared/model";
-import { Button, Input, Text } from "@/shared/ui";
-import { memo } from "react";
+import { useAppDispatch, useAppSelector } from "@/shared/model";
+import { Avatar, Input } from "@/shared/ui";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { getProfileData } from "../../model/profileSlice";
+import { profileActions, profileSelectors } from "../../model/profileSlice";
+import { Profile } from "../../model/types";
 import styles from "./ProfileCard.module.scss";
 
 interface ProfileCardProps {
@@ -14,17 +17,121 @@ export const ProfileCard = memo(function ProfileCard({
   className,
 }: ProfileCardProps) {
   const { t } = useTranslation("profilePage", { keyPrefix: "ProfileCard" });
-  const profile = useAppSelector(getProfileData);
+  const profile = useAppSelector(profileSelectors.getForm);
+  const readOnly = useAppSelector(profileSelectors.getReadOnly);
+  const isLoading = useAppSelector(profileSelectors.getIsLoading);
+  const dispatch = useAppDispatch();
+
+  const onFirstnameChange = useCallback(
+    (value: string) => {
+      dispatch(profileActions.updateProfile({ first: value } as Profile));
+    },
+    [dispatch],
+  );
+
+  const onLastnameChange = useCallback(
+    (value: string) => {
+      dispatch(profileActions.updateProfile({ lastname: value } as Profile));
+    },
+    [dispatch],
+  );
+
+  const onAgeChange = useCallback(
+    (value: string) => {
+      dispatch(profileActions.updateProfile({ age: Number(value) } as Profile));
+    },
+    [dispatch],
+  );
+
+  const onCityChange = useCallback(
+    (value: string) => {
+      dispatch(profileActions.updateProfile({ city: value } as Profile));
+    },
+    [dispatch],
+  );
+
+  const onUsernameChange = useCallback(
+    (value: string) => {
+      dispatch(profileActions.updateProfile({ username: value } as Profile));
+    },
+    [dispatch],
+  );
+
+  const onAvatarChange = useCallback(
+    (value: string) => {
+      dispatch(profileActions.updateProfile({ avatar: value } as Profile));
+    },
+    [dispatch],
+  );
+
+  const onCurrencyChange = useCallback(
+    (value: string) => {
+      dispatch(profileActions.updateProfile({ currency: value } as Profile));
+    },
+    [dispatch],
+  );
+
+  const onCountryChange = useCallback(
+    (value: string) => {
+      dispatch(profileActions.updateProfile({ country: value } as Profile));
+    },
+    [dispatch],
+  );
 
   return (
     <div className={classNames(styles.profileCard, {}, [className])}>
-      <div className={styles.title}>
-        <Text title={t("Профиль")} />
-        <Button variant="filled">{t("Редактировать")}</Button>
-      </div>
       <div className={styles.inputs}>
-        <Input label={t("Имя")} value={profile?.first} />
-        <Input label={t("Фамилия")} value={profile?.lastname} />
+        <div className={styles.avatar}>
+          <Avatar src={profile?.avatar} size={100} />
+        </div>
+
+        <Input
+          readOnly={readOnly || isLoading}
+          label={t("Имя")}
+          value={profile?.first}
+          onChange={onFirstnameChange}
+        />
+        <Input
+          readOnly={readOnly || isLoading}
+          label={t("Фамилия")}
+          value={profile?.lastname}
+          onChange={onLastnameChange}
+        />
+        <Input
+          readOnly={readOnly || isLoading}
+          label={t("Возраст")}
+          type="number"
+          value={String(profile?.age ?? "")}
+          onChange={onAgeChange}
+        />
+        <Input
+          readOnly={readOnly || isLoading}
+          label={t("Город")}
+          value={profile?.city}
+          onChange={onCityChange}
+        />
+        <Input
+          readOnly={readOnly || isLoading}
+          label={t("Никнейм")}
+          value={profile?.username}
+          onChange={onUsernameChange}
+        />
+        <Input
+          readOnly={readOnly || isLoading}
+          label={t("Аватар")}
+          value={profile?.avatar}
+          onChange={onAvatarChange}
+        />
+        <CurrencySelect
+          disabled={readOnly || isLoading}
+          value={profile?.currency}
+          onChange={onCurrencyChange}
+        />
+        <CountrySelect
+          disabled={readOnly || isLoading}
+          value={profile?.country}
+          onChange={onCountryChange}
+        />
       </div>
     </div>
   );

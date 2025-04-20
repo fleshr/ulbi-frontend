@@ -1,10 +1,12 @@
+import { withFullHeight } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Modal } from "./Modal";
 import { fn } from "@storybook/test";
+import { Modal } from "./Modal";
 
 const meta = {
   title: "shared/Modal",
   component: Modal,
+  decorators: [withFullHeight],
 } satisfies Meta<typeof Modal>;
 
 export default meta;

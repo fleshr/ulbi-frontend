@@ -1,15 +1,15 @@
-import { FC, useCallback } from "react";
 import { classNames } from "@/shared/lib";
-import styles from "./LoginForm.module.scss";
-import { Button, Input, Text } from "@/shared/ui";
-import { useTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
+import { Button, Input, Text } from "@/shared/ui";
+import { FC, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import {
   getLoginState,
   setPassword,
   setUsername,
 } from "../../model/loginSlice";
 import { loginByUsername } from "../../model/services/loginByUsername";
+import styles from "./LoginForm.module.scss";
 
 interface LoginFormProps {
   className?: string;
@@ -69,3 +69,5 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
     </div>
   );
 };
+
+export default LoginForm;

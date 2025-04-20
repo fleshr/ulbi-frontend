@@ -35,5 +35,6 @@ export type AppDispatch = AppStore["dispatch"];
 
 export interface ThunkOptions<T> {
   rejectValue: T;
+  state: RootState;
   extra: { api: typeof api };
 }

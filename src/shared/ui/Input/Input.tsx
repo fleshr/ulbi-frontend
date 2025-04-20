@@ -15,6 +15,7 @@ export const Input = memo(function Input({
   value = "",
   onChange,
   label,
+  readOnly = false,
   disabled = false,
   ...props
 }: InputProps) {
@@ -32,9 +33,11 @@ export const Input = memo(function Input({
         disabled={disabled}
         value={value}
         onChange={handleInputChange}
-        className={classNames(styles.input, { [styles.disabled]: disabled }, [
-          className,
-        ])}
+        className={classNames(
+          styles.input,
+          { [styles.disabled]: disabled, [styles.readOnly]: readOnly },
+          [className],
+        )}
         {...props}
       />
     </div>

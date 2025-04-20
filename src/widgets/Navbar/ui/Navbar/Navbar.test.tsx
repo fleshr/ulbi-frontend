@@ -3,20 +3,20 @@ import userEvent from "@testing-library/user-event";
 import { Navbar } from "./Navbar";
 
 describe("Navbar", () => {
-  it("Auth modal hidden by default", async () => {
-    const { findByTestId } = renderWithProviders(<Navbar />);
+  it("Auth modal hidden by default", () => {
+    const { getByTestId } = renderWithProviders(<Navbar />);
 
-    const modal = await findByTestId("Modal");
-    expect(modal).toBeInTheDocument();
+    const modal = getByTestId("Modal");
+    expect(modal).not.toHaveClass("open");
   });
 
   it("Auth modal should open", async () => {
-    const { findByTestId } = renderWithProviders(<Navbar />);
+    const { getByTestId } = renderWithProviders(<Navbar />);
 
-    const loginBtn = await findByTestId("Navbar.LoginBtn");
+    const loginBtn = getByTestId("Navbar.LoginBtn");
     await userEvent.click(loginBtn);
 
-    const modal = await findByTestId("Modal");
+    const modal = getByTestId("Modal");
     expect(modal).toHaveClass("open");
   });
 });

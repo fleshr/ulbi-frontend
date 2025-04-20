@@ -12,7 +12,7 @@ describe("loginByUsername", () => {
       Promise.resolve({ data: { id: "1", username: "123" } }),
     );
     const dispatch: Dispatch = jest.fn();
-    const getState: () => unknown = jest.fn();
+    const getState: () => RootState = jest.fn();
     const action = loginByUsername({ username: "123", password: "123" });
     const res = await action(dispatch, getState, { api: mockedAxios });
 
@@ -29,7 +29,7 @@ describe("loginByUsername", () => {
   it("error", async () => {
     mockedAxios.post.mockResolvedValue(Promise.resolve({ status: 403 }));
     const dispatch: Dispatch = jest.fn();
-    const getState: () => unknown = jest.fn();
+    const getState: () => RootState = jest.fn();
     const action = loginByUsername({ username: "123", password: "123" });
     const res = await action(dispatch, getState, { api: mockedAxios });
 
