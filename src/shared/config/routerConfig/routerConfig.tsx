@@ -1,8 +1,14 @@
 import { AboutPageLazy } from "@/pages/AboutPage";
 import { MainPageLazy } from "@/pages/MainPage";
-import { ProfilePageLazy } from "@/pages/ProfilePage";
 import { NotFoundPageLazy } from "@/pages/NotFoundPage";
-import { RouteProps } from "react-router-dom";
+import { ProfilePageLazy } from "@/pages/ProfilePage";
+import { ReactElement } from "react";
+
+export interface RouteItem {
+  path: string;
+  element: ReactElement;
+  authOnly?: boolean;
+}
 
 export enum AppRoutes {
   MAIN = "main",
@@ -18,9 +24,9 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.NOT_FOUND]: "*",
 };
 
-export const routeConfig: RouteProps[] = [
+export const routeConfig: RouteItem[] = [
   { path: RoutePath.main, element: <MainPageLazy /> },
   { path: RoutePath.about, element: <AboutPageLazy /> },
-  { path: RoutePath.profile, element: <ProfilePageLazy /> },
+  { path: RoutePath.profile, element: <ProfilePageLazy />, authOnly: true },
   { path: RoutePath.not_found, element: <NotFoundPageLazy /> },
 ];

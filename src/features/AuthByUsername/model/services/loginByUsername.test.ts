@@ -1,4 +1,4 @@
-import { setUser } from "@/entities/User";
+import { userActions } from "@/entities/User";
 import { TestAsyncThunk } from "@/shared/lib/tests";
 import { loginByUsername } from "./loginByUsername";
 
@@ -11,7 +11,7 @@ describe("loginByUsername", () => {
     const res = await testThunk.callThunk({ username: "123", password: "123" });
 
     expect(testThunk.dispatch).toHaveBeenCalledWith(
-      setUser({ id: "1", username: "123" }),
+      userActions.setUser({ id: "1", username: "123" }),
     );
     expect(testThunk.dispatch).toHaveBeenCalledTimes(3);
     expect(testThunk.api.post).toHaveBeenCalledTimes(1);

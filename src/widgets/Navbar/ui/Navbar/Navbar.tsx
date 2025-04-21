@@ -1,4 +1,4 @@
-import { getUserData, logout } from "@/entities/User";
+import { userActions, userSelectors } from "@/entities/User";
 import { LoginModal } from "@/features/AuthByUsername";
 import { classNames } from "@/shared/lib";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
@@ -14,7 +14,7 @@ interface NavbarProps {
 export const Navbar = memo(function Navbar({ className }: NavbarProps) {
   const { t } = useTranslation("translation", { keyPrefix: "Navbar" });
   const [isAuthModelOpen, setIsAuthModelOpen] = useState(false);
-  const user = useAppSelector(getUserData);
+  const user = useAppSelector(userSelectors.getUserData);
   const dispatch = useAppDispatch();
 
   const openAuthModal = useCallback(() => {
@@ -26,7 +26,7 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
   }, []);
 
   const handleLogout = useCallback(() => {
-    dispatch(logout());
+    dispatch(userActions.logout());
   }, [dispatch]);
 
   if (user) {

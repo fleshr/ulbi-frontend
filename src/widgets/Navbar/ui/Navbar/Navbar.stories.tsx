@@ -11,11 +11,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  decorators: [withStoreProvider({ user: { user: null } })],
+  decorators: [withStoreProvider({ user: { user: null, _initialized: true } })],
 };
 
 export const WithUser: Story = {
   decorators: [
-    withStoreProvider({ user: { user: { id: "1", username: "User" } } }),
+    withStoreProvider({
+      user: { user: { id: "1", username: "User" }, _initialized: true },
+    }),
   ],
 };

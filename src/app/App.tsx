@@ -1,16 +1,17 @@
-import { AppRouter } from "./providers/AppRouter";
+import { userActions, userSelectors } from "@/entities/User";
+import { useAppDispatch, useAppSelector } from "@/shared/model";
 import { Navbar } from "@/widgets/Navbar";
 import { Sidebar } from "@/widgets/Sidebar";
-import "./styles/index.scss";
-import { useAppDispatch } from "@/shared/model";
 import { Suspense, useEffect } from "react";
-import { initUser } from "@/entities/User";
+import { AppRouter } from "./providers/AppRouter";
+import "./styles/index.scss";
 
 export const App = () => {
   const dispatch = useAppDispatch();
+  const isUserInitialized = useAppSelector(userSelectors.getUserInitialized);
 
   useEffect(() => {
-    dispatch(initUser());
+    dispatch(userActions.initUser());
   }, [dispatch]);
 
   return (
@@ -19,7 +20,7 @@ export const App = () => {
       <div className="content">
         <Sidebar />
         <div className="content-wrapper">
-          <AppRouter />
+          {isUserInitialized && <AppRouter />}
         </div>
       </div>
     </Suspense>
