@@ -1,4 +1,8 @@
 {
+  "Произошла ошибка": "Sever error",
+  "Данные не получены": "No data",
+  "Некорректные данные": "Incorrect data",
+  "Некорректный возраст": "Incorrect age",
   "ProfileCard": {
     "Имя": "Name",
     "Фамилия": "Lastname",
