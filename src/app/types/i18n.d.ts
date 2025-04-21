@@ -1,9 +1,10 @@
 import "i18next";
-import translation from "../../../public/locales/ru/translation.json";
-import mainPage from "../../../public/locales/ru/mainPage.json";
 import aboutPage from "../../../public/locales/ru/aboutPage.json";
-import profilePage from "../../../public/locales/ru/profilePage.json";
+import articleDetailsPage from "../../../public/locales/ru/articleDetailsPage.json";
+import mainPage from "../../../public/locales/ru/mainPage.json";
 import notFoundPage from "../../../public/locales/ru/notFoundPage.json";
+import profilePage from "../../../public/locales/ru/profilePage.json";
+import translation from "../../../public/locales/ru/translation.json";
 
 declare module "i18next" {
   interface CustomTypeOptions {
@@ -14,6 +15,7 @@ declare module "i18next" {
       aboutPage: typeof aboutPage;
       profilePage: typeof profilePage;
       notFoundPage: typeof notFoundPage;
+      articleDetailsPage: typeof articleDetailsPage;
     };
   }
 }

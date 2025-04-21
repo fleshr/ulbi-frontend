@@ -1,12 +1,14 @@
 export { AppLink } from "./AppLink/AppLink";
 export { Avatar } from "./Avatar/Avatar";
 export { Button } from "./Button/Button";
+export { Code } from "./Code/Code";
 export { Input } from "./Input/Input";
 export { LangSwitcher } from "./LangSwitcher/LangSwitcher";
 export { Modal } from "./Modal/Modal";
 export { PageLoader } from "./PageLoader/PageLoader";
 export { Portal } from "./Portal/Portal";
 export { Select } from "./Select/Select";
+export { Skeleton } from "./Skeleton/Skeleton";
 export { Spinner } from "./Spinner/Spinner";
 export { Text } from "./Text/Text";
 export { ThemeSwitcher } from "./ThemeSwitcher/ThemeSwitcher";

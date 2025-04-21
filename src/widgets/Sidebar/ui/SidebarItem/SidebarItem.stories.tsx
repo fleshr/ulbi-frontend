@@ -1,4 +1,4 @@
-import { withRouter } from "@/shared/lib/decorators";
+import { withRouterProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
 import { sidebarItemsList } from "../../constants/items";
 import { SidebarItem } from "./SidebarItem";
@@ -6,7 +6,7 @@ import { SidebarItem } from "./SidebarItem";
 const meta = {
   title: "widgets/Sidebar/SidebarItem",
   component: SidebarItem,
-  decorators: [withRouter],
+  decorators: [withRouterProvider()],
 } satisfies Meta<typeof SidebarItem>;
 
 export default meta;

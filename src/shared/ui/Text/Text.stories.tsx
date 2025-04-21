@@ -10,28 +10,25 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    title: "Title",
-    text: "Text",
-  },
+  args: { title: "Title", text: "Text" },
+};
+
+export const Center: Story = {
+  args: { title: "Title", text: "Text", align: "center" },
+};
+
+export const Right: Story = {
+  args: { title: "Title", text: "Text", align: "right" },
 };
 
 export const Error: Story = {
-  args: {
-    title: "Title",
-    text: "Text",
-    variant: "error",
-  },
+  args: { title: "Title", text: "Text", variant: "error" },
 };
 
 export const TitleOnly: Story = {
-  args: {
-    title: "Title",
-  },
+  args: { title: "Title" },
 };
 
 export const TextOnly: Story = {
-  args: {
-    text: "Text",
-  },
+  args: { text: "Text" },
 };

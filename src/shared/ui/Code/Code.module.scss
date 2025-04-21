@@ -1,0 +1,12 @@
+.code {
+  position: relative;
+  display: block;
+  padding: 20px;
+  background-color: var(--code-bg-color);
+}
+
+.copy-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

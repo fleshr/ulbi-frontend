@@ -1,7 +1,7 @@
 import { UserState } from "@/entities/User";
 import {
   withFullHeight,
-  withRouter,
+  withRouterProvider,
   withStoreProvider,
   withTheme,
 } from "@/shared/lib/decorators";
@@ -13,7 +13,7 @@ const meta = {
   component: Sidebar,
   decorators: [
     withTheme,
-    withRouter,
+    withRouterProvider(),
     withFullHeight,
     withStoreProvider({ user: { user: null } as UserState }),
   ],

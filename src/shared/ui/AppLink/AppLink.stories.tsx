@@ -1,11 +1,11 @@
+import { withRouterProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
 import { AppLink } from "./AppLink";
-import { withRouter } from "@/shared/lib/decorators";
 
 const meta = {
   title: "shared/AppLink",
   component: AppLink,
-  decorators: [withRouter],
+  decorators: [withRouterProvider()],
 } satisfies Meta<typeof AppLink>;
 
 export default meta;

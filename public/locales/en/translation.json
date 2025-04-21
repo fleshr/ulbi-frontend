@@ -23,5 +23,8 @@
   },
   "CountrySelect": {
     "Страна": "Country"
+  },
+  "ArticleDetails": {
+    "Произошла ошибка при загрузке статьи.": "Error while loading article."
   }
 }
