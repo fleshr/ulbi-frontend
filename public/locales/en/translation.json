@@ -5,7 +5,8 @@
   "SidebarItem": {
     "Главная": "Main",
     "О нас": "About",
-    "Профиль": "Profile"
+    "Профиль": "Profile",
+    "Статьи": "Articles"
   },
   "LofinForm": {
     "Форма авторизации": "Authorization form",

@@ -3,10 +3,25 @@ declare module "*.module.scss" {
   export default classes;
 }
 
-declare module "*.png";
-declare module "*.jpg";
-declare module "*.jpeg";
-declare module "*.gif";
+declare module "*.png" {
+  const url: string;
+  export default url;
+}
+
+declare module "*.jpg" {
+  const url: string;
+  export default url;
+}
+
+declare module "*.jpeg" {
+  const url: string;
+  export default url;
+}
+
+declare module "*.gif" {
+  const url: string;
+  export default url;
+}
 
 declare module "*.svg" {
   import { FC, SVGProps } from "react";

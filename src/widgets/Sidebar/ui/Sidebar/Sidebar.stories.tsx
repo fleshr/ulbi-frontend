@@ -1,17 +1,37 @@
-import { withFullHeight, withRouter, withTheme } from "@/shared/lib/decorators";
+import { UserState } from "@/entities/User";
+import {
+  withFullHeight,
+  withRouter,
+  withStoreProvider,
+  withTheme,
+} from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Sidebar } from "./Sidebar";
 
 const meta = {
   title: "widgets/Sidebar/Sidebar",
   component: Sidebar,
-  decorators: [withTheme, withRouter, withFullHeight],
+  decorators: [
+    withTheme,
+    withRouter,
+    withFullHeight,
+    withStoreProvider({ user: { user: null } as UserState }),
+  ],
 } satisfies Meta<typeof Sidebar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  args: { defaultCollapsed: false },
+};
+
+export const User: Story = {
+  decorators: [
+    withStoreProvider({
+      user: { user: { id: "1", username: "user" } } as UserState,
+    }),
+  ],
   args: { defaultCollapsed: false },
 };
 

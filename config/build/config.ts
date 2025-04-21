@@ -6,7 +6,7 @@ import { getResolvers } from "./resolvers";
 import { BuildOptions } from "./types/config";
 
 export const getConfig = (options: BuildOptions): Configuration => {
-  const { mode, paths, isDev } = options;
+  const { mode, paths, isDev, publicPath } = options;
 
   return {
     mode,
@@ -14,6 +14,7 @@ export const getConfig = (options: BuildOptions): Configuration => {
     module: getModules(options),
     resolve: getResolvers(options),
     output: {
+      publicPath,
       filename: "[name].[contenthash].js",
       path: paths.output,
       clean: true,
