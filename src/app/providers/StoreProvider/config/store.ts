@@ -3,6 +3,7 @@ import { counterSlice } from "@/entities/Counter";
 import { type ProfileState } from "@/entities/Profile";
 import { userSlice } from "@/entities/User";
 import { type LoginState } from "@/features/AuthByUsername";
+import { CommentsState } from "@/pages/ArticleDetailsPage";
 import { api } from "@/shared/api";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 
@@ -10,6 +11,7 @@ export interface LazyLoadedSlices {
   login: LoginState;
   profile: ProfileState;
   articleDetails: ArticleState;
+  articleDetailsComments: CommentsState;
 }
 
 export const rootReducer = combineSlices(

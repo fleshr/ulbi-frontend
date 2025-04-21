@@ -26,5 +26,8 @@
   },
   "ArticleDetails": {
     "Произошла ошибка при загрузке статьи.": "Error while loading article."
+  },
+  "CommentsList": {
+    "Комментарии отсутствуют": "No comments"
   }
 }
