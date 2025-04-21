@@ -1,12 +1,12 @@
-import tseslint from "typescript-eslint";
 import pluginJs from "@eslint/js";
+import { Linter } from "eslint";
+import pluginI18next from "eslint-plugin-i18next";
+import pluginJest from "eslint-plugin-jest";
+import pluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import pluginReact from "eslint-plugin-react";
 import pluginReactHooks from "eslint-plugin-react-hooks";
-import pluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import pluginStorybook from "eslint-plugin-storybook";
-import pluginJest from "eslint-plugin-jest";
-import pluginI18next from "eslint-plugin-i18next";
-import { Linter } from "eslint";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config([
   pluginJs.configs.recommended,
@@ -24,6 +24,7 @@ export default tseslint.config([
     files: ["**/*.{test,stories}.{ts,tsx}"],
     rules: {
       "i18next/no-literal-string": "off",
+      "@typescript-eslint/unbound-method": "off",
     },
   },
   {

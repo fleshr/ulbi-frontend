@@ -22,6 +22,7 @@ const config: Config = {
   globals: {
     __IS_DEV__: true,
     __API__: "http://localhost:8000",
+    __PROJECT__: "jest",
   },
   maxConcurrency: 1,
 };

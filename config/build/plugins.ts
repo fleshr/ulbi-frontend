@@ -9,6 +9,7 @@ export const getPlugins = ({
   paths,
   isDev,
   apiUrl,
+  project,
 }: BuildOptions): WebpackPluginInstance[] => {
   const plugins: WebpackPluginInstance[] = [
     new ProgressPlugin(),
@@ -20,6 +21,7 @@ export const getPlugins = ({
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
+      __PROJECT__: JSON.stringify(project),
     }),
   ];
 

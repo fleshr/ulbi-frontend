@@ -19,7 +19,12 @@ export const updateProfileData = createAsyncThunk<
         return rejectWithValue(errors);
       }
 
-      const { data } = await api.put<Profile>("/profile", formData);
+      const { data } = await api.put<Profile | undefined>("/profile", formData);
+
+      if (!data) {
+        return rejectWithValue([ValidateError.NO_DATA]);
+      }
+
       return data;
     } catch {
       return rejectWithValue([ValidateError.SERVER_ERROR]);

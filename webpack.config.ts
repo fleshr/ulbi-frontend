@@ -7,6 +7,7 @@ export default (env: BuildEnv) => {
   const port = env.port ?? 3000;
   const apiUrl = env.apiUrl ?? "http://localhost:8000";
 
+  const project = "frontend";
   const isDev = mode === "development";
 
   const paths: BuildPaths = {
@@ -16,5 +17,5 @@ export default (env: BuildEnv) => {
     src: resolve(__dirname, "src"),
   };
 
-  return getConfig({ mode, paths, isDev, port, apiUrl });
+  return getConfig({ mode, paths, isDev, port, apiUrl, project });
 };
