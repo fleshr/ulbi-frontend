@@ -28,11 +28,29 @@ export const ArticleDetails = memo(function ArticleDetails({
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlock className={styles.block} block={block} />;
+        return (
+          <ArticleTextBlock
+            key={block.id}
+            className={styles.block}
+            block={block}
+          />
+        );
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlock className={styles.block} block={block} />;
+        return (
+          <ArticleCodeBlock
+            key={block.id}
+            className={styles.block}
+            block={block}
+          />
+        );
       case ArticleBlockType.IMAGE:
-        return <ArticleImageBlock className={styles.block} block={block} />;
+        return (
+          <ArticleImageBlock
+            key={block.id}
+            className={styles.block}
+            block={block}
+          />
+        );
       default:
         return null;
     }

@@ -12,8 +12,13 @@ export default tseslint.config([
   pluginJs.configs.recommended,
   tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
-  pluginReact.configs.flat.recommended,
-  pluginReact.configs.flat["jsx-runtime"],
+  {
+    settings: { react: { version: "19" } },
+    extends: [
+      pluginReact.configs.flat.recommended,
+      pluginReact.configs.flat["jsx-runtime"],
+    ],
+  },
   pluginReactHooks.configs["recommended-latest"],
   pluginI18next.configs["flat/recommended"] as Linter.Config,
   pluginJest.configs["flat/style"],

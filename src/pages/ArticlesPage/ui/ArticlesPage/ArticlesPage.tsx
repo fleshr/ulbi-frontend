@@ -4,12 +4,14 @@ import {
   ArticleView,
 } from "@/entities/Article";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
+import { Page } from "@/shared/ui";
 import { FC, memo, useCallback, useEffect } from "react";
 import {
   articlesPageActions,
   articlesPageSelectors,
 } from "../../model/articlesPageSlice";
 import { fetchArticles } from "../../model/services/fetchArticles";
+import { fetchNextArticlePage } from "../../model/services/fetchNextArticlePage";
 
 export const ArticlesPage: FC = memo(function ArticlesPage() {
   const dispatch = useAppDispatch();
@@ -24,18 +26,24 @@ export const ArticlesPage: FC = memo(function ArticlesPage() {
     [dispatch],
   );
 
+  const handleScrollEnd = useCallback(() => {
+    if (__PROJECT__ !== "storybook") {
+      void dispatch(fetchNextArticlePage());
+    }
+  }, [dispatch]);
+
   useEffect(() => {
     if (__PROJECT__ !== "storybook") {
-      void dispatch(fetchArticles());
       dispatch(articlesPageActions.initView());
+      void dispatch(fetchArticles(1));
     }
   }, [dispatch]);
 
   return (
-    <div>
+    <Page onScrollEnd={handleScrollEnd}>
       <ArticlesViewSelector view={view} onChange={handleViewChange} />
       <ArticleList articles={articles} isLoading={isLoading} view={view} />
-    </div>
+    </Page>
   );
 });
 

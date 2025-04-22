@@ -15,7 +15,13 @@ type Story = StoryObj<typeof meta>;
 export const Small: Story = {
   decorators: [
     withStoreProvider({
-      articlesPage: { view: "small", articles: mockArticles },
+      articlesPage: {
+        view: "small",
+        articles: mockArticles.slice(0, 9),
+        hasMore: false,
+        limit: 9,
+        page: 1,
+      },
     }),
   ],
 };
@@ -23,7 +29,13 @@ export const Small: Story = {
 export const Big: Story = {
   decorators: [
     withStoreProvider({
-      articlesPage: { view: "big", articles: mockArticles },
+      articlesPage: {
+        view: "big",
+        articles: mockArticles.slice(0, 3),
+        hasMore: false,
+        limit: 3,
+        page: 1,
+      },
     }),
   ],
 };

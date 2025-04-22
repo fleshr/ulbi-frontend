@@ -19,9 +19,7 @@ export const App = () => {
       <Navbar />
       <div className="content">
         <Sidebar />
-        <div className="content-wrapper">
-          {isUserInitialized && <AppRouter />}
-        </div>
+        {isUserInitialized && <AppRouter />}
       </div>
     </Suspense>
   );

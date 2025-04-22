@@ -18,21 +18,17 @@ export const ArticleList = memo(function ArticleList({
   view = "small",
   isLoading = false,
 }: ArticleListProps) {
-  if (isLoading) {
-    return (
-      <div className={classNames(styles.list, {}, [className, styles[view]])}>
-        {new Array(view === "big" ? 3 : 9).fill(0).map((_, index) => (
-          <ArticleListItemSkeleton key={index} view={view} />
-        ))}
-      </div>
-    );
-  }
-
   return (
     <div className={classNames(styles.list, {}, [className, styles[view]])}>
       {articles.map((article) => (
         <ArticleListItem key={article.id} article={article} view={view} />
       ))}
+      {isLoading &&
+        new Array(view === "big" ? 3 : 9)
+          .fill(0)
+          .map((_, index) => (
+            <ArticleListItemSkeleton key={index} view={view} />
+          ))}
     </div>
   );
 });
