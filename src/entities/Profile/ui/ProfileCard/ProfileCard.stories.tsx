@@ -1,22 +1,18 @@
 import avatar from "@/shared/assets/tests/avatar.jpg";
 import { Country, Currency } from "@/shared/constants";
-import { withStoreProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ProfileCard } from "./ProfileCard";
 
 const profile = {
-  isLoading: false,
-  readonly: false,
-  form: {
-    username: "John Doe",
-    age: 30,
-    country: Country.Russia,
-    first: "John",
-    lastname: "Doe",
-    avatar,
-    city: "Moscow",
-    currency: Currency.RUB,
-  },
+  id: "1",
+  first: "John",
+  lastname: "Doe",
+  age: 26,
+  currency: Currency.RUB,
+  country: Country.Russia,
+  city: "Moscow",
+  username: "admin",
+  avatar,
 };
 
 const meta = {
@@ -28,9 +24,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Empty: Story = {
-  decorators: [withStoreProvider()],
+  args: { profile: undefined, isLoading: false, readOnly: false },
 };
 
 export const Filled: Story = {
-  decorators: [withStoreProvider({ profile })],
+  args: { profile, isLoading: false, readOnly: false },
+};
+
+export const Loading: Story = {
+  args: { profile: undefined, isLoading: true, readOnly: false },
+};
+
+export const Readonly: Story = {
+  args: { profile, isLoading: false, readOnly: true },
 };

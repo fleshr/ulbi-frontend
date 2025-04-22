@@ -1,4 +1,5 @@
 import avatar from "@/shared/assets/tests/avatar.jpg";
+import { withRouterProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
 import { CommentsList } from "./CommentsList";
 
@@ -35,6 +36,7 @@ const comments = [
 const meta = {
   title: "entities/Comment/CommentsList",
   component: CommentsList,
+  decorators: [withRouterProvider()],
 } satisfies Meta<typeof CommentsList>;
 
 export default meta;

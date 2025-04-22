@@ -1,4 +1,5 @@
 import avatar from "@/shared/assets/tests/avatar.jpg";
+import { withRouterProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Comment } from "./Comment";
 
@@ -15,6 +16,7 @@ const comment = {
 const meta = {
   title: "entities/Comment/Comment",
   component: Comment,
+  decorators: [withRouterProvider()],
 } satisfies Meta<typeof Comment>;
 
 export default meta;

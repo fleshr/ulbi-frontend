@@ -29,5 +29,9 @@
   },
   "CommentsList": {
     "Комментарии отсутствуют": "No comments"
+  },
+  "AddCommentForm": {
+    "Комментарий": "Comment",
+    "Отправить": "Send"
   }
 }

@@ -8,6 +8,7 @@ const profile = {
   isLoading: false,
   readonly: true,
   form: {
+    id: "1",
     username: "John Doe",
     age: 30,
     country: Country.Russia,

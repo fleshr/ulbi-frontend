@@ -1,6 +1,7 @@
 import type { Country, Currency } from "@/shared/constants";
 
 export interface Profile {
+  id: string;
   first: string;
   lastname: string;
   age: number;

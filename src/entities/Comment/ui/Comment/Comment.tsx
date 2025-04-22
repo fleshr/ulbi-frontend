@@ -1,5 +1,6 @@
+import { RoutePath } from "@/shared/config";
 import { classNames } from "@/shared/lib";
-import { Avatar, Skeleton, Text } from "@/shared/ui";
+import { AppLink, Avatar, Skeleton, Text } from "@/shared/ui";
 import { memo } from "react";
 import { Comment as CommentType } from "../../model/types";
 import styles from "./Comment.module.scss";
@@ -27,10 +28,13 @@ export const Comment = memo(function Comment({
 
   return (
     <div className={classNames(styles.comment, {}, [])}>
-      <div className={classNames(styles.header, {}, [])}>
+      <AppLink
+        className={classNames(styles.header, {}, [])}
+        to={`${RoutePath.profile}/${user.id}`}
+      >
         {user.avatar && <Avatar size={30} src={user.avatar} />}
         <Text title={user.username} />
-      </div>
+      </AppLink>
       <Text text={text} />
     </div>
   );

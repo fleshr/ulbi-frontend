@@ -2,6 +2,7 @@ import { ArticleState } from "@/entities/Article";
 import { counterSlice } from "@/entities/Counter";
 import { type ProfileState } from "@/entities/Profile";
 import { userSlice } from "@/entities/User";
+import { AddCommentFormState } from "@/features/AddCommentForm";
 import { type LoginState } from "@/features/AuthByUsername";
 import { CommentsState } from "@/pages/ArticleDetailsPage";
 import { api } from "@/shared/api";
@@ -12,6 +13,7 @@ export interface LazyLoadedSlices {
   profile: ProfileState;
   articleDetails: ArticleState;
   articleDetailsComments: CommentsState;
+  addCommentForm: AddCommentFormState;
 }
 
 export const rootReducer = combineSlices(

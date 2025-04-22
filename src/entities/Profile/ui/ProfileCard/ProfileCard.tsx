@@ -1,82 +1,55 @@
 import { CountrySelect } from "@/entities/Country";
 import { CurrencySelect } from "@/entities/Currency";
 import { classNames } from "@/shared/lib";
-import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { Avatar, Input } from "@/shared/ui";
-import { memo, useCallback } from "react";
+import { Avatar, Input, PageLoader } from "@/shared/ui";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { profileActions, profileSelectors } from "../../model/profileSlice";
 import { Profile } from "../../model/types";
 import styles from "./ProfileCard.module.scss";
 
 interface ProfileCardProps {
   className?: string;
+  profile?: Profile;
+  readOnly: boolean;
+  isLoading: boolean;
+  onFirstnameChange?: (value: string) => void;
+  onLastnameChange?: (value: string) => void;
+  onAgeChange?: (value: string) => void;
+  onCityChange?: (value: string) => void;
+  onUsernameChange?: (value: string) => void;
+  onAvatarChange?: (value: string) => void;
+  onCurrencyChange?: (value: string) => void;
+  onCountryChange?: (value: string) => void;
 }
 
 export const ProfileCard = memo(function ProfileCard({
   className,
+  profile,
+  readOnly,
+  isLoading,
+  onFirstnameChange,
+  onLastnameChange,
+  onAgeChange,
+  onCityChange,
+  onUsernameChange,
+  onAvatarChange,
+  onCurrencyChange,
+  onCountryChange,
 }: ProfileCardProps) {
   const { t } = useTranslation("profilePage", { keyPrefix: "ProfileCard" });
-  const profile = useAppSelector(profileSelectors.getForm);
-  const readOnly = useAppSelector(profileSelectors.getReadOnly);
-  const isLoading = useAppSelector(profileSelectors.getIsLoading);
-  const dispatch = useAppDispatch();
 
-  const onFirstnameChange = useCallback(
-    (value: string) => {
-      dispatch(profileActions.updateProfile({ first: value } as Profile));
-    },
-    [dispatch],
-  );
-
-  const onLastnameChange = useCallback(
-    (value: string) => {
-      dispatch(profileActions.updateProfile({ lastname: value } as Profile));
-    },
-    [dispatch],
-  );
-
-  const onAgeChange = useCallback(
-    (value: string) => {
-      dispatch(profileActions.updateProfile({ age: Number(value) } as Profile));
-    },
-    [dispatch],
-  );
-
-  const onCityChange = useCallback(
-    (value: string) => {
-      dispatch(profileActions.updateProfile({ city: value } as Profile));
-    },
-    [dispatch],
-  );
-
-  const onUsernameChange = useCallback(
-    (value: string) => {
-      dispatch(profileActions.updateProfile({ username: value } as Profile));
-    },
-    [dispatch],
-  );
-
-  const onAvatarChange = useCallback(
-    (value: string) => {
-      dispatch(profileActions.updateProfile({ avatar: value } as Profile));
-    },
-    [dispatch],
-  );
-
-  const onCurrencyChange = useCallback(
-    (value: string) => {
-      dispatch(profileActions.updateProfile({ currency: value } as Profile));
-    },
-    [dispatch],
-  );
-
-  const onCountryChange = useCallback(
-    (value: string) => {
-      dispatch(profileActions.updateProfile({ country: value } as Profile));
-    },
-    [dispatch],
-  );
+  if (isLoading) {
+    return (
+      <div
+        className={classNames(styles.profileCard, {}, [
+          className,
+          styles.loading,
+        ])}
+      >
+        <PageLoader />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(styles.profileCard, {}, [className])}>
@@ -84,7 +57,6 @@ export const ProfileCard = memo(function ProfileCard({
         <div className={styles.avatar}>
           <Avatar src={profile?.avatar} size={100} />
         </div>
-
         <Input
           readOnly={readOnly || isLoading}
           label={t("Имя")}
@@ -101,7 +73,7 @@ export const ProfileCard = memo(function ProfileCard({
           readOnly={readOnly || isLoading}
           label={t("Возраст")}
           type="number"
-          value={String(profile?.age ?? "")}
+          value={String(profile?.age)}
           onChange={onAgeChange}
         />
         <Input

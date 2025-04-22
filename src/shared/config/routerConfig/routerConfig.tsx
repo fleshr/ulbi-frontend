@@ -17,7 +17,6 @@ export enum AppRoutes {
   ABOUT = "about",
   PROFILE = "profile",
   ARTICLES = "articles",
-  ARTICLE_DETAILS = "article_details",
   NOT_FOUND = "not_found",
 }
 
@@ -26,17 +25,20 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.ABOUT]: "/about",
   [AppRoutes.PROFILE]: "/profile",
   [AppRoutes.ARTICLES]: "/articles",
-  [AppRoutes.ARTICLE_DETAILS]: "/articles/",
   [AppRoutes.NOT_FOUND]: "*",
 };
 
 export const routeConfig: RouteItem[] = [
   { path: RoutePath.main, element: <MainPageLazy /> },
   { path: RoutePath.about, element: <AboutPageLazy /> },
-  { path: RoutePath.profile, element: <ProfilePageLazy />, authOnly: true },
+  {
+    path: `${RoutePath.profile}/:id`,
+    element: <ProfilePageLazy />,
+    authOnly: true,
+  },
   { path: RoutePath.articles, element: <ArticlesPageLazy />, authOnly: true },
   {
-    path: `${RoutePath.article_details}:id`,
+    path: `${RoutePath.articles}/:id`,
     element: <ArticleDetailsPageLazy />,
     authOnly: true,
   },

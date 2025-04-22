@@ -3,6 +3,7 @@ import {
   profileSelectors,
   updateProfileData,
 } from "@/entities/Profile";
+import { userSelectors } from "@/entities/User";
 import { classNames } from "@/shared/lib";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
 import { Button, Text } from "@/shared/ui";
@@ -21,6 +22,10 @@ export const ProfileHeader = memo(function ProfileHeader({
   const readOnly = useAppSelector(profileSelectors.getReadOnly);
   const isLoading = useAppSelector(profileSelectors.getIsLoading);
   const dispatch = useAppDispatch();
+
+  const profile = useAppSelector(profileSelectors.getForm);
+  const user = useAppSelector(userSelectors.getUserData);
+  const canEdit = profile?.id === user?.id;
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -54,7 +59,7 @@ export const ProfileHeader = memo(function ProfileHeader({
   return (
     <div className={classNames(styles.profileHeader, {}, [className])}>
       <Text title={t("Профиль")} />
-      <div className={styles.buttons}>{buttons}</div>
+      {canEdit && <div className={styles.buttons}>{buttons}</div>}
     </div>
   );
 });

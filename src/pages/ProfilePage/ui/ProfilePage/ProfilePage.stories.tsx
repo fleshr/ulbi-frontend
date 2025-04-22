@@ -1,5 +1,7 @@
 import { Country } from "@/entities/Country";
 import { Currency } from "@/entities/Currency";
+import { ValidateError } from "@/entities/Profile";
+import { UserState } from "@/entities/User";
 import avatar from "@/shared/assets/tests/avatar.jpg";
 import type { Meta, StoryObj } from "@storybook/react";
 import { withStoreProvider } from "../../../../shared/lib/decorators";
@@ -9,6 +11,7 @@ const profile = {
   isLoading: false,
   readonly: true,
   form: {
+    id: "1",
     username: "John Doe",
     age: 30,
     country: Country.Russia,
@@ -29,9 +32,41 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  decorators: [withStoreProvider({ profile: { ...profile, readonly: true } })],
+  decorators: [
+    withStoreProvider({
+      profile: { ...profile, readonly: true },
+      user: { user: { id: "1" } } as UserState,
+    }),
+  ],
 };
 
 export const Editing: Story = {
-  decorators: [withStoreProvider({ profile: { ...profile, readonly: false } })],
+  decorators: [
+    withStoreProvider({
+      profile: { ...profile, readonly: false },
+      user: { user: { id: "1" } } as UserState,
+    }),
+  ],
+};
+
+export const WithError: Story = {
+  decorators: [
+    withStoreProvider({
+      profile: {
+        ...profile,
+        readonly: false,
+        validateErrors: [ValidateError.INCORRECT_USER_DATA],
+      },
+      user: { user: { id: "1" } } as UserState,
+    }),
+  ],
+};
+
+export const CantEdit: Story = {
+  decorators: [
+    withStoreProvider({
+      profile: { ...profile, readonly: true },
+      user: { user: { id: "2" } } as UserState,
+    }),
+  ],
 };

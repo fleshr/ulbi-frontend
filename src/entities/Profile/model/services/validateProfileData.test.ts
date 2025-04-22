@@ -4,6 +4,7 @@ import { ValidateError } from "../types";
 import { validateProfileData } from "./validateProfileData";
 
 const data = {
+  id: "1",
   username: "John Doe",
   age: 30,
   country: Country.Russia,

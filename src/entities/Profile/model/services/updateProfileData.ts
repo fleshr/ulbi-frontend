@@ -15,11 +15,18 @@ export const updateProfileData = createAsyncThunk<
       const formData = profileSelectors.getForm(getState());
       const errors = validateProfileData(formData);
 
+      if (!formData) {
+        return rejectWithValue([ValidateError.NO_DATA]);
+      }
+
       if (errors.length) {
         return rejectWithValue(errors);
       }
 
-      const { data } = await api.put<Profile | undefined>("/profile", formData);
+      const { data } = await api.put<Profile | undefined>(
+        `/profile/${formData.id}`,
+        formData,
+      );
 
       if (!data) {
         return rejectWithValue([ValidateError.NO_DATA]);
