@@ -1,11 +1,12 @@
 import { classNames } from "@/shared/lib";
 import { Skeleton } from "@/shared/ui";
 import { memo } from "react";
+import { ArticleView } from "../../model/types";
 import styles from "./ArticleListItemSkeleton.module.scss";
 
 interface ArticleListItemSkeletonProps {
   className?: string;
-  view?: "big" | "small";
+  view?: ArticleView;
 }
 
 export const ArticleListItemSkeleton = memo(function ArticleListItemSkeleton({

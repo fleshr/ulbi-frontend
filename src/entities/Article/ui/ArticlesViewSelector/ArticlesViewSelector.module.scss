@@ -1,0 +1,16 @@
+.selector {
+  display: flex;
+  gap: 5px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected {
+  svg {
+    color: var(--primary-color);
+  }
+}

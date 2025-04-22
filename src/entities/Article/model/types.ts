@@ -56,3 +56,5 @@ export interface ArticleState {
   isLoading: boolean;
   error?: string;
 }
+
+export type ArticleView = "small" | "big";

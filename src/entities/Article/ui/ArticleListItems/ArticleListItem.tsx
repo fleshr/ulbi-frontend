@@ -5,12 +5,12 @@ import { AppLink, Avatar, Text } from "@/shared/ui";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Article, ArticleBlockType } from "../../model/types";
+import { Article, ArticleBlockType, ArticleView } from "../../model/types";
 import styles from "./ArticleListItem.module.scss";
 
 interface ArticleListItemProps {
   className?: string;
-  view?: "big" | "small";
+  view?: ArticleView;
   article: Article;
 }
 

@@ -1,6 +1,6 @@
 import { classNames } from "@/shared/lib";
 import { memo } from "react";
-import { Article } from "../../model/types";
+import { Article, ArticleView } from "../../model/types";
 import { ArticleListItem } from "../ArticleListItems/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItemSkeleton/ArticleListItemSkeleton";
 import styles from "./ArticleList.module.scss";
@@ -8,7 +8,7 @@ import styles from "./ArticleList.module.scss";
 interface ArticleListProps {
   className?: string;
   articles: Article[];
-  view?: "big" | "small";
+  view?: ArticleView;
   isLoading?: boolean;
 }
 

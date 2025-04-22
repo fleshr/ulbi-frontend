@@ -5,6 +5,7 @@ import { userSlice } from "@/entities/User";
 import { AddCommentFormState } from "@/features/AddCommentForm";
 import { type LoginState } from "@/features/AuthByUsername";
 import { CommentsState } from "@/pages/ArticleDetailsPage";
+import { ArticlesPageState } from "@/pages/ArticlesPage";
 import { api } from "@/shared/api";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 
@@ -14,6 +15,7 @@ export interface LazyLoadedSlices {
   articleDetails: ArticleState;
   articleDetailsComments: CommentsState;
   addCommentForm: AddCommentFormState;
+  articlesPage: ArticlesPageState;
 }
 
 export const rootReducer = combineSlices(

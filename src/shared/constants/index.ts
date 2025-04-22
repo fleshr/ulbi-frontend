@@ -1,2 +1,5 @@
 export { Country, Currency } from "./common";
-export { USER_LOCALSTORAGE_KEY } from "./localStorage";
+export {
+  ARTICLES_VIEW_LOCALSTORAGE_KEY,
+  USER_LOCALSTORAGE_KEY,
+} from "./localStorage";
