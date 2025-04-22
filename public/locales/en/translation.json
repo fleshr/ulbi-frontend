@@ -33,5 +33,8 @@
   "AddCommentForm": {
     "Комментарий": "Comment",
     "Отправить": "Send"
+  },
+  "ArticleListItem": {
+    "Читать далее": "Read more"
   }
 }

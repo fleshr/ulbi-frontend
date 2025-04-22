@@ -1,3 +1,4 @@
+export { mockArticle } from "./mock/article";
 export {
   ArticleBlockType,
   ArticleType,

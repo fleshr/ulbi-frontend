@@ -11,6 +11,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: { to: "/", children: "AppLink" },
+export const Primary: Story = {
+  args: { to: "/", children: "AppLink", variant: "primary" },
+};
+
+export const Secondary: Story = {
+  args: { to: "/", children: "AppLink", variant: "secondary" },
+};
+
+export const Outline: Story = {
+  args: { to: "/", children: "AppLink", variant: "outline" },
 };

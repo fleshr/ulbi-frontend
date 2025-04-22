@@ -1,0 +1,12 @@
+.list {
+  display: grid;
+  gap: 30px;
+}
+
+.small {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.big {
+  grid-template-columns: 1fr;
+}

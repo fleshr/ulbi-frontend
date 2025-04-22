@@ -1,5 +1,6 @@
 .app-link {
-  color: var(--primary-color);
+  text-decoration: none;
+  color: var(--inverted-primary-color);
 }
 
 .primary {
@@ -8,4 +9,9 @@
 
 .secondary {
   color: var(--inverted-secondary-color);
+}
+
+.outline {
+  border: 1px solid var(--inverted-primary-color);
+  padding: 10px;
 }
