@@ -1,7 +1,14 @@
+import MainIcon from "@/shared/assets/icons/main.svg";
+import { RoutePath } from "@/shared/config";
 import { withRouterProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
-import { sidebarItemsList } from "../../constants/items";
 import { SidebarItem } from "./SidebarItem";
+
+const item = {
+  path: RoutePath.main,
+  text: "Главная",
+  Icon: MainIcon,
+} as const;
 
 const meta = {
   title: "widgets/Sidebar/SidebarItem",
@@ -13,14 +20,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    item: sidebarItemsList[0],
-  },
+  args: { item },
 };
 
 export const Collapsed: Story = {
-  args: {
-    item: sidebarItemsList[0],
-    collapsed: true,
-  },
+  args: { item, collapsed: true },
 };
