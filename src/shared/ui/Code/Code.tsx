@@ -1,4 +1,3 @@
-import { classNames } from "@/shared/lib";
 import { memo, useCallback } from "react";
 import CopyIcon from "../../assets/icons/copy.svg";
 import { Button } from "../Button/Button";
@@ -15,11 +14,11 @@ export const Code = memo(function Code({ className, text }: CodeProps) {
   }, [text]);
 
   return (
-    <code className={classNames(styles.code, {}, [className])}>
+    <pre className={className}>
       <Button onClick={handleCopyClick} className={styles.copyBtn}>
         <CopyIcon />
       </Button>
-      <pre>{text}</pre>
-    </code>
+      <code className={styles.code}>{text}</code>
+    </pre>
   );
 });

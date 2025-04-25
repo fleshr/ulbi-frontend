@@ -4,6 +4,9 @@ import { ConfigInput } from "testplane";
 
 const config: ConfigInput = {
   gridUrl: "local",
+  assertViewOpts: {
+    screenshotDelay: 250,
+  },
   browsers: {
     chrome: {
       headless: true,
