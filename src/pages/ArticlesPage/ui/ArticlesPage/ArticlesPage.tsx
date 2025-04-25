@@ -5,13 +5,14 @@ import {
 } from "@/entities/Article";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
 import { Page } from "@/shared/ui";
-import { FC, memo, useCallback, useEffect } from "react";
+import { FC, memo, useCallback } from "react";
 import {
   articlesPageActions,
   articlesPageSelectors,
 } from "../../model/articlesPageSlice";
-import { fetchArticles } from "../../model/services/fetchArticles";
 import { fetchNextArticlePage } from "../../model/services/fetchNextArticlePage";
+import { useInitialEffect } from "@/shared/lib/hooks";
+import { initArticlesPage } from "../../model/services/initArticlesPage";
 
 export const ArticlesPage: FC = memo(function ArticlesPage() {
   const dispatch = useAppDispatch();
@@ -32,12 +33,9 @@ export const ArticlesPage: FC = memo(function ArticlesPage() {
     }
   }, [dispatch]);
 
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(articlesPageActions.initView());
-      void dispatch(fetchArticles(1));
-    }
-  }, [dispatch]);
+  useInitialEffect(() => {
+    void dispatch(initArticlesPage());
+  });
 
   return (
     <Page onScrollEnd={handleScrollEnd}>

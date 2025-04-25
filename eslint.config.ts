@@ -33,6 +33,11 @@ export default tseslint.config([
     },
   },
   {
+    rules: {
+      "@typescript-eslint/no-invalid-void-type": "warn",
+    },
+  },
+  {
     languageOptions: {
       parserOptions: {
         projectService: true,
