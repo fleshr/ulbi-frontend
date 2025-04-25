@@ -8,6 +8,7 @@ import { CommentsState } from "@/pages/ArticleDetailsPage";
 import { ArticlesPageState } from "@/pages/ArticlesPage";
 import { api } from "@/shared/api";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
+import { scrollRestorationSlice } from "@/features/ScrollRestoration";
 
 export interface LazyLoadedSlices {
   login: LoginState;
@@ -21,6 +22,7 @@ export interface LazyLoadedSlices {
 export const rootReducer = combineSlices(
   counterSlice,
   userSlice,
+  scrollRestorationSlice,
 ).withLazyLoadedSlices<LazyLoadedSlices>();
 
 export const setupStore = (preloadedState?: Partial<RootState>) => {

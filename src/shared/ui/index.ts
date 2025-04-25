@@ -5,7 +5,6 @@ export { Code } from "./Code/Code";
 export { Input } from "./Input/Input";
 export { LangSwitcher } from "./LangSwitcher/LangSwitcher";
 export { Modal } from "./Modal/Modal";
-export { Page } from "./Page/Page";
 export { PageLoader } from "./PageLoader/PageLoader";
 export { Portal } from "./Portal/Portal";
 export { Select } from "./Select/Select";

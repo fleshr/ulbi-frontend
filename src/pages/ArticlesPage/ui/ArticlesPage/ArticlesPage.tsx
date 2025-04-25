@@ -4,7 +4,6 @@ import {
   ArticleView,
 } from "@/entities/Article";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { Page } from "@/shared/ui";
 import { FC, memo, useCallback } from "react";
 import {
   articlesPageActions,
@@ -13,6 +12,7 @@ import {
 import { fetchNextArticlePage } from "../../model/services/fetchNextArticlePage";
 import { useInitialEffect } from "@/shared/lib/hooks";
 import { initArticlesPage } from "../../model/services/initArticlesPage";
+import { Page } from "@/widgets/Page";
 
 export const ArticlesPage: FC = memo(function ArticlesPage() {
   const dispatch = useAppDispatch();
