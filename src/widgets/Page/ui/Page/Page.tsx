@@ -1,17 +1,17 @@
+import {
+  getScrollPositionByPathname,
+  scrollRestorationActions,
+} from "@/features/ScrollRestoration";
 import { classNames } from "@/shared/lib";
 import {
   useInfiniteScroll,
   useInitialEffect,
   useThrottle,
 } from "@/shared/lib/hooks";
-import { FC, PropsWithChildren, UIEventHandler, useRef } from "react";
-import styles from "./Page.module.scss";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import {
-  getScrollPositionByPathname,
-  scrollRestorationActions,
-} from "@/features/ScrollRestoration";
+import { FC, PropsWithChildren, UIEventHandler, useRef } from "react";
 import { useLocation } from "react-router";
+import styles from "./Page.module.scss";
 
 interface PageProps extends PropsWithChildren {
   className?: string;
@@ -53,7 +53,7 @@ export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
       className={classNames(styles.page, {}, [className])}
     >
       {children}
-      <div ref={targetRef} />
+      {onScrollEnd && <div ref={targetRef} />}
     </div>
   );
 };

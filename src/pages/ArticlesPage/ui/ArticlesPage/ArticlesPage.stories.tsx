@@ -1,6 +1,7 @@
 import { mockArticles } from "@/entities/Article";
 import { withRouterProvider, withStoreProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
+import { mockedArticlesPage } from "../../mock/articlesPage";
 import { ArticlesPage } from "./ArticlesPage";
 
 const meta = {
@@ -16,12 +17,10 @@ export const Small: Story = {
   decorators: [
     withStoreProvider({
       articlesPage: {
-        view: "small",
+        ...mockedArticlesPage,
         articles: mockArticles.slice(0, 9),
-        hasMore: false,
+        view: "small",
         limit: 9,
-        page: 1,
-        _inited: true,
       },
     }),
   ],
@@ -31,12 +30,10 @@ export const Big: Story = {
   decorators: [
     withStoreProvider({
       articlesPage: {
-        view: "big",
+        ...mockedArticlesPage,
         articles: mockArticles.slice(0, 3),
-        hasMore: false,
+        view: "big",
         limit: 3,
-        page: 1,
-        _inited: true,
       },
     }),
   ],

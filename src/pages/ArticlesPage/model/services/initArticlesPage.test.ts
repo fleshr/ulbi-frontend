@@ -1,24 +1,17 @@
-import { TestAsyncThunk } from "@/shared/lib/tests";
-import { initArticlesPage } from "./initArticlesPage";
-import { fetchArticles } from "@/pages/ArticlesPage/model/services/fetchArticles";
 import { articlesPageActions } from "@/pages/ArticlesPage/model/articlesPageSlice";
-import { ArticlesPageState } from "@/pages/ArticlesPage";
+import { fetchArticles } from "@/pages/ArticlesPage/model/services/fetchArticles";
+import { TestAsyncThunk } from "@/shared/lib/tests";
+import { mockedArticlesPage } from "../../mock/articlesPage";
+import { initArticlesPage } from "./initArticlesPage";
 
 jest.mock("./fetchArticles");
 const mockedFetchArticles = jest.mocked(fetchArticles);
 
-const articlesPage: ArticlesPageState = {
-  articles: [],
-  view: "small",
-  page: 0,
-  limit: 0,
-  hasMore: false,
-  _inited: false,
-};
-
 describe("initArticlesPage", () => {
   it("init page if not initialized", async () => {
-    const testThunk = new TestAsyncThunk(initArticlesPage, { articlesPage });
+    const testThunk = new TestAsyncThunk(initArticlesPage, {
+      articlesPage: { ...mockedArticlesPage, _inited: false },
+    });
     await testThunk.callThunk(undefined);
 
     expect(testThunk.dispatch).toHaveBeenCalledTimes(4);
@@ -30,7 +23,7 @@ describe("initArticlesPage", () => {
 
   it("dont init page if initialized", async () => {
     const testThunk = new TestAsyncThunk(initArticlesPage, {
-      articlesPage: { ...articlesPage, _inited: true },
+      articlesPage: { ...mockedArticlesPage, _inited: true },
     });
     await testThunk.callThunk(undefined);
 

@@ -1,10 +1,10 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
 import {
   articlesPageActions,
   articlesPageSelectors,
 } from "@/pages/ArticlesPage/model/articlesPageSlice";
 import { fetchArticles } from "@/pages/ArticlesPage/model/services/fetchArticles";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const initArticlesPage = createAsyncThunk<
   void,
@@ -15,6 +15,6 @@ export const initArticlesPage = createAsyncThunk<
 
   if (!inited) {
     dispatch(articlesPageActions.initView());
-    void dispatch(fetchArticles(1));
+    void dispatch(fetchArticles());
   }
 });

@@ -1,31 +1,31 @@
 import { classNames } from "@/shared/lib";
-import { ChangeEventHandler, memo, useCallback, useId } from "react";
+import { ChangeEventHandler, useCallback, useId } from "react";
 import styles from "./Select.module.scss";
 
-export interface SelectOption {
-  value: string;
+export interface SelectOption<T extends string = string> {
+  value: T;
   label: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string = string> {
   label?: string;
-  options: SelectOption[];
+  options: SelectOption<T>[];
   value?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: T) => void;
   disabled?: boolean;
 }
 
-export const Select = memo(function Select({
+export const Select = function Select<T extends string = string>({
   label,
   options,
   value,
   onChange,
   disabled = false,
-}: SelectProps) {
+}: SelectProps<T>) {
   const id = useId();
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = useCallback(
-    (e) => onChange?.(e.target.value),
+    (e) => onChange?.(e.target.value as T),
     [onChange],
   );
 
@@ -47,4 +47,4 @@ export const Select = memo(function Select({
       </select>
     </div>
   );
-});
+};

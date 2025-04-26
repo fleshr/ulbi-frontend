@@ -7,6 +7,7 @@ export enum ArticleBlockType {
 }
 
 export enum ArticleType {
+  ALL = "ALL",
   IT = "IT",
   SCIENCE = "SCIENCE",
   ECONOMICS = "ECONOMICS",
@@ -58,3 +59,7 @@ export interface ArticleState {
 }
 
 export type ArticleView = "small" | "big";
+
+export type ArticleSortField = "views" | "title" | "createdAt";
+
+export type ArticleOrder = "asc" | "desc";

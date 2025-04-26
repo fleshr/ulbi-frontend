@@ -36,5 +36,17 @@
   },
   "ArticleListItem": {
     "Читать далее": "Read more"
+  },
+  "ArticleSortSelector": {
+    "Сортировать по": "Sort by",
+    "Просмотрам": "Views",
+    "Названию": "Title",
+    "Дате": "Date",
+    "по": "by",
+    "убыванию": "ascending",
+    "возрастанию": "descending"
+  },
+  "ArticleList": {
+    "Статьи не найдены": "Articles not found"
   }
 }

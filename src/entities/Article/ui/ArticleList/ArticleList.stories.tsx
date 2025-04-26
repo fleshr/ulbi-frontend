@@ -35,3 +35,7 @@ export const LoadingSmallEmpty: Story = {
 export const LoadingBigEmpty: Story = {
   args: { view: "big", isLoading: true, articles: [] },
 };
+
+export const Empty: Story = {
+  args: { view: "big", isLoading: false, articles: [] },
+};

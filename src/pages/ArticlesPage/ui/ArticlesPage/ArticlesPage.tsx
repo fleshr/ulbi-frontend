@@ -1,31 +1,19 @@
-import {
-  ArticleList,
-  ArticlesViewSelector,
-  ArticleView,
-} from "@/entities/Article";
-import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { FC, memo, useCallback } from "react";
-import {
-  articlesPageActions,
-  articlesPageSelectors,
-} from "../../model/articlesPageSlice";
-import { fetchNextArticlePage } from "../../model/services/fetchNextArticlePage";
+import { ArticleList } from "@/entities/Article";
 import { useInitialEffect } from "@/shared/lib/hooks";
-import { initArticlesPage } from "../../model/services/initArticlesPage";
+import { useAppDispatch, useAppSelector } from "@/shared/model";
 import { Page } from "@/widgets/Page";
+import { FC, memo, useCallback } from "react";
+import { articlesPageSelectors } from "../../model/articlesPageSlice";
+import { fetchNextArticlePage } from "../../model/services/fetchNextArticlePage";
+import { initArticlesPage } from "../../model/services/initArticlesPage";
+import { ArticlesPageFilter } from "../ArticlesPageFilter/ArticlesPageFilter";
+import styles from "./ArticlesPage.module.scss";
 
 export const ArticlesPage: FC = memo(function ArticlesPage() {
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(articlesPageSelectors.getIsLoading);
   const articles = useAppSelector(articlesPageSelectors.getArticles);
   const view = useAppSelector(articlesPageSelectors.getView);
-
-  const handleViewChange = useCallback(
-    (view: ArticleView) => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch],
-  );
 
   const handleScrollEnd = useCallback(() => {
     if (__PROJECT__ !== "storybook") {
@@ -38,8 +26,8 @@ export const ArticlesPage: FC = memo(function ArticlesPage() {
   });
 
   return (
-    <Page onScrollEnd={handleScrollEnd}>
-      <ArticlesViewSelector view={view} onChange={handleViewChange} />
+    <Page className={styles.page} onScrollEnd={handleScrollEnd}>
+      <ArticlesPageFilter />
       <ArticleList articles={articles} isLoading={isLoading} view={view} />
     </Page>
   );

@@ -1,5 +1,5 @@
 import { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
-import { Article } from "@/entities/Article";
+import { Article, ArticleType } from "@/entities/Article";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   articlesPageActions,
@@ -8,12 +8,17 @@ import {
 
 export const fetchArticles = createAsyncThunk<
   Article[],
-  number,
+  boolean | undefined,
   ThunkOptions<string>
 >(
   "articlesPage/fetchArticles",
-  async (page, { rejectWithValue, dispatch, getState, extra: { api } }) => {
+  async (_, { rejectWithValue, dispatch, getState, extra: { api } }) => {
+    const page = articlesPageSelectors.getPage(getState());
     const limit = articlesPageSelectors.getLimit(getState());
+    const order = articlesPageSelectors.getOrder(getState());
+    const sort = articlesPageSelectors.getSort(getState());
+    const search = articlesPageSelectors.getSearch(getState());
+    const type = articlesPageSelectors.getType(getState());
 
     try {
       const { data } = await api.get<Article[]>("/articles", {
@@ -21,10 +26,14 @@ export const fetchArticles = createAsyncThunk<
           _expand: "user",
           _limit: limit,
           _page: page,
+          _sort: sort,
+          _order: order,
+          q: search,
+          type: type === ArticleType.ALL ? undefined : type,
         },
       });
 
-      if (!data.length) {
+      if (limit > data.length) {
         dispatch(articlesPageActions.setHasMore(false));
       }
 
