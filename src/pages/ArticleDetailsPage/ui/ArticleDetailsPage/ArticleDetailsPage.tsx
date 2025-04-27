@@ -1,17 +1,21 @@
-import { ArticleDetails } from "@/entities/Article";
+import { ArticleDetails, ArticleList } from "@/entities/Article";
 import { CommentsList } from "@/entities/Comment";
 import { AddCommentForm } from "@/features/AddCommentForm";
+import { useInitialEffect } from "@/shared/lib/hooks";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
 import { Text } from "@/shared/ui";
-import { FC, memo, useCallback, useEffect } from "react";
+import { Page } from "@/widgets/Page";
+import { FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+import { addCommentForArticle } from "../../model/services/addCommentForArticle";
+import { fetchArticleRecomendations } from "../../model/services/fetchArticleRecomendations";
+import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId";
 import {
   getArticleComments,
   getIsLoading,
-} from "../../model/articleDetailsCommentsSlice";
-import { addCommentForArticle } from "../../services/addCommentForArticle";
-import { fetchCommentsByArticleId } from "../../services/fetchCommentsByArticleId";
+} from "../../model/slices/articleCommentsSlice";
+import { getArticleRecomendations } from "../../model/slices/articleDetailsPageSlice";
 import styles from "./ArticleDetailsPage.module.scss";
 
 export const ArticleDetailsPage: FC = memo(function ArticleDetailsPage() {
@@ -20,6 +24,7 @@ export const ArticleDetailsPage: FC = memo(function ArticleDetailsPage() {
   const dispatch = useAppDispatch();
   const comments = useAppSelector(getArticleComments.selectAll);
   const isLoading = useAppSelector(getIsLoading);
+  const recomendations = useAppSelector(getArticleRecomendations);
 
   const handleSendComment = useCallback(
     (text: string) => {
@@ -28,11 +33,10 @@ export const ArticleDetailsPage: FC = memo(function ArticleDetailsPage() {
     [dispatch],
   );
 
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      void dispatch(fetchCommentsByArticleId(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => {
+    void dispatch(fetchCommentsByArticleId(id));
+    void dispatch(fetchArticleRecomendations());
+  });
 
   if (!id) {
     return (
@@ -41,14 +45,21 @@ export const ArticleDetailsPage: FC = memo(function ArticleDetailsPage() {
   }
 
   return (
-    <div className={styles.articleDetails}>
+    <Page className={styles.articleDetails}>
       <ArticleDetails id={id} />
+      <div>
+        <ArticleList
+          className={styles.recomendations}
+          articles={recomendations}
+          target="_blank"
+        />
+      </div>
       <div className={styles.comments}>
         <Text title={t("Комментарии")} />
         <AddCommentForm onSendComment={handleSendComment} />
         <CommentsList comments={comments} isLoading={isLoading} />
       </div>
-    </div>
+    </Page>
   );
 });
 

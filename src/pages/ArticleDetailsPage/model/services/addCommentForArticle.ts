@@ -1,5 +1,5 @@
 import { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
-import { articleDetailsSelectors } from "@/entities/Article/model/articleDetailsSlice";
+import { articleDetailsSelectors } from "@/entities/Article";
 import { Comment } from "@/entities/Comment";
 import { userSelectors } from "@/entities/User";
 import { createAsyncThunk } from "@reduxjs/toolkit";
@@ -10,7 +10,7 @@ export const addCommentForArticle = createAsyncThunk<
   string,
   ThunkOptions<string>
 >(
-  "articleDetailsComments/addCommentForArticle",
+  "articleDetailsPage/addCommentForArticle",
   async (text, { rejectWithValue, getState, dispatch, extra: { api } }) => {
     const user = userSelectors.getUserData(getState());
     const article = articleDetailsSelectors.getData(getState());

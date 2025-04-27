@@ -1,4 +1,5 @@
 export { mockArticle, mockArticles } from "./mock/article";
+export { articleDetailsSelectors } from "./model/articleDetailsSlice";
 export {
   ArticleBlockType,
   ArticleType,

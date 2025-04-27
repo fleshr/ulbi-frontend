@@ -27,36 +27,6 @@ jobs:
       - name: Install npm deps
         run: npm ci
 
-      - name: Set Gayscale filter for fonts
-        run: |
-          mkdir -p ~/.config/fontconfig/conf.d
-          cat > ~/.config/fontconfig/conf.d/10-antialias-grayscale.conf <<EOF
-          <?xml version='1.0'?>
-          <!DOCTYPE fontconfig SYSTEM 'urn:fontconfig:fonts.dtd'>
-          <fontconfig>
-            <match target="font">
-              <edit name="antialias" mode="assign">
-                <bool>true</bool>
-              </edit>
-              <edit name="hinting" mode="assign">
-                <bool>true</bool>
-              </edit>
-              <edit name="rgba" mode="assign">
-                <const>none</const>
-              </edit>
-              <edit name="lcdfilter" mode="assign">
-                <const>lcddefault</const>
-              </edit>
-            </match>
-          </fontconfig>
-          EOF
-
-      - name: Install Noto Sans Mono Font
-        run: |
-          wget -O NotoSansMono-Regular.ttf https://fonts.gstatic.com/s/notosansmono/v32/BngrUXNETWXI6LwhGYvaxZikqZqK6fBq6kPvUce2oAZcdthSBUsYck4-_FNJ49rXVEQQL8Y.ttf
-          mv NotoSansMono-Regular.ttf /usr/share/fonts/
-          fc-cache -fv
-
       - name: Run linter SCSS
         run: npm run lint:scss
 

@@ -1,7 +1,8 @@
-import { mockArticle } from "@/entities/Article";
+import { mockArticle, mockArticles } from "@/entities/Article";
 import avatar from "@/shared/assets/tests/avatar.jpg";
 import { withRouterProvider, withStoreProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
+import { ArticleRecomendationsState } from "../../model/types/articleRecomendations";
 import { ArticleDetailsPage } from "./ArticleDetailsPage";
 
 const comments = {
@@ -50,6 +51,11 @@ const comments = {
   isLoading: false,
 };
 
+const recomendations: ArticleRecomendationsState = {
+  isLoading: false,
+  recomendations: mockArticles.slice(0, 4),
+};
+
 const meta = {
   title: "pages/ArticleDetailsPage/ArticleDetailsPage",
   component: ArticleDetailsPage,
@@ -63,7 +69,7 @@ export const Default: Story = {
     withRouterProvider({ path: "/articles/:id", route: "/articles/1" }),
     withStoreProvider({
       articleDetails: { data: mockArticle, isLoading: false },
-      articleDetailsComments: comments,
+      articleDetailsPage: { comments, recomendations },
     }),
   ],
 };
@@ -73,6 +79,10 @@ export const NoComments: Story = {
     withRouterProvider({ path: "/articles/:id", route: "/articles/1" }),
     withStoreProvider({
       articleDetails: { data: mockArticle, isLoading: false },
+      articleDetailsPage: {
+        comments: { ids: [], entities: {}, isLoading: false },
+        recomendations,
+      },
     }),
   ],
 };

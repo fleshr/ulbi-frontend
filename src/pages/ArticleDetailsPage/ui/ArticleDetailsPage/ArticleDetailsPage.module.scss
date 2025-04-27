@@ -9,3 +9,8 @@
   flex-direction: column;
   gap: 50px;
 }
+
+.recomendations {
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  overflow-x: auto;
+}

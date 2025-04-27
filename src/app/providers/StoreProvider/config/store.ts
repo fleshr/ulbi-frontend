@@ -4,17 +4,17 @@ import { type ProfileState } from "@/entities/Profile";
 import { userSlice } from "@/entities/User";
 import { AddCommentFormState } from "@/features/AddCommentForm";
 import { type LoginState } from "@/features/AuthByUsername";
-import { CommentsState } from "@/pages/ArticleDetailsPage";
+import { scrollRestorationSlice } from "@/features/ScrollRestoration";
+import { ArticleDetailsPageState } from "@/pages/ArticleDetailsPage";
 import { ArticlesPageState } from "@/pages/ArticlesPage";
 import { api } from "@/shared/api";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
-import { scrollRestorationSlice } from "@/features/ScrollRestoration";
 
 export interface LazyLoadedSlices {
   login: LoginState;
   profile: ProfileState;
   articleDetails: ArticleState;
-  articleDetailsComments: CommentsState;
+  articleDetailsPage: ArticleDetailsPageState;
   addCommentForm: AddCommentFormState;
   articlesPage: ArticlesPageState;
 }

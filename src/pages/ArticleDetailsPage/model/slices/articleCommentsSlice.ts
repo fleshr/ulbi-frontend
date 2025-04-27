@@ -1,24 +1,23 @@
-import { rootReducer } from "@/app/providers/StoreProvider/config/store";
 import { Comment } from "@/entities/Comment";
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { fetchCommentsByArticleId } from "../services/fetchCommentsByArticleId";
-import { CommentsState } from "./types";
+import { ArticleCommentsState } from "../types/articleComments";
 
 export const commentsAdapter = createEntityAdapter({
   selectId: (comment: Comment) => comment.id,
 });
 
-const initialState: CommentsState = commentsAdapter.getInitialState({
+const initialState: ArticleCommentsState = commentsAdapter.getInitialState({
   isLoading: false,
   error: undefined,
 });
 
 export const getArticleComments = commentsAdapter.getSelectors<RootState>(
-  (state) => state.articleDetailsComments ?? initialState,
+  (state) => state.articleDetailsPage?.comments ?? initialState,
 );
 
-export const articleDetailsCommentsSlice = createSlice({
-  name: "articleDetailsComments",
+export const articleCommentsSlice = createSlice({
+  name: "articleCommentsSlice",
   initialState,
   reducers: {},
   selectors: {
@@ -42,10 +41,8 @@ export const articleDetailsCommentsSlice = createSlice({
   },
 });
 
-export const enjectedArticleDetailsCommentsSlice =
-  articleDetailsCommentsSlice.injectInto(rootReducer);
-export const articleDetailsCommentsActions =
-  enjectedArticleDetailsCommentsSlice.actions;
+export const articleCommentsSliceActions = articleCommentsSlice.actions;
+export const articleCommentsReducer = articleCommentsSlice.reducer;
 
 export const getIsLoading = (state: RootState) =>
-  state.articleDetailsComments?.isLoading;
+  state.articleDetailsPage?.comments.isLoading;

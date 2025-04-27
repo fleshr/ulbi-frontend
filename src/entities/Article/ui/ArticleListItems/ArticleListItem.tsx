@@ -2,7 +2,7 @@ import EyeIcon from "@/shared/assets/icons/eye.svg";
 import { RoutePath } from "@/shared/config";
 import { classNames } from "@/shared/lib";
 import { AppLink, Avatar, Text } from "@/shared/ui";
-import { memo } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Article, ArticleBlockType, ArticleView } from "../../model/types";
@@ -12,12 +12,14 @@ interface ArticleListItemProps {
   className?: string;
   view?: ArticleView;
   article: Article;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo(function ArticleListItem({
   className,
   view = "small",
   article: { id, title, img, views, createdAt, user, type, blocks },
+  target = "_self",
 }: ArticleListItemProps) {
   const { t } = useTranslation("translation", { keyPrefix: "ArticleListItem" });
 
@@ -45,6 +47,7 @@ export const ArticleListItem = memo(function ArticleListItem({
         <div className={styles.content}>
           {firstParagraph && <Text text={firstParagraph} />}
           <AppLink
+            target={target}
             to={`${RoutePath.articles}/${id}`}
             className={styles.button}
             variant="outline"
@@ -58,6 +61,7 @@ export const ArticleListItem = memo(function ArticleListItem({
 
   return (
     <Link
+      target={target}
       to={`${RoutePath.articles}/${id}`}
       className={classNames(styles.article, {}, [className, styles.small])}
     >
