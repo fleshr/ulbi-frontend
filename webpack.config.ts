@@ -16,6 +16,8 @@ export default (env: BuildEnv) => {
     output: resolve(__dirname, "dist"),
     html: resolve(__dirname, "public", "index.html"),
     src: resolve(__dirname, "src"),
+    locales: resolve(__dirname, "public", "locales"),
+    buildLocales: resolve(__dirname, "dist", "locales"),
   };
 
   return getConfig({ mode, paths, isDev, port, apiUrl, project, publicPath });
