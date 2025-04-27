@@ -1,4 +1,8 @@
 {
   "Статья не найдена": "Article not found",
-  "Комментарии": "Comments"
+  "Комментарии": "Comments",
+  "AritcleDetailsHeader": {
+    "Назад к статьям": "Back to articles",
+    "Редактировать статью": "Edit article"
+  }
 }

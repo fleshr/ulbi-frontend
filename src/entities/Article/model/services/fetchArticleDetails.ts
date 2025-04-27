@@ -12,6 +12,11 @@ export const fetchArticleDetails = createAsyncThunk<
     try {
       const { data } = await api.get<Article | undefined>(
         `/articles/${articleId}`,
+        {
+          params: {
+            _expand: "user",
+          },
+        },
       );
 
       if (!data) {

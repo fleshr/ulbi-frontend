@@ -16,6 +16,7 @@ import {
   getIsLoading,
 } from "../../model/slices/articleCommentsSlice";
 import { getArticleRecomendations } from "../../model/slices/articleDetailsPageSlice";
+import { AritcleDetailsHeader } from "../ArticleDetailsHeader/AritcleDetailsHeader";
 import styles from "./ArticleDetailsPage.module.scss";
 
 export const ArticleDetailsPage: FC = memo(function ArticleDetailsPage() {
@@ -46,6 +47,7 @@ export const ArticleDetailsPage: FC = memo(function ArticleDetailsPage() {
 
   return (
     <Page className={styles.articleDetails}>
+      <AritcleDetailsHeader articleId={id} />
       <ArticleDetails id={id} />
       <div>
         <ArticleList

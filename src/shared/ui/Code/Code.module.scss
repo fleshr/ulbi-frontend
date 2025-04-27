@@ -1,13 +1,17 @@
 .code {
-  font: var(--font-md);
-  position: relative;
   display: block;
-  padding: 20px;
-  background-color: var(--code-bg-color);
 }
 
 .copy-btn {
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+.code-wrapper {
+  position: relative;
+  display: block;
+  padding: 20px;
+  font: var(--font-md);
+  background-color: var(--code-bg-color);
 }

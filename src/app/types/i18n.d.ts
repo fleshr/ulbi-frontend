@@ -1,6 +1,7 @@
 import "i18next";
 import aboutPage from "../../../public/locales/ru/aboutPage.json";
 import articleDetailsPage from "../../../public/locales/ru/articleDetailsPage.json";
+import articleEditPage from "../../../public/locales/ru/articleEditPage.json";
 import mainPage from "../../../public/locales/ru/mainPage.json";
 import notFoundPage from "../../../public/locales/ru/notFoundPage.json";
 import profilePage from "../../../public/locales/ru/profilePage.json";
@@ -16,6 +17,7 @@ declare module "i18next" {
       profilePage: typeof profilePage;
       notFoundPage: typeof notFoundPage;
       articleDetailsPage: typeof articleDetailsPage;
+      articleEditPage: typeof articleEditPage;
     };
   }
 }

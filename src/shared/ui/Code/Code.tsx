@@ -1,3 +1,4 @@
+import { classNames } from "@/shared/lib";
 import { memo, useCallback } from "react";
 import CopyIcon from "../../assets/icons/copy.svg";
 import { Button } from "../Button/Button";
@@ -14,7 +15,7 @@ export const Code = memo(function Code({ className, text }: CodeProps) {
   }, [text]);
 
   return (
-    <pre className={className}>
+    <pre className={classNames(styles.codeWrapper, {}, [className])}>
       <Button onClick={handleCopyClick} className={styles.copyBtn}>
         <CopyIcon />
       </Button>
