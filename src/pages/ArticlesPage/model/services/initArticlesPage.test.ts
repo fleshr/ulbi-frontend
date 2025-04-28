@@ -1,7 +1,7 @@
-import { articlesPageActions } from "@/pages/ArticlesPage/model/articlesPageSlice";
-import { fetchArticles } from "@/pages/ArticlesPage/model/services/fetchArticles";
 import { TestAsyncThunk } from "@/shared/lib/tests";
 import { mockedArticlesPage } from "../../mock/articlesPage";
+import { articlesPageActions } from "../articlesPageSlice";
+import { fetchArticles } from "./fetchArticles";
 import { initArticlesPage } from "./initArticlesPage";
 
 jest.mock("./fetchArticles");

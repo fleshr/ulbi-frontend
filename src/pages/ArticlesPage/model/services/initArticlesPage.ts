@@ -1,10 +1,10 @@
 import { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   articlesPageActions,
   articlesPageSelectors,
-} from "@/pages/ArticlesPage/model/articlesPageSlice";
-import { fetchArticles } from "@/pages/ArticlesPage/model/services/fetchArticles";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+} from "../articlesPageSlice";
+import { fetchArticles } from "./fetchArticles";
 
 export const initArticlesPage = createAsyncThunk<
   void,

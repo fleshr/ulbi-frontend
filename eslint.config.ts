@@ -7,6 +7,7 @@ import pluginReact from "eslint-plugin-react";
 import pluginReactHooks from "eslint-plugin-react-hooks";
 import pluginStorybook from "eslint-plugin-storybook";
 import tseslint from "typescript-eslint";
+import myPlugin from "../eslint-plugin/index";
 
 export default tseslint.config([
   pluginJs.configs.recommended,
@@ -25,6 +26,12 @@ export default tseslint.config([
   pluginJest.configs["flat/recommended"],
   pluginStorybook.configs["flat/recommended"],
   pluginPrettierRecommended,
+  {
+    plugins: { myPlugin },
+    rules: {
+      "myPlugin/import-relative-path": "error",
+    },
+  },
   {
     files: ["**/*.{test,stories}.{ts,tsx}"],
     rules: {
