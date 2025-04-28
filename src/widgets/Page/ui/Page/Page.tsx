@@ -48,6 +48,7 @@ export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
 
   return (
     <div
+      id="PAGE"
       ref={rootRef}
       onScroll={handlePageScroll}
       className={classNames(styles.page, {}, [className])}

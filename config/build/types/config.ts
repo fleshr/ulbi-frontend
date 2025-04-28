@@ -17,6 +17,7 @@ export interface BuildOptions {
   apiUrl: string;
   project: "storybook" | "jest" | "frontend";
   publicPath: string;
+  withAnalyzer?: boolean;
 }
 
 export interface BuildEnv {
@@ -24,4 +25,5 @@ export interface BuildEnv {
   port?: number;
   apiUrl?: string;
   publicPath?: string;
+  withAnalyzer?: boolean;
 }

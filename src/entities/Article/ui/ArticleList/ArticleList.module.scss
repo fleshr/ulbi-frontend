@@ -1,4 +1,5 @@
 .list {
+  position: relative;
   display: grid;
   gap: 30px;
 }
@@ -9,4 +10,26 @@
 
 .big {
   grid-template-columns: 1fr;
+}
+
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.list-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.row:not(:last-child) {
+  padding-bottom: 30px;
+}
+
+.row-small {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
 }

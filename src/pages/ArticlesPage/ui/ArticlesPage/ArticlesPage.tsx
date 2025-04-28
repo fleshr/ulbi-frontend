@@ -26,9 +26,14 @@ export const ArticlesPage: FC = memo(function ArticlesPage() {
   });
 
   return (
-    <Page className={styles.page} onScrollEnd={handleScrollEnd}>
+    <Page onScrollEnd={handleScrollEnd}>
       <ArticlesPageFilter />
-      <ArticleList articles={articles} isLoading={isLoading} view={view} />
+      <ArticleList
+        className={styles.list}
+        articles={articles}
+        isLoading={isLoading}
+        view={view}
+      />
     </Page>
   );
 });

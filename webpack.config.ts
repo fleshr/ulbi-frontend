@@ -7,6 +7,7 @@ export default (env: BuildEnv) => {
   const port = env.port ?? 3000;
   const apiUrl = env.apiUrl ?? "http://localhost:8000";
   const publicPath = env.publicPath ?? "/";
+  const withAnalyzer = env.withAnalyzer ?? false;
 
   const project = "frontend";
   const isDev = mode === "development";
@@ -20,5 +21,14 @@ export default (env: BuildEnv) => {
     buildLocales: resolve(__dirname, "dist", "locales"),
   };
 
-  return getConfig({ mode, paths, isDev, port, apiUrl, project, publicPath });
+  return getConfig({
+    mode,
+    paths,
+    isDev,
+    port,
+    apiUrl,
+    project,
+    publicPath,
+    withAnalyzer,
+  });
 };

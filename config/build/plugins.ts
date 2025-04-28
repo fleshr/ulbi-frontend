@@ -11,6 +11,7 @@ export const getPlugins = ({
   isDev,
   apiUrl,
   project,
+  withAnalyzer,
 }: BuildOptions): WebpackPluginInstance[] => {
   const plugins: WebpackPluginInstance[] = [
     new ProgressPlugin(),
@@ -31,6 +32,9 @@ export const getPlugins = ({
 
   if (isDev) {
     plugins.push(new ReactRefreshWebpackPlugin());
+  }
+
+  if (withAnalyzer) {
     plugins.push(new BundleAnalyzerPlugin());
   }
 
