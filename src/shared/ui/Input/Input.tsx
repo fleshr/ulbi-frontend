@@ -1,5 +1,6 @@
 import { classNames } from "@/shared/lib";
 import { ChangeEvent, InputHTMLAttributes, memo, useCallback } from "react";
+import { HStack } from "../Flex";
 import styles from "./Input.module.scss";
 
 interface InputProps
@@ -27,7 +28,7 @@ export const Input = memo(function Input({
   );
 
   return (
-    <div className={styles.inputWrapper}>
+    <HStack gap={8} fullWidth>
       {label && <span>{label}</span>}
       <input
         disabled={disabled}
@@ -40,6 +41,6 @@ export const Input = memo(function Input({
         )}
         {...props}
       />
-    </div>
+    </HStack>
   );
 });

@@ -1,6 +1,6 @@
 import { classNames } from "@/shared/lib";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { Button, Input } from "@/shared/ui";
+import { Button, HStack, Input } from "@/shared/ui";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import {
@@ -35,7 +35,7 @@ export const AddCommentForm = memo(function AddCommentsForm({
   );
 
   return (
-    <div className={classNames(styles.form, {}, [className])}>
+    <HStack gap={16} className={classNames(styles.form, {}, [className])}>
       <Input
         onChange={handleTextChange}
         value={text}
@@ -44,6 +44,6 @@ export const AddCommentForm = memo(function AddCommentsForm({
       <Button variant="filled" onClick={handleSendComment}>
         {t("Отправить")}
       </Button>
-    </div>
+    </HStack>
   );
 });

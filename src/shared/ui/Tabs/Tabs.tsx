@@ -1,5 +1,6 @@
 import { classNames } from "@/shared/lib";
 import { ReactNode } from "react";
+import { HStack } from "../Flex";
 import styles from "./Tabs.module.scss";
 
 export interface TabItem<T extends string = string> {
@@ -25,7 +26,7 @@ export const Tabs = function Tabs<T extends string = string>({
   };
 
   return (
-    <div className={classNames(styles.tabs, {}, [className])}>
+    <HStack gap={8} className={className}>
       {tabs.map(({ value, content }) => (
         <div
           key={value}
@@ -41,6 +42,6 @@ export const Tabs = function Tabs<T extends string = string>({
           {content}
         </div>
       ))}
-    </div>
+    </HStack>
   );
 };

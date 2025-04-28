@@ -1,11 +1,9 @@
 import { RoutePath } from "@/shared/config";
-import { classNames } from "@/shared/lib";
 import { useAppSelector } from "@/shared/model";
-import { AppLink } from "@/shared/ui";
+import { AppLink, HStack } from "@/shared/ui";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { getCanEditArticle } from "../../model/selectors/article";
-import styles from "./AritcleDetailsHeader.module.scss";
 
 interface AritcleDetailsHeaderProps {
   className?: string;
@@ -22,7 +20,7 @@ export const AritcleDetailsHeader = memo(function AritcleDetailsHeader({
   });
 
   return (
-    <div className={classNames(styles.header, {}, [className])}>
+    <HStack justify="between" className={className}>
       <AppLink to={RoutePath.articles} variant="outline">
         {t("Назад к статьям")}
       </AppLink>
@@ -34,6 +32,6 @@ export const AritcleDetailsHeader = memo(function AritcleDetailsHeader({
           {t("Редактировать статью")}
         </AppLink>
       )}
-    </div>
+    </HStack>
   );
 });

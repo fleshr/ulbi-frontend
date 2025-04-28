@@ -1,11 +1,11 @@
 import { memo } from "react";
+import { VStack } from "../Flex";
 import { Spinner } from "../Spinner/Spinner";
-import styles from "./PageLoader.module.scss";
 
 export const PageLoader = memo(function PageLoader() {
   return (
-    <div className={styles.pageLoader}>
+    <VStack fullHeight align="center" justify="center">
       <Spinner />
-    </div>
+    </VStack>
   );
 });

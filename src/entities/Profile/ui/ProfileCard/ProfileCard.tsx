@@ -1,7 +1,7 @@
 import { CountrySelect } from "@/entities/Country";
 import { CurrencySelect } from "@/entities/Currency";
 import { classNames } from "@/shared/lib";
-import { Avatar, Input, PageLoader } from "@/shared/ui";
+import { Avatar, HStack, Input, PageLoader, VStack } from "@/shared/ui";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Profile } from "../../model/types";
@@ -52,11 +52,14 @@ export const ProfileCard = memo(function ProfileCard({
   }
 
   return (
-    <div className={classNames(styles.profileCard, {}, [className])}>
-      <div className={styles.inputs}>
-        <div className={styles.avatar}>
+    <VStack
+      gap={16}
+      className={classNames(styles.profileCard, {}, [className])}
+    >
+      <VStack gap={8}>
+        <HStack justify="center">
           <Avatar src={profile?.avatar} size={100} />
-        </div>
+        </HStack>
         <Input
           readOnly={readOnly || isLoading}
           label={t("Имя")}
@@ -104,7 +107,7 @@ export const ProfileCard = memo(function ProfileCard({
           value={profile?.country}
           onChange={onCountryChange}
         />
-      </div>
-    </div>
+      </VStack>
+    </VStack>
   );
 });

@@ -1,7 +1,7 @@
 import EyeIcon from "@/shared/assets/icons/eye.svg";
 import { RoutePath } from "@/shared/config";
 import { classNames } from "@/shared/lib";
-import { AppLink, Avatar, Text } from "@/shared/ui";
+import { AppLink, Avatar, HStack, Text, VStack } from "@/shared/ui";
 import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -31,20 +31,20 @@ export const ArticleListItem = memo(function ArticleListItem({
     return (
       <div className={classNames(styles.article, {}, [className, styles.big])}>
         <div className={styles.header}>
-          <div className={styles.info}>
-            <div className={styles.user}>
+          <HStack justify="between">
+            <HStack gap={4}>
               <Avatar size={20} src={user.avatar} />
               <Text text={user.username} />
-            </div>
+            </HStack>
             <Text text={createdAt} />
-          </div>
+          </HStack>
           <Text className={styles.title} title={title} />
           <Text className={styles.tags} text={type.join(", ")} />
         </div>
         <div className={styles.imgWrapper}>
           <img className={styles.img} src={img} alt={title} />
         </div>
-        <div className={styles.content}>
+        <VStack gap={8} className={styles.content}>
           {firstParagraph && <Text text={firstParagraph} />}
           <AppLink
             target={target}
@@ -54,7 +54,7 @@ export const ArticleListItem = memo(function ArticleListItem({
           >
             {t("Читать далее")}
           </AppLink>
-        </div>
+        </VStack>
       </div>
     );
   }
@@ -70,13 +70,13 @@ export const ArticleListItem = memo(function ArticleListItem({
         <img className={styles.img} src={img} alt={title} />
       </div>
       <div className={styles.content}>
-        <div className={styles.info}>
+        <HStack gap={32}>
           <Text className={styles.tags} text={type.join(", ")} />
-          <div className={styles.views}>
+          <HStack gap={4} className={styles.views}>
             <Text text={String(views)} />
             <EyeIcon />
-          </div>
-        </div>
+          </HStack>
+        </HStack>
         <Text className={styles.title} title={title} />
       </div>
     </Link>

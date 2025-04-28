@@ -1,5 +1,4 @@
-import { classNames } from "@/shared/lib";
-import { Text } from "@/shared/ui";
+import { Text, VStack } from "@/shared/ui";
 import { memo } from "react";
 import { ArticleImageBlock as ArticleImageBlockType } from "../../model/types";
 import styles from "./ArticleImageBlock.module.scss";
@@ -14,9 +13,9 @@ export const ArticleImageBlock = memo(function ArticleImageBlock({
   block: { src, title },
 }: ArticleImageBlockProps) {
   return (
-    <div className={classNames(styles.block, {}, [className])}>
+    <VStack gap={4} align="center" className={className}>
       <img className={styles.img} src={src} alt={title} />
       <Text text={title} align="center" />
-    </div>
+    </VStack>
   );
 });

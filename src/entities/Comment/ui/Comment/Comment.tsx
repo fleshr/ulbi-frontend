@@ -1,41 +1,45 @@
 import { RoutePath } from "@/shared/config";
 import { classNames } from "@/shared/lib";
-import { AppLink, Avatar, Skeleton, Text } from "@/shared/ui";
+import { AppLink, Avatar, HStack, Skeleton, Text, VStack } from "@/shared/ui";
 import { memo } from "react";
 import { Comment as CommentType } from "../../model/types";
 import styles from "./Comment.module.scss";
 
 interface CommentProps {
+  className?: string;
   comment: CommentType;
   isLoading?: boolean;
 }
 
 export const Comment = memo(function Comment({
+  className,
   comment: { user, text },
   isLoading = false,
 }: CommentProps) {
   if (isLoading) {
     return (
-      <div className={classNames(styles.comment, {}, [])}>
-        <div className={classNames(styles.header, {}, [])}>
+      <VStack gap={4} className={classNames(styles.comment, {}, [className])}>
+        <HStack gap={8}>
           <Skeleton width={30} radius="50%" />
           <Skeleton width={100} height={20} />
-        </div>
+        </HStack>
         <Skeleton width={300} height={20} />
-      </div>
+      </VStack>
     );
   }
 
   return (
-    <div className={classNames(styles.comment, {}, [])}>
+    <VStack gap={4} className={classNames(styles.comment, {}, [className])}>
       <AppLink
         className={classNames(styles.header, {}, [])}
         to={`${RoutePath.profile}/${user.id}`}
       >
-        {user.avatar && <Avatar size={30} src={user.avatar} />}
-        <Text title={user.username} />
+        <HStack gap={8}>
+          {user.avatar && <Avatar size={30} src={user.avatar} />}
+          <Text title={user.username} />
+        </HStack>
       </AppLink>
       <Text text={text} />
-    </div>
+    </VStack>
   );
 });

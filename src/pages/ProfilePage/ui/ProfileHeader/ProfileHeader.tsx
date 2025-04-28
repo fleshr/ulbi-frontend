@@ -4,12 +4,10 @@ import {
   updateProfileData,
 } from "@/entities/Profile";
 import { userSelectors } from "@/entities/User";
-import { classNames } from "@/shared/lib";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { Button, Text } from "@/shared/ui";
+import { Button, HStack, Text } from "@/shared/ui";
 import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import styles from "./ProfileHeader.module.scss";
 
 interface ProfileHeaderProps {
   className?: string;
@@ -57,9 +55,9 @@ export const ProfileHeader = memo(function ProfileHeader({
   }, [onCancel, onEdit, onSave, readOnly, t, isLoading]);
 
   return (
-    <div className={classNames(styles.profileHeader, {}, [className])}>
+    <HStack justify="between" className={className}>
       <Text title={t("Профиль")} />
-      {canEdit && <div className={styles.buttons}>{buttons}</div>}
-    </div>
+      {canEdit && <HStack gap={8}>{buttons}</HStack>}
+    </HStack>
   );
 });

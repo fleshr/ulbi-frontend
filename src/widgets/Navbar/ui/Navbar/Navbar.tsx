@@ -2,7 +2,7 @@ import { userActions, userSelectors } from "@/entities/User";
 import { LoginModal } from "@/features/AuthByUsername";
 import { classNames } from "@/shared/lib";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { Button } from "@/shared/ui";
+import { Button, HStack } from "@/shared/ui";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./Navbar.module.scss";
@@ -31,27 +31,33 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
 
   if (user) {
     return (
-      <div id="Navbar" className={classNames(styles.navbar, {}, [className])}>
+      <HStack
+        justify="between"
+        className={classNames(styles.navbar, {}, [className])}
+      >
         <div></div>
-        <div className={styles.links}>
+        <HStack gap={8}>
           <span>{user.username}</span>
           <Button data-testid="Navbar.LoginBtn" onClick={handleLogout}>
             {t("Выйти")}
           </Button>
-        </div>
-      </div>
+        </HStack>
+      </HStack>
     );
   }
 
   return (
-    <div id="Navbar" className={classNames(styles.navbar, {}, [className])}>
+    <HStack
+      justify="between"
+      className={classNames(styles.navbar, {}, [className])}
+    >
       <div></div>
-      <div className={styles.links}>
+      <HStack gap={8}>
         <Button data-testid="Navbar.LoginBtn" onClick={openAuthModal}>
           {t("Войти")}
         </Button>
         <LoginModal isOpen={isAuthModelOpen} onClose={closeAuthModal} />
-      </div>
-    </div>
+      </HStack>
+    </HStack>
   );
 });

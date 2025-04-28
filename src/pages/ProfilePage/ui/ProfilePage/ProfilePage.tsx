@@ -7,12 +7,11 @@ import {
   ValidateError,
 } from "@/entities/Profile";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { Text } from "@/shared/ui";
+import { Text, VStack } from "@/shared/ui";
 import { FC, memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { ProfileHeader } from "../ProfileHeader/ProfileHeader";
-import styles from "./ProfilePage.module.scss";
 
 export const ProfilePage: FC = memo(function ProfilePage() {
   const { id } = useParams<{ id: string }>();
@@ -95,7 +94,7 @@ export const ProfilePage: FC = memo(function ProfilePage() {
   );
 
   return (
-    <div className={styles.profilePage}>
+    <VStack gap={16}>
       <ProfileHeader />
       {validateErrors &&
         validateErrors.length > 0 &&
@@ -115,7 +114,7 @@ export const ProfilePage: FC = memo(function ProfilePage() {
         onCurrencyChange={onCurrencyChange}
         onCountryChange={onCountryChange}
       />
-    </div>
+    </VStack>
   );
 });
 

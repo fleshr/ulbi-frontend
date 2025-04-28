@@ -1,6 +1,12 @@
 import { classNames } from "@/shared/lib";
 import { useAppSelector } from "@/shared/model";
-import { Button, LangSwitcher, ThemeSwitcher } from "@/shared/ui";
+import {
+  Button,
+  HStack,
+  LangSwitcher,
+  ThemeSwitcher,
+  VStack,
+} from "@/shared/ui";
 import { memo, useCallback, useMemo, useState } from "react";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
@@ -29,14 +35,17 @@ export const Sidebar = memo(function Sidebar({
   }, []);
 
   return (
-    <div
+    <VStack
+      fullHeight
       data-testid="Sidebar"
       className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [
         className,
       ])}
     >
-      <div className={styles.content}>{sidebarItems}</div>
-      <div className={styles.switchers}>
+      <VStack gap={8} fullHeight>
+        {sidebarItems}
+      </VStack>
+      <HStack justify="center" gap={8} className={styles.switchers}>
         <Button
           data-testid="Sidebar.Toggle"
           className={styles.collapseBtn}
@@ -47,7 +56,7 @@ export const Sidebar = memo(function Sidebar({
         </Button>
         <LangSwitcher short={collapsed} />
         <ThemeSwitcher />
-      </div>
-    </div>
+      </HStack>
+    </VStack>
   );
 });

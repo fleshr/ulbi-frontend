@@ -1,5 +1,6 @@
 import { classNames } from "@/shared/lib";
 import { ChangeEventHandler, useCallback, useId } from "react";
+import { HStack } from "../Flex";
 import styles from "./Select.module.scss";
 
 export interface SelectOption<T extends string = string> {
@@ -30,7 +31,7 @@ export const Select = function Select<T extends string = string>({
   );
 
   return (
-    <div className={styles.selectWrapper}>
+    <HStack gap={8}>
       {label && <label htmlFor={id}>{label}</label>}
       <select
         disabled={disabled}
@@ -45,6 +46,6 @@ export const Select = function Select<T extends string = string>({
           </option>
         ))}
       </select>
-    </div>
+    </HStack>
   );
 };

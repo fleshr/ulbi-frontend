@@ -1,7 +1,7 @@
 import ListIcon from "@/shared/assets/icons/list.svg";
 import TiledIcon from "@/shared/assets/icons/tiled.svg";
 import { classNames } from "@/shared/lib";
-import { Button } from "@/shared/ui";
+import { Button, HStack } from "@/shared/ui";
 import { memo, useCallback } from "react";
 import { ArticleView } from "../../model/types";
 import styles from "./ArticlesViewSelector.module.scss";
@@ -25,29 +25,25 @@ export const ArticlesViewSelector = memo(function ArticlesViewSelector({
   );
 
   return (
-    <div className={classNames(styles.selector, {}, [className])}>
+    <HStack gap={4} className={className}>
       <Button
         onClick={handleViewChange("small")}
-        className={classNames(
-          styles.button,
-          { [styles.selected]: view === "small" },
-          [],
-        )}
+        className={classNames("", { [styles.selected]: view === "small" }, [])}
         variant="outline"
       >
-        <TiledIcon />
+        <HStack justify="center">
+          <TiledIcon />
+        </HStack>
       </Button>
       <Button
         onClick={handleViewChange("big")}
-        className={classNames(
-          styles.button,
-          { [styles.selected]: view === "big" },
-          [],
-        )}
+        className={classNames("", { [styles.selected]: view === "big" }, [])}
         variant="outline"
       >
-        <ListIcon />
+        <HStack justify="center">
+          <ListIcon />
+        </HStack>
       </Button>
-    </div>
+    </HStack>
   );
 });

@@ -1,12 +1,13 @@
+import { classNames } from "@/shared/lib";
 import {
   FC,
+  MouseEvent,
   PropsWithChildren,
   useCallback,
   useEffect,
-  MouseEvent,
 } from "react";
+import { HStack } from "../Flex";
 import styles from "./Modal.module.scss";
-import { classNames } from "@/shared/lib";
 
 interface ModalProps extends PropsWithChildren {
   isOpen: boolean;
@@ -48,11 +49,17 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
       data-testid="Modal"
       className={classNames(styles.modal, { [styles.open]: isOpen })}
     >
-      <div onClick={handleOverlayClick} className={styles.overlay}>
+      <HStack
+        justify="center"
+        fullWidth
+        fullHeight
+        className={styles.overlay}
+        onClick={handleOverlayClick}
+      >
         <div onClick={handleContentClick} className={styles.content}>
           {children}
         </div>
-      </div>
+      </HStack>
     </div>
   );
 };

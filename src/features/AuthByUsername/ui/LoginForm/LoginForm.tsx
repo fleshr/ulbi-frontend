@@ -1,6 +1,6 @@
 import { classNames } from "@/shared/lib";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { Button, Input, Text } from "@/shared/ui";
+import { Button, Input, Text, VStack } from "@/shared/ui";
 import { FC, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import {
@@ -40,7 +40,7 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
   }, [dispatch, password, username]);
 
   return (
-    <div className={classNames(styles.loginForm, {}, [className])}>
+    <VStack gap={16} className={classNames(styles.loginForm, {}, [className])}>
       <div>
         <Text title={t("Форма авторизации")} />
         {error && <Text text={error} variant="error" />}
@@ -66,7 +66,7 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
       >
         {t("Войти")}
       </Button>
-    </div>
+    </VStack>
   );
 };
 

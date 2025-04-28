@@ -1,15 +1,3 @@
-.comments {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.article-details {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
 .recomendations {
   grid-template-columns: repeat(4, minmax(250px, 1fr));
   overflow-x: auto;

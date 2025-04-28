@@ -3,7 +3,7 @@ import { CommentsList } from "@/entities/Comment";
 import { AddCommentForm } from "@/features/AddCommentForm";
 import { useInitialEffect } from "@/shared/lib/hooks";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { Text } from "@/shared/ui";
+import { Text, VStack } from "@/shared/ui";
 import { Page } from "@/widgets/Page";
 import { FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
@@ -47,20 +47,22 @@ export const ArticleDetailsPage: FC = memo(function ArticleDetailsPage() {
 
   return (
     <Page className={styles.articleDetails}>
-      <AritcleDetailsHeader articleId={id} />
-      <ArticleDetails id={id} />
-      <div>
-        <ArticleList
-          className={styles.recomendations}
-          articles={recomendations}
-          target="_blank"
-        />
-      </div>
-      <div className={styles.comments}>
-        <Text title={t("Комментарии")} />
-        <AddCommentForm onSendComment={handleSendComment} />
-        <CommentsList comments={comments} isLoading={isLoading} />
-      </div>
+      <VStack gap={32}>
+        <AritcleDetailsHeader articleId={id} />
+        <ArticleDetails id={id} />
+        <div>
+          <ArticleList
+            className={styles.recomendations}
+            articles={recomendations}
+            target="_blank"
+          />
+        </div>
+        <VStack gap={8}>
+          <Text title={t("Комментарии")} />
+          <AddCommentForm onSendComment={handleSendComment} />
+          <CommentsList comments={comments} isLoading={isLoading} />
+        </VStack>
+      </VStack>
     </Page>
   );
 });

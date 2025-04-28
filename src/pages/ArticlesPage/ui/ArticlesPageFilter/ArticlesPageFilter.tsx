@@ -7,17 +7,15 @@ import {
   ArticleTypeTabs,
   ArticleView,
 } from "@/entities/Article";
-import { classNames } from "@/shared/lib";
 import { useDebounce } from "@/shared/lib/hooks";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { Input } from "@/shared/ui";
+import { HStack, Input, VStack } from "@/shared/ui";
 import { memo, useCallback } from "react";
 import {
   articlesPageActions,
   articlesPageSelectors,
 } from "../../model/articlesPageSlice";
 import { fetchArticles } from "../../model/services/fetchArticles";
-import styles from "./ArticlesPageFilter.module.scss";
 
 interface ArticlesPageFilterProps {
   className?: string;
@@ -83,8 +81,8 @@ export const ArticlesPageFilter = memo(function ArticlesPageFilter({
   );
 
   return (
-    <div className={classNames(styles.container, {}, [className])}>
-      <div className={styles.sort}>
+    <VStack gap={8} className={className}>
+      <HStack justify="between">
         <ArticleSortSelector
           sort={sort}
           order={order}
@@ -92,9 +90,9 @@ export const ArticlesPageFilter = memo(function ArticlesPageFilter({
           onChangeOrder={handleOrderChange}
         />
         <ArticlesViewSelector view={view} onChange={handeleViewChange} />
-      </div>
+      </HStack>
       <Input placeholder="Поиск" value={search} onChange={handleSearchChange} />
       <ArticleTypeTabs value={tab} onChangeType={handleTabChange} />
-    </div>
+    </VStack>
   );
 });

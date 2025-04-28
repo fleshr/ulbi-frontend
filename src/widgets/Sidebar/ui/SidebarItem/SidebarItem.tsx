@@ -1,5 +1,5 @@
 import { classNames } from "@/shared/lib";
-import { AppLink } from "@/shared/ui";
+import { AppLink, HStack } from "@/shared/ui";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { SidebarItemType } from "../../model/types";
@@ -23,8 +23,10 @@ export const SidebarItem = memo(function SidebarItem({
       })}
       to={path}
     >
-      <Icon />
-      <span>{t(text)}</span>
+      <HStack gap={8} justify={collapsed ? "center" : undefined}>
+        <Icon />
+        <span>{t(text)}</span>
+      </HStack>
     </AppLink>
   );
 });

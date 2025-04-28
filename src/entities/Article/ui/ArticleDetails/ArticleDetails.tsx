@@ -1,7 +1,7 @@
 import CalendarIcon from "@/shared/assets/icons/calendar.svg";
 import EyeIcon from "@/shared/assets/icons/eye.svg";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { Avatar, Skeleton, Text } from "@/shared/ui";
+import { Avatar, HStack, Skeleton, Text, VStack } from "@/shared/ui";
 import { memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { articleDetailsSelectors } from "../../model/articleDetailsSlice";
@@ -85,18 +85,19 @@ export const ArticleDetails = memo(function ArticleDetails({
     content = (
       <div>
         <Avatar className={styles.avatar} size={150} src={article?.img} />
-        <Text size="lg" title={article?.title} text={article?.subtitle} />
-        <div>
-          <div className={styles.info}>
-            <EyeIcon />
-            <Text text={String(article?.views)} />
-          </div>
-          <div className={styles.info}>
-            <CalendarIcon />
-            <Text text={article?.createdAt} />
-          </div>
-          <div></div>
-        </div>
+        <VStack gap={16}>
+          <Text size="lg" title={article?.title} text={article?.subtitle} />
+          <VStack>
+            <HStack gap={8}>
+              <EyeIcon />
+              <Text text={String(article?.views)} />
+            </HStack>
+            <HStack gap={8}>
+              <CalendarIcon />
+              <Text text={article?.createdAt} />
+            </HStack>
+          </VStack>
+        </VStack>
         {article?.blocks.map(renderBlock)}
       </div>
     );

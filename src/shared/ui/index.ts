@@ -2,6 +2,7 @@ export { AppLink } from "./AppLink/AppLink";
 export { Avatar } from "./Avatar/Avatar";
 export { Button } from "./Button/Button";
 export { Code } from "./Code/Code";
+export { HStack, VStack } from "./Flex";
 export { Input } from "./Input/Input";
 export { LangSwitcher } from "./LangSwitcher/LangSwitcher";
 export { Modal } from "./Modal/Modal";
