@@ -30,6 +30,16 @@
   text-align: right;
 }
 
+.sm {
+  .title {
+    font: var(--font-md);
+  }
+
+  .text {
+    font: var(--font-sm);
+  }
+}
+
 .md {
   .title {
     font: var(--font-lg);

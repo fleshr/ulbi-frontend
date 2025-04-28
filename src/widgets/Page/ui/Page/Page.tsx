@@ -47,7 +47,7 @@ export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
   });
 
   return (
-    <div
+    <main
       id="PAGE"
       ref={rootRef}
       onScroll={handlePageScroll}
@@ -55,6 +55,6 @@ export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
     >
       {children}
       {onScrollEnd && <div ref={targetRef} />}
-    </div>
+    </main>
   );
 };

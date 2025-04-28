@@ -32,3 +32,15 @@ export const TitleOnly: Story = {
 export const TextOnly: Story = {
   args: { text: "Text" },
 };
+
+export const SizeSm: Story = {
+  args: { title: "Title", text: "Text", size: "sm" },
+};
+
+export const SizeMd: Story = {
+  args: { title: "Title", text: "Text", size: "md" },
+};
+
+export const SizeLg: Story = {
+  args: { title: "Title", text: "Text", size: "lg" },
+};
