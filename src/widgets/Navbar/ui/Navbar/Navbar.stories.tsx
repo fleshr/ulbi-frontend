@@ -1,10 +1,11 @@
-import { withStoreProvider } from "@/shared/lib/decorators";
+import { withRouterProvider, withStoreProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Navbar } from "./Navbar";
 
 const meta = {
   title: "widgets/Navbar/Navbar",
   component: Navbar,
+  decorators: [withRouterProvider()],
 } satisfies Meta<typeof Navbar>;
 
 export default meta;

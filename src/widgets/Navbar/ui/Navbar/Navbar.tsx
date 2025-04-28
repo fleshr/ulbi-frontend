@@ -1,8 +1,9 @@
 import { userActions, userSelectors } from "@/entities/User";
 import { LoginModal } from "@/features/AuthByUsername";
+import { RoutePath } from "@/shared/config";
 import { classNames } from "@/shared/lib";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { Button, HStack } from "@/shared/ui";
+import { Avatar, Button, Dropdown, HStack } from "@/shared/ui";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./Navbar.module.scss";
@@ -36,12 +37,13 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
         className={classNames(styles.navbar, {}, [className])}
       >
         <div></div>
-        <HStack gap={8}>
-          <span>{user.username}</span>
-          <Button data-testid="Navbar.LoginBtn" onClick={handleLogout}>
-            {t("Выйти")}
-          </Button>
-        </HStack>
+        <Dropdown
+          trigger={<Avatar size={30} src={user.avatar} />}
+          items={[
+            { content: t("Профиль"), href: `${RoutePath.profile}/${user.id}` },
+            { content: t("Выйти"), onClick: handleLogout },
+          ]}
+        />
       </HStack>
     );
   }

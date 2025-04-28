@@ -16,7 +16,8 @@
   },
   "Navbar": {
     "Войти": "Log in",
-    "Выйти": "Log out"
+    "Выйти": "Log out",
+    "Профиль": "Profile"
   },
   "CurrencySelect": {
     "Валюта": "Currency"

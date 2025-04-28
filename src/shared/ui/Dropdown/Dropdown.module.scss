@@ -1,0 +1,13 @@
+.items {
+  padding: 4px 8px;
+  background-color: var(--inverted-bg-color);
+  color: var(--inverted-primary-color);
+  margin-top: 8px;
+  border: 1px solid var(--inverted-primary-color);
+}
+
+.btn {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}

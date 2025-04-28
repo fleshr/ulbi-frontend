@@ -8,6 +8,7 @@ import {
 } from "@/entities/Profile";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
 import { Text, VStack } from "@/shared/ui";
+import { Page } from "@/widgets/Page";
 import { FC, memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
@@ -94,27 +95,29 @@ export const ProfilePage: FC = memo(function ProfilePage() {
   );
 
   return (
-    <VStack gap={16}>
-      <ProfileHeader />
-      {validateErrors &&
-        validateErrors.length > 0 &&
-        validateErrors.map((error) => (
-          <Text key={error} text={errorMessage[error]} variant="error" />
-        ))}
-      <ProfileCard
-        profile={profile}
-        isLoading={isLoading}
-        readOnly={readOnly}
-        onFirstnameChange={onFirstnameChange}
-        onLastnameChange={onLastnameChange}
-        onAgeChange={onAgeChange}
-        onCityChange={onCityChange}
-        onUsernameChange={onUsernameChange}
-        onAvatarChange={onAvatarChange}
-        onCurrencyChange={onCurrencyChange}
-        onCountryChange={onCountryChange}
-      />
-    </VStack>
+    <Page>
+      <VStack gap={16}>
+        <ProfileHeader />
+        {validateErrors &&
+          validateErrors.length > 0 &&
+          validateErrors.map((error) => (
+            <Text key={error} text={errorMessage[error]} variant="error" />
+          ))}
+        <ProfileCard
+          profile={profile}
+          isLoading={isLoading}
+          readOnly={readOnly}
+          onFirstnameChange={onFirstnameChange}
+          onLastnameChange={onLastnameChange}
+          onAgeChange={onAgeChange}
+          onCityChange={onCityChange}
+          onUsernameChange={onUsernameChange}
+          onAvatarChange={onAvatarChange}
+          onCurrencyChange={onCurrencyChange}
+          onCountryChange={onCountryChange}
+        />
+      </VStack>
+    </Page>
   );
 });
 
