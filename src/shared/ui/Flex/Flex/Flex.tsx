@@ -1,4 +1,5 @@
 import { classNames } from "@/shared/lib";
+import { DataTestId } from "@/shared/types";
 import { FC, HTMLAttributes, ReactNode } from "react";
 import styles from "./Flex.module.scss";
 
@@ -7,7 +8,7 @@ type FlexAlign = "stretch" | "start" | "center" | "end";
 type FlexJustify = "start" | "center" | "between" | "end";
 type FlexGap = 0 | 4 | 8 | 16 | 32;
 
-export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
+export interface FlexProps extends HTMLAttributes<HTMLDivElement>, DataTestId {
   children?: ReactNode;
   className?: string;
   direction?: FlexDirection;
@@ -53,6 +54,7 @@ export const Flex: FC<FlexProps> = ({
   gap = 0,
   fullWidth = false,
   fullHeight = false,
+  "data-testid": dataTestId = "Flex",
   ...props
 }) => {
   const mods = {
@@ -67,5 +69,11 @@ export const Flex: FC<FlexProps> = ({
     className,
   ];
 
-  return <div className={classNames(styles.flex, mods, classes)} {...props} />;
+  return (
+    <div
+      data-testid={dataTestId}
+      className={classNames(styles.flex, mods, classes)}
+      {...props}
+    />
+  );
 };

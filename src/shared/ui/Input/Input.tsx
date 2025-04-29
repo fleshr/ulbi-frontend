@@ -1,10 +1,20 @@
 import { classNames } from "@/shared/lib";
-import { ChangeEvent, InputHTMLAttributes, memo, useCallback } from "react";
+import { DataTestId } from "@/shared/types";
+import {
+  ChangeEvent,
+  InputHTMLAttributes,
+  memo,
+  useCallback,
+  useId,
+} from "react";
 import { HStack } from "../Flex";
 import styles from "./Input.module.scss";
 
 interface InputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value"> {
+  extends Omit<
+    InputHTMLAttributes<HTMLInputElement> & DataTestId,
+    "onChange" | "value"
+  > {
   className?: string;
   value?: string;
   onChange?: (value: string) => void;
@@ -18,8 +28,11 @@ export const Input = memo(function Input({
   label,
   readOnly = false,
   disabled = false,
+  "data-testid": dataTestId = "Input",
   ...props
 }: InputProps) {
+  const id = useId();
+
   const handleInputChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       onChange?.(e.target.value);
@@ -29,8 +42,14 @@ export const Input = memo(function Input({
 
   return (
     <HStack gap={8} fullWidth>
-      {label && <span>{label}</span>}
+      {label && (
+        <label data-testid={`${dataTestId}.Label`} htmlFor={id}>
+          {label}
+        </label>
+      )}
       <input
+        data-testid={`${dataTestId}.Input`}
+        id={id}
         disabled={disabled}
         value={value}
         onChange={handleInputChange}

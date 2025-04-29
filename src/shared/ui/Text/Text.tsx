@@ -1,4 +1,5 @@
 import { classNames } from "@/shared/lib";
+import { DataTestId } from "@/shared/types";
 import { memo } from "react";
 import styles from "./Text.module.scss";
 
@@ -13,7 +14,7 @@ const HeadingMap: Record<TextSize, HeadingType> = {
   lg: "h1",
 };
 
-interface TextProps {
+interface TextProps extends DataTestId {
   className?: string;
   variant?: TextVariant;
   title?: string;
@@ -29,14 +30,23 @@ export const Text = memo(function Text({
   variant = "default",
   align = "left",
   size = "md",
+  "data-testid": dataTestId = "Text",
 }: TextProps) {
   const style = [className, styles[variant], styles[align], styles[size]];
   const Heading = HeadingMap[size];
 
   return (
-    <div className={classNames("", {}, style)}>
-      {title && <Heading className={styles.title}>{title}</Heading>}
-      {text && <p className={styles.text}>{text}</p>}
+    <div data-testid={dataTestId} className={classNames("", {}, style)}>
+      {title && (
+        <Heading data-testid={`${dataTestId}.Heading`} className={styles.title}>
+          {title}
+        </Heading>
+      )}
+      {text && (
+        <p data-testid={`${dataTestId}.Paragraph`} className={styles.text}>
+          {text}
+        </p>
+      )}
     </div>
   );
 });

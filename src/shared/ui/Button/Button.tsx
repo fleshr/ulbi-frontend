@@ -1,11 +1,14 @@
 import { classNames } from "@/shared/lib";
+import { DataTestId } from "@/shared/types";
 import { ButtonHTMLAttributes, memo } from "react";
 import styles from "./Button.module.scss";
 
 type Variant = "clear" | "outline" | "filled";
 type Size = "sm" | "md" | "lg" | "xl";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    DataTestId {
   variant?: Variant;
   size?: Size;
 }
@@ -16,6 +19,7 @@ export const Button = memo(function Button({
   size = "md",
   disabled = false,
   type = "button",
+  "data-testid": dataTestId = "Button",
   ...props
 }: ButtonProps) {
   const style = [className, styles[variant], styles[size]];
@@ -24,7 +28,7 @@ export const Button = memo(function Button({
     <button
       type={type}
       disabled={disabled}
-      data-testid="Button"
+      data-testid={dataTestId}
       className={classNames(
         styles.button,
         { [styles.disabled]: disabled },

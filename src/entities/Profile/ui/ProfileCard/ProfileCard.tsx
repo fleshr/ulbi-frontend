@@ -1,13 +1,14 @@
 import { CountrySelect } from "@/entities/Country";
 import { CurrencySelect } from "@/entities/Currency";
 import { classNames } from "@/shared/lib";
+import { DataTestId } from "@/shared/types";
 import { Avatar, HStack, Input, PageLoader, VStack } from "@/shared/ui";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Profile } from "../../model/types/profile";
 import styles from "./ProfileCard.module.scss";
 
-interface ProfileCardProps {
+interface ProfileCardProps extends DataTestId {
   className?: string;
   profile?: Profile;
   readOnly: boolean;
@@ -35,12 +36,14 @@ export const ProfileCard = memo(function ProfileCard({
   onAvatarChange,
   onCurrencyChange,
   onCountryChange,
+  "data-testid": dataTestId = "ProfileCard",
 }: ProfileCardProps) {
   const { t } = useTranslation("profilePage", { keyPrefix: "ProfileCard" });
 
   if (isLoading) {
     return (
       <div
+        data-testid={`${dataTestId}.Loader`}
         className={classNames(styles.profileCard, {}, [
           className,
           styles.loading,
@@ -54,6 +57,7 @@ export const ProfileCard = memo(function ProfileCard({
   return (
     <VStack
       gap={16}
+      data-testid={dataTestId}
       className={classNames(styles.profileCard, {}, [className])}
     >
       <VStack gap={8}>
@@ -61,12 +65,14 @@ export const ProfileCard = memo(function ProfileCard({
           <Avatar src={profile?.avatar} size={100} />
         </HStack>
         <Input
+          data-testid={`${dataTestId}.Firstname`}
           readOnly={readOnly || isLoading}
           label={t("Имя")}
           value={profile?.first}
           onChange={onFirstnameChange}
         />
         <Input
+          data-testid={`${dataTestId}.Lastname`}
           readOnly={readOnly || isLoading}
           label={t("Фамилия")}
           value={profile?.lastname}

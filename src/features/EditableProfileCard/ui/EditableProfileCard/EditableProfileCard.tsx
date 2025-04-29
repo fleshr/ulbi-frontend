@@ -1,6 +1,7 @@
 import { Profile, ProfileCard } from "@/entities/Profile";
 import { useInitialEffect } from "@/shared/lib/hooks";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
+import { DataTestId } from "@/shared/types";
 import { Text, VStack } from "@/shared/ui";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
@@ -12,7 +13,7 @@ import {
 import { ValidateError } from "../../model/types/profileForm";
 import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
 
-interface EditableProfileCardProps {
+interface EditableProfileCardProps extends DataTestId {
   className?: string;
   profileId: string;
 }
@@ -20,6 +21,7 @@ interface EditableProfileCardProps {
 export const EditableProfileCard = memo(function EditableProfileCard({
   className,
   profileId,
+  "data-testid": dataTestId = "EditableProfileCard",
 }: EditableProfileCardProps) {
   const dispatch = useAppDispatch();
   const { t } = useTranslation("profilePage");
@@ -106,13 +108,18 @@ export const EditableProfileCard = memo(function EditableProfileCard({
   );
 
   return (
-    <VStack className={className} gap={16}>
+    <VStack data-testid={dataTestId} className={className} gap={16}>
       <EditableProfileCardHeader />
       <VStack gap={4}>
         {validateErrors &&
           validateErrors.length > 0 &&
-          validateErrors.map((error) => (
-            <Text key={error} text={errorMessage[error]} variant="error" />
+          validateErrors.map((error, index) => (
+            <Text
+              data-testid={`${dataTestId}.Error.${String(index)}`}
+              key={error}
+              text={errorMessage[error]}
+              variant="error"
+            />
           ))}
         <ProfileCard
           profile={profile}
