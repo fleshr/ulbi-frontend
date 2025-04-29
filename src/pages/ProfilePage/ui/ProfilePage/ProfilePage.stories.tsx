@@ -3,8 +3,8 @@ import { Currency } from "@/entities/Currency";
 import { ValidateError } from "@/entities/Profile";
 import { UserState } from "@/entities/User";
 import avatar from "@/shared/assets/tests/avatar.jpg";
+import { withRouterProvider, withStoreProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
-import { withStoreProvider } from "../../../../shared/lib/decorators";
 import { ProfilePage } from "./ProfilePage";
 
 const profile = {
@@ -26,6 +26,7 @@ const profile = {
 const meta = {
   title: "pages/ProfilePage/ProfilePage",
   component: ProfilePage,
+  decorators: [withRouterProvider()],
 } satisfies Meta<typeof ProfilePage>;
 
 export default meta;

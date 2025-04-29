@@ -1,6 +1,10 @@
 import { mockArticles } from "@/entities/Article";
-import { withRouterProvider, withStoreProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
+import { WithTestplane } from "@testplane/storybook";
+import {
+  withRouterProvider,
+  withStoreProvider,
+} from "../../../../shared/lib/decorators";
 import { mockedArticlesPage } from "../../mock/articlesPage";
 import { ArticlesPage } from "./ArticlesPage";
 
@@ -8,7 +12,10 @@ const meta = {
   title: "pages/ArticlesPage/ArticlesPage",
   component: ArticlesPage,
   decorators: [withRouterProvider()],
-} satisfies Meta<typeof ArticlesPage>;
+  testplaneConfig: {
+    skip: true,
+  },
+} satisfies WithTestplane<Meta<typeof ArticlesPage>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

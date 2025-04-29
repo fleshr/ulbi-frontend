@@ -4,23 +4,18 @@ import { ConfigInput } from "testplane";
 
 const config: ConfigInput = {
   gridUrl: "local",
-  assertViewOpts: {
-    screenshotDelay: 250,
-  },
   browsers: {
     chrome: {
       headless: true,
       desiredCapabilities: {
         browserName: "chrome",
-        "goog:chromeOptions": {
-          args: ["--no-sandbox"],
-        },
       },
     },
   },
   plugins: {
     "@testplane/storybook": {
       storybookConfigDir: "./config/storybook",
+      remoteStorybookUrl: "http://localhost:6006/",
     },
     "html-reporter/testplane": {},
   },

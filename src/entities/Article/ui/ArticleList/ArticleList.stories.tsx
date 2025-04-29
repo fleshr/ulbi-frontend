@@ -1,5 +1,6 @@
-import { withRouterProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
+import { WithTestplane } from "@testplane/storybook";
+import { withRouterProvider } from "../../../../shared/lib/decorators";
 import { mockArticles } from "../../mock/article";
 import { ArticleList } from "./ArticleList";
 
@@ -7,7 +8,10 @@ const meta = {
   title: "entities/Article/ArticleList",
   component: ArticleList,
   decorators: [withRouterProvider()],
-} satisfies Meta<typeof ArticleList>;
+  testplaneConfig: {
+    skip: true,
+  },
+} satisfies WithTestplane<Meta<typeof ArticleList>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

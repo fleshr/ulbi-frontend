@@ -24,7 +24,6 @@ const config: Config = {
     __API__: "http://localhost:8000",
     __PROJECT__: "jest",
   },
-  maxConcurrency: 1,
 };
 
 export default config;
