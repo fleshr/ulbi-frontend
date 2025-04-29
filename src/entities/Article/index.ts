@@ -10,7 +10,7 @@ export {
   type ArticleView,
 } from "./model/types";
 export { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails";
-export { ArticleList } from "./ui/ArticleList/ArticleList";
+export { ArticlesList } from "./ui/ArticlesList/ArticlesList";
 export { ArticleSortSelector } from "./ui/ArticleSortSelector/ArticleSortSelector";
 export { ArticlesViewSelector } from "./ui/ArticlesViewSelector/ArticlesViewSelector";
 export { ArticleTypeTabs } from "./ui/ArticleTypeTabs/ArticleTypeTabs";

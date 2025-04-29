@@ -35,7 +35,7 @@
     "Комментарий": "Comment",
     "Отправить": "Send"
   },
-  "ArticleListItem": {
+  "ArticleCard": {
     "Читать далее": "Read more"
   },
   "ArticleSortSelector": {
@@ -47,7 +47,7 @@
     "убыванию": "ascending",
     "возрастанию": "descending"
   },
-  "ArticleList": {
+  "ArticlesList": {
     "Статьи не найдены": "Articles not found"
   }
 }

@@ -3,6 +3,7 @@
   "Данные не получены": "No data",
   "Некорректные данные": "Incorrect data",
   "Некорректный возраст": "Incorrect age",
+  "Профиль не найден": "Profile not found",
   "ProfileCard": {
     "Имя": "Name",
     "Фамилия": "Lastname",

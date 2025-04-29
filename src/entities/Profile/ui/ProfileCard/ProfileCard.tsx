@@ -4,7 +4,7 @@ import { classNames } from "@/shared/lib";
 import { Avatar, HStack, Input, PageLoader, VStack } from "@/shared/ui";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Profile } from "../../model/types";
+import { Profile } from "../../model/types/profile";
 import styles from "./ProfileCard.module.scss";
 
 interface ProfileCardProps {

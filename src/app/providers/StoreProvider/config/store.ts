@@ -1,18 +1,18 @@
 import { ArticleState } from "@/entities/Article";
 import { counterSlice } from "@/entities/Counter";
-import { type ProfileState } from "@/entities/Profile";
 import { userSlice } from "@/entities/User";
 import { AddCommentFormState } from "@/features/AddCommentForm";
 import { type LoginState } from "@/features/AuthByUsername";
+import { ProfileFormState } from "@/features/EditableProfileCard";
 import { scrollRestorationSlice } from "@/features/ScrollRestoration";
 import { ArticleDetailsPageState } from "@/pages/ArticleDetailsPage";
 import { ArticlesPageState } from "@/pages/ArticlesPage";
-import { api } from "@/shared/api";
+import { api, rtkApi } from "@/shared/api";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 
 export interface LazyLoadedSlices {
   login: LoginState;
-  profile: ProfileState;
+  profileForm: ProfileFormState;
   articleDetails: ArticleState;
   articleDetailsPage: ArticleDetailsPageState;
   addCommentForm: AddCommentFormState;
@@ -23,6 +23,7 @@ export const rootReducer = combineSlices(
   counterSlice,
   userSlice,
   scrollRestorationSlice,
+  rtkApi,
 ).withLazyLoadedSlices<LazyLoadedSlices>();
 
 export const setupStore = (preloadedState?: Partial<RootState>) => {
@@ -31,11 +32,9 @@ export const setupStore = (preloadedState?: Partial<RootState>) => {
     devTools: __IS_DEV__,
     preloadedState,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        thunk: {
-          extraArgument: { api },
-        },
-      }),
+      getDefaultMiddleware({ thunk: { extraArgument: { api } } }).concat(
+        rtkApi.middleware,
+      ),
   });
 };
 
