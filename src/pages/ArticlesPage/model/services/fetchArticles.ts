@@ -2,10 +2,8 @@ import type { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
 import type { Article } from "@/entities/Article";
 import { ArticleType } from "@/entities/Article";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  articlesPageActions,
-  articlesPageSelectors,
-} from "../articlesPageSlice";
+import { articlesPageActions } from "../actions/articlePageActions";
+import { articlesPageSelectors } from "../selectors/articlePageSelectors";
 
 export const fetchArticles = createAsyncThunk<
   Article[],

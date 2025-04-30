@@ -13,10 +13,8 @@ import { useDebounce } from "@/shared/lib/hooks";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
 import { HStack, Input, VStack } from "@/shared/ui";
 import { memo, useCallback } from "react";
-import {
-  articlesPageActions,
-  articlesPageSelectors,
-} from "../../model/articlesPageSlice";
+import { articlesPageActions } from "../../model/actions/articlePageActions";
+import { articlesPageSelectors } from "../../model/selectors/articlePageSelectors";
 import { fetchArticles } from "../../model/services/fetchArticles";
 
 interface ArticlesPageFilterProps {

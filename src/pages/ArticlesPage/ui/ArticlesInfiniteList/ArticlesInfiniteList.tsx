@@ -3,7 +3,7 @@ import { useInitialEffect } from "@/shared/lib/hooks";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
 import type { FC } from "react";
 import { memo } from "react";
-import { articlesPageSelectors } from "../../model/articlesPageSlice";
+import { articlesPageSelectors } from "../../model/selectors/articlePageSelectors";
 import { initArticlesPage } from "../../model/services/initArticlesPage";
 
 export const ArticlesInfiniteList: FC = memo(function ArticlesInfiniteList() {

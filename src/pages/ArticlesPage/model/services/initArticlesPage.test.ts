@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from "@/shared/lib/tests";
 import { mockedArticlesPage } from "../../mock/articlesPage";
-import { articlesPageActions } from "../articlesPageSlice";
+import { articlesPageActions } from "../actions/articlePageActions";
 import { fetchArticles } from "./fetchArticles";
 import { initArticlesPage } from "./initArticlesPage";
 
