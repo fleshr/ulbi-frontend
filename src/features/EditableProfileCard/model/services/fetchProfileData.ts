@@ -7,7 +7,7 @@ export const fetchProfileData = createAsyncThunk<
   string,
   ThunkOptions<string>
 >(
-  "profile/fetchProfileData",
+  "profileForm/fetchProfileData",
   async (profileId, { rejectWithValue, extra: { api } }) => {
     try {
       const { data } = await api.get<Profile | undefined>(

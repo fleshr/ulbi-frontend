@@ -41,7 +41,7 @@ export const profileFormSlice = createSlice({
     getReadOnly: (state) => state.readonly,
     getValidateErrors: (state) => state.validateErrors,
   },
-  extraReducers(builder) {
+  extraReducers: (builder) => {
     builder
       .addCase(fetchProfileData.pending, (state) => {
         state.isLoading = true;
@@ -55,9 +55,7 @@ export const profileFormSlice = createSlice({
       .addCase(fetchProfileData.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      });
-
-    builder
+      })
       .addCase(updateProfileData.pending, (state) => {
         state.isLoading = true;
         state.validateErrors = undefined;

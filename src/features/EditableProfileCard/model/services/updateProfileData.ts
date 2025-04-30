@@ -10,7 +10,7 @@ export const updateProfileData = createAsyncThunk<
   undefined,
   ThunkOptions<ValidateError[]>
 >(
-  "profile/updateProfileData",
+  "profileForm/updateProfileData",
   async (_, { rejectWithValue, getState, extra: { api } }) => {
     try {
       const formData = profileFormSelectors.getForm(getState());
