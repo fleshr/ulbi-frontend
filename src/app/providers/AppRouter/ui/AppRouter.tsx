@@ -6,11 +6,17 @@ import { PrivateRoute } from "./PrivateRoute";
 
 export const AppRouter: FC = () => {
   const routes = useMemo(() => {
-    return routeConfig.map(({ path, element, authOnly }) => (
+    return routeConfig.map(({ path, element, authOnly, roles }) => (
       <Route
         key={path}
         path={path}
-        element={authOnly ? <PrivateRoute>{element}</PrivateRoute> : element}
+        element={
+          authOnly ? (
+            <PrivateRoute roles={roles}>{element}</PrivateRoute>
+          ) : (
+            element
+          )
+        }
       />
     ));
   }, []);

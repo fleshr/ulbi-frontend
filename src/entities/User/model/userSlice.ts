@@ -8,6 +8,7 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   selectors: {
+    getRoles: (state) => state.user?.roles,
     getUserData: (state) => state.user,
     getUserInitialized: (state) => state._initialized,
   },

@@ -1,14 +1,25 @@
-import { userSelectors } from "@/entities/User";
+import { UserRole, userSelectors } from "@/entities/User";
 import { RoutePath } from "@/shared/config";
 import { useAppSelector } from "@/shared/model";
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, useMemo } from "react";
 import { Navigate } from "react-router-dom";
 
-export const PrivateRoute: FC<PropsWithChildren> = ({ children }) => {
+interface PrivateRouteProps extends PropsWithChildren {
+  roles?: UserRole[];
+}
+
+export const PrivateRoute: FC<PrivateRouteProps> = ({ children, roles }) => {
   const user = useAppSelector(userSelectors.getUserData);
+  const isUserHasRoles = useMemo(() => {
+    return Boolean(roles?.some((role) => user?.roles?.includes(role)));
+  }, [user, roles]);
 
   if (!user) {
-    return <Navigate to={RoutePath.main} />;
+    return <Navigate to={RoutePath.main} replace={true} />;
+  }
+
+  if (roles && !isUserHasRoles) {
+    return <Navigate to={RoutePath.forbidden} replace={true} />;
   }
 
   return children;

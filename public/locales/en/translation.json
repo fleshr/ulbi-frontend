@@ -17,7 +17,8 @@
   "Navbar": {
     "Войти": "Log in",
     "Выйти": "Log out",
-    "Профиль": "Profile"
+    "Профиль": "Profile",
+    "Панель администратора": "Admin panel"
   },
   "CurrencySelect": {
     "Валюта": "Currency"

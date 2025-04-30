@@ -1,4 +1,4 @@
-import { userActions, userSelectors } from "@/entities/User";
+import { userActions, userSelectors, getIsUserAdmin } from "@/entities/User";
 import { LoginModal } from "@/features/AuthByUsername";
 import { RoutePath } from "@/shared/config";
 import { classNames } from "@/shared/lib";
@@ -16,6 +16,7 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
   const { t } = useTranslation("translation", { keyPrefix: "Navbar" });
   const [isAuthModelOpen, setIsAuthModelOpen] = useState(false);
   const user = useAppSelector(userSelectors.getUserData);
+  const isAdmin = useAppSelector(getIsUserAdmin);
   const dispatch = useAppDispatch();
 
   const openAuthModal = useCallback(() => {
@@ -40,6 +41,14 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
         <Dropdown
           trigger={<Avatar size={30} src={user.avatar} />}
           items={[
+            ...(isAdmin
+              ? [
+                  {
+                    content: t("Панель администратора"),
+                    href: RoutePath.admin_panel,
+                  },
+                ]
+              : []),
             { content: t("Профиль"), href: `${RoutePath.profile}/${user.id}` },
             { content: t("Выйти"), onClick: handleLogout },
           ]}

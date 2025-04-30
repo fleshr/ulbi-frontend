@@ -564,14 +564,14 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://media.npr.org/assets/img/2022/07/14/lofi-girl-picture_sq-b009fed32c04c6f672a0aa8f7ba4a7fd50e8ce4b.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
       "avatar": "https://pyxis.nymag.com/v1/imgs/885/ea9/02d1f2cd6caeff95f72bfc996c2a6a1e1a-lofi-girl.1x.rsquare.w1400.jpg"
     }
   ],
