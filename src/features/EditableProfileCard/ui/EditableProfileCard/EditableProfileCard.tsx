@@ -7,11 +7,9 @@ import { Text, VStack } from "@/shared/ui";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { ValidateError } from "../../constants/validateError";
+import { profileFormSelectors } from "../../model/selectors/profileFormSelectors";
 import { fetchProfileData } from "../../model/services/fetchProfileData";
-import {
-  profileFormActions,
-  profileFormSelectors,
-} from "../../model/slices/profileFormSlice";
+import { profileFormActions } from "../../model/slices/profileFormSlice";
 import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
 
 interface EditableProfileCardProps extends DataTestId {

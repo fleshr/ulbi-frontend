@@ -4,11 +4,9 @@ import type { DataTestId } from "@/shared/types";
 import { Button, HStack, Text } from "@/shared/ui";
 import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { profileFormSelectors } from "../../model/selectors/profileFormSelectors";
 import { updateProfileData } from "../../model/services/updateProfileData";
-import {
-  profileFormActions,
-  profileFormSelectors,
-} from "../../model/slices/profileFormSlice";
+import { profileFormActions } from "../../model/slices/profileFormSlice";
 
 interface EditableProfileCardHeaderProps extends DataTestId {
   className?: string;

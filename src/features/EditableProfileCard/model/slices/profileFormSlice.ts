@@ -77,5 +77,4 @@ export const profileFormSlice = createSlice({
 
 export const injectedProfileSlice = profileFormSlice.injectInto(rootReducer);
 export const profileFormReducer = injectedProfileSlice.reducer;
-export const profileFormSelectors = injectedProfileSlice.selectors;
 export const profileFormActions = injectedProfileSlice.actions;
