@@ -1,6 +1,7 @@
 import { rootReducer } from "@/app/providers/StoreProvider/config/store";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AddCommentFormState } from "./types";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import type { AddCommentFormState } from "./types";
 
 const initialState: AddCommentFormState = {
   error: undefined,

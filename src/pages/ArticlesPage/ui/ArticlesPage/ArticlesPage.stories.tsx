@@ -1,6 +1,6 @@
 import { mockArticles } from "@/entities/Article";
 import type { Meta, StoryObj } from "@storybook/react";
-import { WithTestplane } from "@testplane/storybook";
+import type { WithTestplane } from "@testplane/storybook";
 import {
   withRouterProvider,
   withStoreProvider,

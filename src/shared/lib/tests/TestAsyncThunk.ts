@@ -1,5 +1,5 @@
-import { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
-import { AsyncThunkAction, Dispatch } from "@reduxjs/toolkit";
+import type { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
+import type { AsyncThunkAction, Dispatch } from "@reduxjs/toolkit";
 import axios from "axios";
 
 type ActionCreator<Returned, ThunkArg, RejectedValue> = (

@@ -1,5 +1,5 @@
 import avatar from "@/shared/assets/tests/avatar.jpg";
-import { Comment } from "../model/types";
+import type { Comment } from "../model/types";
 
 export const mockComment: Comment = {
   id: "1",

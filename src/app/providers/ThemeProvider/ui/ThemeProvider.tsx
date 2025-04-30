@@ -1,11 +1,5 @@
-import {
-  FC,
-  PropsWithChildren,
-  useCallback,
-  useLayoutEffect,
-  useMemo,
-  useState,
-} from "react";
+import type { FC, PropsWithChildren } from "react";
+import { useCallback, useLayoutEffect, useMemo, useState } from "react";
 import { Theme, ThemeContext } from "../lib/ThemeContext";
 
 export const LOCAL_STORAGE_THEME_KEY = "theme";

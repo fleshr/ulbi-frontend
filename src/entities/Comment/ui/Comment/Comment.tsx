@@ -2,7 +2,7 @@ import { RoutePath } from "@/shared/config";
 import { classNames } from "@/shared/lib";
 import { AppLink, Avatar, HStack, Skeleton, Text, VStack } from "@/shared/ui";
 import { memo } from "react";
-import { Comment as CommentType } from "../../model/types";
+import type { Comment as CommentType } from "../../model/types";
 import styles from "./Comment.module.scss";
 
 interface CommentProps {

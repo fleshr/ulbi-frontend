@@ -24,7 +24,7 @@ declare module "*.gif" {
 }
 
 declare module "*.svg" {
-  import { FC, SVGProps } from "react";
+  import type { FC, SVGProps } from "react";
   const content: FC<SVGProps<SVGElement>>;
   export default content;
 }
@@ -33,6 +33,9 @@ declare const __IS_DEV__: boolean;
 declare const __API__: string;
 declare const __PROJECT__: "storybook" | "jest" | "frontend";
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 declare type AppStore = import("../providers/StoreProvider").AppStore;
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 declare type RootState = import("../providers/StoreProvider").RootState;
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 declare type AppDispatch = import("../providers/StoreProvider").AppDispatch;

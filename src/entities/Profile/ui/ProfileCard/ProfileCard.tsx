@@ -1,11 +1,11 @@
 import { CountrySelect } from "@/entities/Country";
 import { CurrencySelect } from "@/entities/Currency";
 import { classNames } from "@/shared/lib";
-import { DataTestId } from "@/shared/types";
+import type { DataTestId } from "@/shared/types";
 import { Avatar, HStack, Input, PageLoader, VStack } from "@/shared/ui";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Profile } from "../../model/types/profile";
+import type { Profile } from "../../model/types/profile";
 import styles from "./ProfileCard.module.scss";
 
 interface ProfileCardProps extends DataTestId {

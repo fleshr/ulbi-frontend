@@ -1,7 +1,8 @@
 import { ArticlesList } from "@/entities/Article";
 import { useInitialEffect } from "@/shared/lib/hooks";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { FC, memo } from "react";
+import type { FC } from "react";
+import { memo } from "react";
 import { articlesPageSelectors } from "../../model/articlesPageSlice";
 import { initArticlesPage } from "../../model/services/initArticlesPage";
 

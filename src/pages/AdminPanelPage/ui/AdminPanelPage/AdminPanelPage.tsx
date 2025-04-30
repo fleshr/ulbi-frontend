@@ -1,6 +1,7 @@
 import { Text, VStack } from "@/shared/ui";
 import { Page } from "@/widgets/Page";
-import { FC, memo } from "react";
+import type { FC } from "react";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 
 export const AdminPanelPage: FC = memo(function AdminPanelPage() {

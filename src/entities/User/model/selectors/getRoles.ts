@@ -1,6 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { UserRole } from "../types";
-import { userSelectors } from "../userSlice";
+import { UserRole } from "../../constants/userRole";
+import { userSelectors } from "../slices/userSlice";
 
 export const getIsUserAdmin = createSelector(userSelectors.getRoles, (roles) =>
   Boolean(roles?.includes(UserRole.ADMIN)),

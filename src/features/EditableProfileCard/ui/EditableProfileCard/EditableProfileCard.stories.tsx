@@ -1,8 +1,8 @@
-import { UserState } from "@/entities/User";
+import type { UserState } from "@/entities/User";
 import { withRouterProvider, withStoreProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
+import { ValidateError } from "../../constants/validateError";
 import { mockProfileFormState } from "../../mock/profileFormState";
-import { ValidateError } from "../../model/types/profileForm";
 import { EditableProfileCard } from "./EditableProfileCard";
 
 const meta = {

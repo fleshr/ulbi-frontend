@@ -1,4 +1,4 @@
-import { Decorator } from "@storybook/react";
+import type { Decorator } from "@storybook/react";
 
 export const withWidth = (width: string | number = 360) => {
   const decorator: Decorator = (Story) => (

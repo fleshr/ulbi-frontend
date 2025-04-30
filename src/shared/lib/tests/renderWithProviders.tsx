@@ -2,7 +2,7 @@ import { StoreProvider } from "@/app/providers/StoreProvider/ui/StoreProvider";
 import { ThemeProvider } from "@/app/providers/ThemeProvider";
 import { i18nForTests } from "@/shared/config/i18n/i18nForTests";
 import { render } from "@testing-library/react";
-import { FC, PropsWithChildren, ReactNode } from "react";
+import type { FC, PropsWithChildren, ReactNode } from "react";
 import { I18nextProvider } from "react-i18next";
 import { MemoryRouter } from "react-router-dom";
 

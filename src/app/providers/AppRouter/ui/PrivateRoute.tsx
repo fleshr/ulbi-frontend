@@ -1,7 +1,9 @@
-import { UserRole, userSelectors } from "@/entities/User";
+import type { UserRole } from "@/entities/User";
+import { userSelectors } from "@/entities/User";
 import { RoutePath } from "@/shared/config";
 import { useAppSelector } from "@/shared/model";
-import { FC, PropsWithChildren, useMemo } from "react";
+import type { FC, PropsWithChildren } from "react";
+import { useMemo } from "react";
 import { Navigate } from "react-router-dom";
 
 interface PrivateRouteProps extends PropsWithChildren {

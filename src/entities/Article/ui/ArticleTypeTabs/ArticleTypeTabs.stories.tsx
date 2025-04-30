@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { ArticleType } from "../../model/types";
+import { ArticleType } from "../../constants/articleType";
 import { ArticleTypeTabs } from "./ArticleTypeTabs";
 
 const meta = {

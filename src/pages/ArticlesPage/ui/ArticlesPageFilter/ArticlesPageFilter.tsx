@@ -1,11 +1,13 @@
-import {
+import type {
   ArticleOrder,
   ArticleSortField,
+  ArticleType,
+  ArticleView,
+} from "@/entities/Article";
+import {
   ArticleSortSelector,
   ArticlesViewSelector,
-  ArticleType,
   ArticleTypeTabs,
-  ArticleView,
 } from "@/entities/Article";
 import { useDebounce } from "@/shared/lib/hooks";
 import { useAppDispatch, useAppSelector } from "@/shared/model";

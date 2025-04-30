@@ -1,5 +1,5 @@
-import { ArticleCommentsState } from "./articleComments";
-import { ArticleRecomendationsState } from "./articleRecomendations";
+import type { ArticleCommentsState } from "./articleComments";
+import type { ArticleRecomendationsState } from "./articleRecomendations";
 
 export interface ArticleDetailsPageState {
   comments: ArticleCommentsState;

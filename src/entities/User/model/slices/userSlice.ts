@@ -1,6 +1,7 @@
 import { USER_LOCALSTORAGE_KEY } from "@/shared/constants";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User, UserState } from "./types";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import type { User, UserState } from "../types/user";
 
 const initialState: UserState = { user: null, _initialized: false };
 

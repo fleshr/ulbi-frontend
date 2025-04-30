@@ -1,11 +1,6 @@
 import { classNames } from "@/shared/lib";
-import {
-  FC,
-  MouseEvent,
-  PropsWithChildren,
-  useCallback,
-  useEffect,
-} from "react";
+import type { FC, MouseEvent, PropsWithChildren } from "react";
+import { useCallback, useEffect } from "react";
 import { HStack } from "../Flex";
 import styles from "./Modal.module.scss";
 

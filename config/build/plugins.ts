@@ -2,9 +2,10 @@ import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { DefinePlugin, ProgressPlugin, WebpackPluginInstance } from "webpack";
+import type { WebpackPluginInstance } from "webpack";
+import { DefinePlugin, ProgressPlugin } from "webpack";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-import { BuildOptions } from "./types/config";
+import type { BuildOptions } from "./types/config";
 
 export const getPlugins = ({
   paths,

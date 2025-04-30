@@ -1,6 +1,6 @@
-import { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
+import type { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Article } from "../types";
+import type { Article } from "../types/article";
 
 export const fetchArticleDetails = createAsyncThunk<
   Article,

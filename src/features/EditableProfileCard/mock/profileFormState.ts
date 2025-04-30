@@ -1,23 +1,9 @@
-import { Country } from "@/entities/Country";
-import { Currency } from "@/entities/Currency";
-import avatar from "@/shared/assets/tests/avatar.jpg";
-import { ProfileFormState } from "../model/types/profileForm";
+import { mockProfile } from "@/entities/Profile";
+import type { ProfileFormState } from "../model/types/profileForm";
 
-const data = {
-  id: "1",
-  username: "John Doe",
-  age: 30,
-  country: Country.Russia,
-  first: "John",
-  lastname: "Doe",
-  avatar,
-  city: "Moscow",
-  currency: Currency.RUB,
-};
-
-export const mockProfileFormState: ProfileFormState = {
+export const mockProfileFormState = {
   isLoading: false,
   readonly: true,
-  data,
-  form: data,
-};
+  data: mockProfile,
+  form: mockProfile,
+} satisfies ProfileFormState;

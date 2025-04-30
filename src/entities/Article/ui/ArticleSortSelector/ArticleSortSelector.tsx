@@ -1,7 +1,8 @@
-import { HStack, Select, SelectOption } from "@/shared/ui";
+import type { SelectOption } from "@/shared/ui";
+import { HStack, Select } from "@/shared/ui";
 import { memo, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { ArticleOrder, ArticleSortField } from "../../model/types";
+import type { ArticleOrder, ArticleSortField } from "../../model/types/article";
 
 interface ArticleSortSelectorProps {
   className?: string;

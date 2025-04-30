@@ -1,7 +1,7 @@
 import { classNames } from "@/shared/lib";
 import { HStack, Skeleton, VStack } from "@/shared/ui";
 import { memo } from "react";
-import { ArticleView } from "../../model/types";
+import type { ArticleView } from "../../model/types/article";
 import styles from "./ArticleCardSkeleton.module.scss";
 
 interface ArticleCardSkeletonProps {

@@ -1,6 +1,6 @@
 import { resolve } from "path";
 import { getConfig } from "./config/build/config";
-import { BuildEnv, BuildPaths } from "./config/build/types/config";
+import type { BuildEnv, BuildPaths } from "./config/build/types/config";
 
 export default (env: BuildEnv) => {
   const mode = env.mode ?? "development";

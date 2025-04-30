@@ -1,5 +1,6 @@
-import { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
-import { Article, ArticleType } from "@/entities/Article";
+import type { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
+import type { Article } from "@/entities/Article";
+import { ArticleType } from "@/entities/Article";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   articlesPageActions,

@@ -1,23 +1,10 @@
-import { Country } from "@/entities/Country";
-import { Currency } from "@/entities/Currency";
-import { ValidateError } from "../types/profileForm";
+import { mockProfile } from "@/entities/Profile";
+import { ValidateError } from "../../constants/validateError";
 import { validateProfileData } from "./validateProfileData";
-
-const data = {
-  id: "1",
-  username: "John Doe",
-  age: 30,
-  country: Country.Russia,
-  first: "John",
-  lastname: "Doe",
-  avatar: "url",
-  city: "Moscow",
-  currency: Currency.RUB,
-};
 
 describe("validateProfileData", () => {
   it("no errors", () => {
-    const errors = validateProfileData(data);
+    const errors = validateProfileData(mockProfile);
     expect(errors).toEqual([]);
   });
 
@@ -27,13 +14,13 @@ describe("validateProfileData", () => {
   });
 
   it("incorect user data error", () => {
-    const errors = validateProfileData({ ...data, username: "" });
+    const errors = validateProfileData({ ...mockProfile, username: "" });
     expect(errors).toEqual([ValidateError.INCORRECT_USER_DATA]);
   });
 
   it("incorect age error", () => {
     const errors = validateProfileData({
-      ...data,
+      ...mockProfile,
       age: undefined as unknown as number,
     });
     expect(errors).toEqual([ValidateError.INCORRECT_AGE]);
@@ -41,7 +28,7 @@ describe("validateProfileData", () => {
 
   it("multiple errors", () => {
     const errors = validateProfileData({
-      ...data,
+      ...mockProfile,
       username: "",
       age: undefined as unknown as number,
     });

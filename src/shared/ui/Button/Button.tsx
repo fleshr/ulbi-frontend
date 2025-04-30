@@ -1,6 +1,7 @@
 import { classNames } from "@/shared/lib";
-import { DataTestId } from "@/shared/types";
-import { ButtonHTMLAttributes, memo } from "react";
+import type { DataTestId } from "@/shared/types";
+import type { ButtonHTMLAttributes } from "react";
+import { memo } from "react";
 import styles from "./Button.module.scss";
 
 type Variant = "clear" | "outline" | "filled";

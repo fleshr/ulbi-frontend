@@ -8,7 +8,7 @@ import { ForbiddenPageLazy } from "@/pages/ForbiddenPage";
 import { MainPageLazy } from "@/pages/MainPage";
 import { NotFoundPageLazy } from "@/pages/NotFoundPage";
 import { ProfilePageLazy } from "@/pages/ProfilePage";
-import { PathRouteProps } from "react-router-dom";
+import type { PathRouteProps } from "react-router-dom";
 
 export interface RouteItem extends PathRouteProps {
   authOnly?: boolean;

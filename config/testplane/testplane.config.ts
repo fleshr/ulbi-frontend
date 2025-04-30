@@ -1,4 +1,4 @@
-import { ConfigInput } from "testplane";
+import type { ConfigInput } from "testplane";
 
 const config: ConfigInput = {
   gridUrl: "local",

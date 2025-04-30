@@ -1,6 +1,6 @@
 import { classNames } from "@/shared/lib";
-import { DataTestId } from "@/shared/types";
-import { FC, HTMLAttributes, ReactNode } from "react";
+import type { DataTestId } from "@/shared/types";
+import type { FC, HTMLAttributes, ReactNode } from "react";
 import styles from "./Flex.module.scss";
 
 type FlexDirection = "row" | "column";

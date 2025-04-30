@@ -1,5 +1,6 @@
 import { VStack } from "@/shared/ui";
-import { FC, memo } from "react";
+import type { FC } from "react";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 
 export const NotFoundPage: FC = memo(function NotFoundPage() {

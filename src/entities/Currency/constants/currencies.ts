@@ -1,5 +1,11 @@
+export enum Currency {
+  RUB = "RUB",
+  USD = "USD",
+  EUR = "EUR",
+}
+
 export const currencies = [
-  { value: "RUB", label: "RUB" },
-  { value: "USD", label: "USD" },
-  { value: "EUR", label: "EUR" },
+  { value: Currency.RUB, label: "RUB" },
+  { value: Currency.USD, label: "USD" },
+  { value: Currency.EUR, label: "EUR" },
 ];

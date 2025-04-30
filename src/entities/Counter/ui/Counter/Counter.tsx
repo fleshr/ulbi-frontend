@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
 import { getCounterValue } from "../../model/selectors/getCounterValue";
 import { decrement, increment } from "../../model/counterSlice";

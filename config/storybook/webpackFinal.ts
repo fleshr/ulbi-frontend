@@ -1,5 +1,6 @@
 import { resolve } from "path";
-import { Configuration, DefinePlugin, RuleSetRule } from "webpack";
+import type { Configuration, RuleSetRule } from "webpack";
+import { DefinePlugin } from "webpack";
 import { getScssLoader } from "../build/modules/loaders/scssLoader";
 import { getSvgLoader } from "../build/modules/loaders/svgLoader";
 

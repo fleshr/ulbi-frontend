@@ -2,7 +2,7 @@ import { mockArticle, mockArticles } from "@/entities/Article";
 import avatar from "@/shared/assets/tests/avatar.jpg";
 import { withRouterProvider, withStoreProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ArticleRecomendationsState } from "../../model/types/articleRecomendations";
+import type { ArticleRecomendationsState } from "../../model/types/articleRecomendations";
 import { ArticleDetailsPage } from "./ArticleDetailsPage";
 
 const comments = {

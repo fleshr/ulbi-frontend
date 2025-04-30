@@ -1,5 +1,6 @@
 import { classNames } from "@/shared/lib";
-import { ChangeEventHandler, useCallback, useId } from "react";
+import type { ChangeEventHandler } from "react";
+import { useCallback, useId } from "react";
 import { HStack } from "../Flex";
 import styles from "./Select.module.scss";
 

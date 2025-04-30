@@ -1,1 +1,1 @@
-export { type DataTestId } from "./DataTestId";
+export type { DataTestId } from "./DataTestId";

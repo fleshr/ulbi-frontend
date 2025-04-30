@@ -1,12 +1,7 @@
 import { classNames } from "@/shared/lib";
-import { DataTestId } from "@/shared/types";
-import {
-  ChangeEvent,
-  InputHTMLAttributes,
-  memo,
-  useCallback,
-  useId,
-} from "react";
+import type { DataTestId } from "@/shared/types";
+import type { ChangeEvent, InputHTMLAttributes } from "react";
+import { memo, useCallback, useId } from "react";
 import { HStack } from "../Flex";
 import styles from "./Input.module.scss";
 

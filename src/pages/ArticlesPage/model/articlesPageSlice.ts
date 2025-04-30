@@ -1,14 +1,15 @@
 import { rootReducer } from "@/app/providers/StoreProvider/config/store";
-import {
+import type {
   ArticleOrder,
   ArticleSortField,
-  ArticleType,
   ArticleView,
 } from "@/entities/Article";
+import { ArticleType } from "@/entities/Article";
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from "@/shared/constants";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchArticles } from "./services/fetchArticles";
-import { ArticlesPageState } from "./types";
+import type { ArticlesPageState } from "./types";
 
 const initialState: ArticlesPageState = {
   view: "small",

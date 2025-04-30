@@ -1,6 +1,6 @@
 import { getStoryFile } from "@testplane/storybook";
 import { dirname, join } from "path";
-import { ConfigInput } from "testplane";
+import type { ConfigInput } from "testplane";
 
 const config: ConfigInput = {
   gridUrl: "local",

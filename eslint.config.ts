@@ -1,5 +1,5 @@
 import pluginJs from "@eslint/js";
-import { Linter } from "eslint";
+import type { Linter } from "eslint";
 import pluginI18next from "eslint-plugin-i18next";
 import pluginJest from "eslint-plugin-jest";
 import pluginPrettierRecommended from "eslint-plugin-prettier/recommended";
@@ -41,6 +41,8 @@ export default tseslint.config([
   },
   {
     rules: {
+      "@typescript-eslint/consistent-type-exports": "error",
+      "@typescript-eslint/consistent-type-imports": "error",
       "@typescript-eslint/no-invalid-void-type": "warn",
     },
   },

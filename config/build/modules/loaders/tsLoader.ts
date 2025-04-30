@@ -1,5 +1,5 @@
 import ReactRefreshTypeScript from "react-refresh-typescript";
-import { RuleSetRule } from "webpack";
+import type { RuleSetRule } from "webpack";
 
 export const getTsLoader = (isDev: boolean): RuleSetRule => {
   const devOptions = {

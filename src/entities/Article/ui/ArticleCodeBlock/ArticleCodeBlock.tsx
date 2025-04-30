@@ -1,6 +1,6 @@
 import { Code } from "@/shared/ui";
 import { memo } from "react";
-import { ArticleCodeBlock as ArticleCodeBlockType } from "../../model/types";
+import type { ArticleCodeBlock as ArticleCodeBlockType } from "../../model/types/articleBlock";
 
 interface ArticleCodeBlockProps {
   className?: string;

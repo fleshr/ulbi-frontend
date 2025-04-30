@@ -1,5 +1,6 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { memo, ReactNode } from "react";
+import type { ReactNode } from "react";
+import { memo } from "react";
 import { AppLink } from "../AppLink/AppLink";
 import { Button } from "../Button/Button";
 import { VStack } from "../Flex";

@@ -1,5 +1,5 @@
 import { StoreProvider } from "@/app/providers/StoreProvider/ui/StoreProvider";
-import { Decorator } from "@storybook/react";
+import type { Decorator } from "@storybook/react";
 
 export const withStoreProvider = (preloadedState?: Partial<RootState>) => {
   const Decorator: Decorator = (Story) => {

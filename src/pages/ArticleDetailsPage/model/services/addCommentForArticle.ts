@@ -1,6 +1,6 @@
-import { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
+import type { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
 import { articleDetailsSelectors } from "@/entities/Article";
-import { Comment } from "@/entities/Comment";
+import type { Comment } from "@/entities/Comment";
 import { userSelectors } from "@/entities/User";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchCommentsByArticleId } from "./fetchCommentsByArticleId";

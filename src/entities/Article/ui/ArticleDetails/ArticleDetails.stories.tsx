@@ -1,7 +1,7 @@
 import { withStoreProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
 import { mockArticle } from "../../mock/article";
-import { ArticleState } from "../../model/types";
+import type { ArticleState } from "../../model/types/article";
 import { ArticleDetails } from "./ArticleDetails";
 
 const meta = {

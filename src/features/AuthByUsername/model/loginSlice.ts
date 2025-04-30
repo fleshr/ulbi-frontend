@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { LoginState } from "./types";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import type { LoginState } from "./types";
 import { loginByUsername } from "./services/loginByUsername";
 import { rootReducer } from "@/app/providers/StoreProvider/config/store";
 

@@ -1,6 +1,6 @@
 import { Text, VStack } from "@/shared/ui";
 import { memo } from "react";
-import { ArticleImageBlock as ArticleImageBlockType } from "../../model/types";
+import type { ArticleImageBlock as ArticleImageBlockType } from "../../model/types/articleBlock";
 import styles from "./ArticleImageBlock.module.scss";
 
 interface ArticleImageBlockProps {

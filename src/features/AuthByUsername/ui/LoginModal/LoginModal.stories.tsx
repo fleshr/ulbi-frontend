@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { WithTestplane } from "@testplane/storybook";
+import type { WithTestplane } from "@testplane/storybook";
 import {
   withFullHeight,
   withStoreProvider,

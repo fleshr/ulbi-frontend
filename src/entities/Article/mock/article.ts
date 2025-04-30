@@ -1,13 +1,13 @@
 import avatar from "@/shared/assets/tests/avatar.jpg";
 import img from "@/shared/assets/tests/img.jpg";
-import {
-  Article,
-  ArticleBlockType,
+import { ArticleBlock } from "../constants/articleBlock";
+import { ArticleType } from "../constants/articleType";
+import type { Article } from "../model/types/article";
+import type {
   ArticleCodeBlock,
   ArticleImageBlock,
   ArticleTextBlock,
-  ArticleType,
-} from "../model/types";
+} from "../model/types/articleBlock";
 
 export const mockArticle: Article = {
   id: "1",
@@ -25,7 +25,7 @@ export const mockArticle: Article = {
   blocks: [
     {
       id: "1",
-      type: ArticleBlockType.TEXT,
+      type: ArticleBlock.TEXT,
       title: "Заголовок этого блока",
       paragraphs: [
         "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
@@ -35,12 +35,12 @@ export const mockArticle: Article = {
     },
     {
       id: "2",
-      type: ArticleBlockType.CODE,
+      type: ArticleBlock.CODE,
       code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
     },
     {
       id: "3",
-      type: ArticleBlockType.IMAGE,
+      type: ArticleBlock.IMAGE,
       src: img,
       title: "Рисунок 1 - скриншот сайта",
     },

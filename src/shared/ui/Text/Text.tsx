@@ -1,5 +1,5 @@
 import { classNames } from "@/shared/lib";
-import { DataTestId } from "@/shared/types";
+import type { DataTestId } from "@/shared/types";
 import { memo } from "react";
 import styles from "./Text.module.scss";
 

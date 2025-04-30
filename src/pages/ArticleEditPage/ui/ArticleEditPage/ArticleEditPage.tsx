@@ -1,5 +1,6 @@
 import { Page } from "@/widgets/Page";
-import { FC, memo } from "react";
+import type { FC } from "react";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 

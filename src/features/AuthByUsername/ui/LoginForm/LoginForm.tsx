@@ -1,7 +1,8 @@
 import { classNames } from "@/shared/lib";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
 import { Button, Input, Text, VStack } from "@/shared/ui";
-import { FC, useCallback } from "react";
+import type { FC } from "react";
+import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import {
   getLoginState,

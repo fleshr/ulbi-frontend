@@ -1,41 +1,28 @@
-import { Country } from "@/entities/Country";
-import { Currency } from "@/entities/Currency";
 import { TestAsyncThunk } from "@/shared/lib/tests";
-import { ValidateError } from "../types/profileForm";
+import { ValidateError } from "../../constants/validateError";
+import { mockProfileFormState } from "../../mock/profileFormState";
 import { updateProfileData } from "./updateProfileData";
-
-const profileForm = {
-  isLoading: false,
-  readonly: true,
-  form: {
-    id: "1",
-    username: "John Doe",
-    age: 30,
-    country: Country.Russia,
-    first: "John",
-    lastname: "Doe",
-    avatar: "url",
-    city: "Moscow",
-    currency: Currency.RUB,
-  },
-};
 
 describe("updateProfileData", () => {
   it("success", async () => {
-    const testThunk = new TestAsyncThunk(updateProfileData, { profileForm });
+    const testThunk = new TestAsyncThunk(updateProfileData, {
+      profileForm: mockProfileFormState,
+    });
     testThunk.api.put.mockResolvedValue(
-      Promise.resolve({ data: profileForm.form }),
+      Promise.resolve({ data: mockProfileFormState.form }),
     );
     const res = await testThunk.callThunk(undefined);
 
     expect(testThunk.dispatch).toHaveBeenCalledTimes(2);
     expect(testThunk.api.put).toHaveBeenCalledTimes(1);
-    expect(res.payload).toEqual(profileForm.form);
+    expect(res.payload).toEqual(mockProfileFormState.form);
     expect(res.meta.requestStatus).toBe("fulfilled");
   });
 
   it("server error", async () => {
-    const testThunk = new TestAsyncThunk(updateProfileData, { profileForm });
+    const testThunk = new TestAsyncThunk(updateProfileData, {
+      profileForm: mockProfileFormState,
+    });
     testThunk.api.put.mockResolvedValue(Promise.reject(new Error()));
     const res = await testThunk.callThunk(undefined);
 
@@ -47,7 +34,7 @@ describe("updateProfileData", () => {
 
   it("no data error", async () => {
     const testThunk = new TestAsyncThunk(updateProfileData, {
-      profileForm: { ...profileForm, form: undefined },
+      profileForm: { ...mockProfileFormState, form: undefined },
     });
     const res = await testThunk.callThunk(undefined);
 
@@ -60,9 +47,9 @@ describe("updateProfileData", () => {
   it("validation error", async () => {
     const testThunk = new TestAsyncThunk(updateProfileData, {
       profileForm: {
-        ...profileForm,
+        ...mockProfileFormState,
         form: {
-          ...profileForm.form,
+          ...mockProfileFormState.form,
           username: "",
           age: undefined as unknown as number,
         },

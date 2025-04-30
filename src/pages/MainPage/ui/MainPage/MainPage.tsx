@@ -1,4 +1,5 @@
-import { FC, memo } from "react";
+import type { FC } from "react";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 
 export const MainPage: FC = memo(function MainPage() {

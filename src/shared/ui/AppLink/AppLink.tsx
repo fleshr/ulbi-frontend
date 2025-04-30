@@ -1,6 +1,8 @@
 import { classNames } from "@/shared/lib";
-import { FC, memo } from "react";
-import { Link, LinkProps } from "react-router-dom";
+import type { FC } from "react";
+import { memo } from "react";
+import type { LinkProps } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./AppLink.module.scss";
 
 type Variant = "primary" | "secondary" | "outline";

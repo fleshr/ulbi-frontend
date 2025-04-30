@@ -1,6 +1,6 @@
 import { userSelectors } from "@/entities/User";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { DataTestId } from "@/shared/types";
+import type { DataTestId } from "@/shared/types";
 import { Button, HStack, Text } from "@/shared/ui";
 import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";

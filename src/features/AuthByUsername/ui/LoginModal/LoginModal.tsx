@@ -1,5 +1,6 @@
 import { Modal, Portal } from "@/shared/ui";
-import { FC, Suspense } from "react";
+import type { FC } from "react";
+import { Suspense } from "react";
 import { LoginFormLazy } from "../LoginForm/LoginForm.lazy";
 
 interface LoginModalProps {

@@ -1,4 +1,5 @@
-import { Profile } from "@/entities/Profile";
+import type { Profile } from "@/entities/Profile";
+import type { ValidateError } from "../../constants/validateError";
 
 export interface ProfileFormState {
   data?: Profile;
@@ -7,11 +8,4 @@ export interface ProfileFormState {
   error?: string;
   readonly: boolean;
   validateErrors?: ValidateError[];
-}
-
-export enum ValidateError {
-  INCORRECT_USER_DATA = "INCORRECT_USER_DATA",
-  INCORRECT_AGE = "INCORRECT_AGE",
-  NO_DATA = "NO_DATA",
-  SERVER_ERROR = "SERVER_ERROR",
 }

@@ -1,9 +1,10 @@
 import { rootReducer } from "@/app/providers/StoreProvider/config/store";
-import { Profile } from "@/entities/Profile";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { Profile } from "@/entities/Profile";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchProfileData } from "../services/fetchProfileData";
 import { updateProfileData } from "../services/updateProfileData";
-import { ProfileFormState } from "../types/profileForm";
+import type { ProfileFormState } from "../types/profileForm";
 
 const initialState: ProfileFormState = {
   data: undefined,

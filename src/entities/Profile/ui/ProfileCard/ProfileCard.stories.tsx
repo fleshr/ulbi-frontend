@@ -1,5 +1,6 @@
+import { Country } from "@/entities/Country";
+import { Currency } from "@/entities/Currency";
 import avatar from "@/shared/assets/tests/avatar.jpg";
-import { Country, Currency } from "@/shared/constants";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ProfileCard } from "./ProfileCard";
 

@@ -1,7 +1,8 @@
 import { useAppDispatch } from "@/shared/model";
 import { VStack } from "@/shared/ui";
 import { Page } from "@/widgets/Page";
-import { FC, memo, useCallback } from "react";
+import type { FC } from "react";
+import { memo, useCallback } from "react";
 import { fetchNextArticlePage } from "../../model/services/fetchNextArticlePage";
 import { ArticlesInfiniteList } from "../ArticlesInfiniteList/ArticlesInfiniteList";
 import { ArticlesPageFilter } from "../ArticlesPageFilter/ArticlesPageFilter";

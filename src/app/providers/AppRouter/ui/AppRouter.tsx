@@ -1,6 +1,7 @@
 import { routeConfig } from "@/shared/config";
 import { PageLoader } from "@/shared/ui";
-import { FC, Suspense, useMemo } from "react";
+import type { FC } from "react";
+import { Suspense, useMemo } from "react";
 import { Route, Routes } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
 

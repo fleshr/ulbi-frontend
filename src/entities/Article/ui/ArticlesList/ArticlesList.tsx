@@ -1,9 +1,11 @@
 import { classNames } from "@/shared/lib";
 import { Text } from "@/shared/ui";
-import { useVirtualizer, VirtualItem } from "@tanstack/react-virtual";
-import { HTMLAttributeAnchorTarget, memo } from "react";
+import type { VirtualItem } from "@tanstack/react-virtual";
+import { useVirtualizer } from "@tanstack/react-virtual";
+import type { HTMLAttributeAnchorTarget } from "react";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Article, ArticleView } from "../../model/types";
+import type { Article, ArticleView } from "../../model/types/article";
 import { ArticleCard } from "../ArticleCard/ArticleCard";
 import { ArticleCardSkeleton } from "../ArticleCardSkeleton/ArticleCardSkeleton";
 import styles from "./ArticlesList.module.scss";

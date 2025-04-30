@@ -1,8 +1,9 @@
-import { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
-import { User, userActions } from "@/entities/User";
+import type { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
+import type { User } from "@/entities/User";
+import { userActions } from "@/entities/User";
 import { USER_LOCALSTORAGE_KEY } from "@/shared/constants";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { LoginSchema } from "../types";
+import type { LoginSchema } from "../types";
 
 export const loginByUsername = createAsyncThunk<
   User,

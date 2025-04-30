@@ -1,7 +1,7 @@
 import { Text, VStack } from "@/shared/ui";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Comment as CommentType } from "../../model/types";
+import type { Comment as CommentType } from "../../model/types";
 import { Comment } from "../Comment/Comment";
 
 interface CommentsListProps {

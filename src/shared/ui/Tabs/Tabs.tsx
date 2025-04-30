@@ -1,5 +1,5 @@
 import { classNames } from "@/shared/lib";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { HStack } from "../Flex";
 import styles from "./Tabs.module.scss";
 

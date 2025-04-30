@@ -1,9 +1,5 @@
-import {
-  counterReducer,
-  CounterState,
-  decrement,
-  increment,
-} from "./counterSlice";
+import type { CounterState } from "./counterSlice";
+import { counterReducer, decrement, increment } from "./counterSlice";
 
 describe("counterSlice", () => {
   it("should handle initial state", () => {

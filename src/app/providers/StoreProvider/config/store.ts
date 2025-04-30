@@ -1,12 +1,12 @@
-import { ArticleState } from "@/entities/Article";
+import type { ArticleState } from "@/entities/Article";
 import { counterSlice } from "@/entities/Counter";
 import { userSlice } from "@/entities/User";
-import { AddCommentFormState } from "@/features/AddCommentForm";
+import type { AddCommentFormState } from "@/features/AddCommentForm";
 import { type LoginState } from "@/features/AuthByUsername";
-import { ProfileFormState } from "@/features/EditableProfileCard";
+import type { ProfileFormState } from "@/features/EditableProfileCard";
 import { scrollRestorationSlice } from "@/features/ScrollRestoration";
-import { ArticleDetailsPageState } from "@/pages/ArticleDetailsPage";
-import { ArticlesPageState } from "@/pages/ArticlesPage";
+import type { ArticleDetailsPageState } from "@/pages/ArticleDetailsPage";
+import type { ArticlesPageState } from "@/pages/ArticlesPage";
 import { api, rtkApi } from "@/shared/api";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 

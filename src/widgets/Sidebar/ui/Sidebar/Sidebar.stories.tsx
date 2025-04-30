@@ -1,4 +1,4 @@
-import { UserState } from "@/entities/User";
+import type { UserState } from "@/entities/User";
 import {
   withFullHeight,
   withRouterProvider,

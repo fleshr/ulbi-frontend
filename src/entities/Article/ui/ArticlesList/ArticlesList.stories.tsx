@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { WithTestplane } from "@testplane/storybook";
+import type { WithTestplane } from "@testplane/storybook";
 import { withRouterProvider } from "../../../../shared/lib/decorators";
 import { mockArticles } from "../../mock/article";
 import { ArticlesList } from "./ArticlesList";

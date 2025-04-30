@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import type { FC, PropsWithChildren } from "react";
 import { Provider } from "react-redux";
 import { setupStore } from "../config/store";
 

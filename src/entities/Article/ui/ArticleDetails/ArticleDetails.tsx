@@ -4,9 +4,10 @@ import { useAppDispatch, useAppSelector } from "@/shared/model";
 import { Avatar, HStack, Skeleton, Text, VStack } from "@/shared/ui";
 import { memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { articleDetailsSelectors } from "../../model/articleDetailsSlice";
+import { ArticleBlock } from "../../constants/articleBlock";
 import { fetchArticleDetails } from "../../model/services/fetchArticleDetails";
-import { ArticleBlock, ArticleBlockType } from "../../model/types";
+import { articleDetailsSelectors } from "../../model/slices/articleDetailsSlice";
+import type { ArticleBlock as ArticleBlockType } from "../../model/types/articleBlock";
 import { ArticleCodeBlock } from "../ArticleCodeBlock/ArticleCodeBlock";
 import { ArticleImageBlock } from "../ArticleImageBlock/ArticleImageBlock";
 import { ArticleTextBlock } from "../ArticleTextBlock/ArticleTextBlock";
@@ -25,9 +26,9 @@ export const ArticleDetails = memo(function ArticleDetails({
   const isLoading = useAppSelector(articleDetailsSelectors.getIsLoading);
   const error = useAppSelector(articleDetailsSelectors.getError);
 
-  const renderBlock = useCallback((block: ArticleBlock) => {
+  const renderBlock = useCallback((block: ArticleBlockType) => {
     switch (block.type) {
-      case ArticleBlockType.TEXT:
+      case ArticleBlock.TEXT:
         return (
           <ArticleTextBlock
             key={block.id}
@@ -35,7 +36,7 @@ export const ArticleDetails = memo(function ArticleDetails({
             block={block}
           />
         );
-      case ArticleBlockType.CODE:
+      case ArticleBlock.CODE:
         return (
           <ArticleCodeBlock
             key={block.id}
@@ -43,7 +44,7 @@ export const ArticleDetails = memo(function ArticleDetails({
             block={block}
           />
         );
-      case ArticleBlockType.IMAGE:
+      case ArticleBlock.IMAGE:
         return (
           <ArticleImageBlock
             key={block.id}

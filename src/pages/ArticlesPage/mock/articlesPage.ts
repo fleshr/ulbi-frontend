@@ -1,5 +1,5 @@
 import { ArticleType } from "@/entities/Article";
-import { ArticlesPageState } from "../model/types";
+import type { ArticlesPageState } from "../model/types";
 
 export const mockedArticlesPage: ArticlesPageState = {
   articles: [],

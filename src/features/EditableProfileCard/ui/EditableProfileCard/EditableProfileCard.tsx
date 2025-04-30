@@ -1,16 +1,17 @@
-import { Profile, ProfileCard } from "@/entities/Profile";
+import type { Profile } from "@/entities/Profile";
+import { ProfileCard } from "@/entities/Profile";
 import { useInitialEffect } from "@/shared/lib/hooks";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { DataTestId } from "@/shared/types";
+import type { DataTestId } from "@/shared/types";
 import { Text, VStack } from "@/shared/ui";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
+import { ValidateError } from "../../constants/validateError";
 import { fetchProfileData } from "../../model/services/fetchProfileData";
 import {
   profileFormActions,
   profileFormSelectors,
 } from "../../model/slices/profileFormSlice";
-import { ValidateError } from "../../model/types/profileForm";
 import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
 
 interface EditableProfileCardProps extends DataTestId {

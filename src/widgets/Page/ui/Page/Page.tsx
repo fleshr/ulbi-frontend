@@ -9,7 +9,8 @@ import {
   useThrottle,
 } from "@/shared/lib/hooks";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { FC, PropsWithChildren, UIEventHandler, useRef } from "react";
+import type { FC, PropsWithChildren, UIEventHandler } from "react";
+import { useRef } from "react";
 import { useLocation } from "react-router";
 import styles from "./Page.module.scss";
 

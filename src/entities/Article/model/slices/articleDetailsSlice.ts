@@ -1,7 +1,7 @@
 import { rootReducer } from "@/app/providers/StoreProvider/config/store";
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchArticleDetails } from "./services/fetchArticleDetails";
-import { ArticleState } from "./types";
+import { fetchArticleDetails } from "../services/fetchArticleDetails";
+import type { ArticleState } from "../types/article";
 
 const initialState: ArticleState = {
   data: undefined,

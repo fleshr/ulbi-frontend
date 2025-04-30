@@ -1,5 +1,5 @@
-import { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
-import { Comment } from "@/entities/Comment";
+import type { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
+import type { Comment } from "@/entities/Comment";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchCommentsByArticleId = createAsyncThunk<

@@ -1,7 +1,7 @@
-import { UserState } from "@/entities/User";
+import type { UserState } from "@/entities/User";
 import { withStoreProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ProfileFormState } from "../../model/types/profileForm";
+import type { ProfileFormState } from "../../model/types/profileForm";
 import { EditableProfileCardHeader } from "./EditableProfileCardHeader";
 
 const meta = {

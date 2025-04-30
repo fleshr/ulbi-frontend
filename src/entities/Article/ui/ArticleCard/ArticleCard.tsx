@@ -2,10 +2,12 @@ import EyeIcon from "@/shared/assets/icons/eye.svg";
 import { RoutePath } from "@/shared/config";
 import { classNames } from "@/shared/lib";
 import { AppLink, Avatar, HStack, Text, VStack } from "@/shared/ui";
-import { HTMLAttributeAnchorTarget, memo } from "react";
+import type { HTMLAttributeAnchorTarget } from "react";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Article, ArticleBlockType, ArticleView } from "../../model/types";
+import { ArticleBlock } from "../../constants/articleBlock";
+import type { Article, ArticleView } from "../../model/types/article";
 import styles from "./ArticleCard.module.scss";
 
 interface ArticleCardProps {
@@ -25,7 +27,7 @@ export const ArticleCard = memo(function ArticleCard({
 
   if (view === "big") {
     const firstParagraph = blocks.find(
-      (block) => block.type === ArticleBlockType.TEXT,
+      (block) => block.type === ArticleBlock.TEXT,
     )?.paragraphs[0];
 
     return (
