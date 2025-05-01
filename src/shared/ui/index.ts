@@ -9,6 +9,7 @@ export { LangSwitcher } from "./LangSwitcher/LangSwitcher";
 export { Listbox, type ListboxItem } from "./Listbox/Listbox";
 export { Modal } from "./Modal/Modal";
 export { PageLoader } from "./PageLoader/PageLoader";
+export { Popover } from "./Popover/Popover";
 export { Portal } from "./Portal/Portal";
 export { Select, type SelectOption } from "./Select/Select";
 export { Skeleton } from "./Skeleton/Skeleton";

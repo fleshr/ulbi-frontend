@@ -1,3 +1,4 @@
+import { classNames } from "@/shared/lib";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import type { ReactNode } from "react";
 import { memo } from "react";
@@ -13,17 +14,21 @@ export interface DropdownItem {
 }
 
 interface DropdownProps {
+  className?: string;
   trigger: ReactNode;
   items: DropdownItem[];
 }
 
 export const Dropdown = memo(function Dropdown({
+  className,
   trigger,
   items,
 }: DropdownProps) {
   return (
     <Menu>
-      <MenuButton className={styles.btn}>{trigger}</MenuButton>
+      <MenuButton className={classNames(styles.btn, {}, [className])}>
+        {trigger}
+      </MenuButton>
       <MenuItems
         anchor="bottom end"
         className={styles.items}
