@@ -2,6 +2,7 @@ export { AppLink } from "./AppLink/AppLink";
 export { Avatar } from "./Avatar/Avatar";
 export { Button } from "./Button/Button";
 export { Code } from "./Code/Code";
+export { Drawer } from "./Drawer/Drawer";
 export { Dropdown, type DropdownItem } from "./Dropdown/Dropdown";
 export { HStack, VStack } from "./Flex";
 export { Input } from "./Input/Input";

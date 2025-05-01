@@ -1,15 +1,28 @@
 import { classNames } from "@/shared/lib";
-import type { FC, MouseEvent, PropsWithChildren } from "react";
-import { useCallback, useEffect } from "react";
+import {
+  memo,
+  useCallback,
+  useEffect,
+  type MouseEvent,
+  type ReactNode,
+} from "react";
 import { Overlay } from "../Overlay/Overlay";
-import styles from "./Modal.module.scss";
+import { Portal } from "../Portal/Portal";
+import styles from "./Drawer.module.scss";
 
-interface ModalProps extends PropsWithChildren {
+interface DrawerProps {
+  className?: string;
+  children?: ReactNode;
   isOpen: boolean;
   onClose: () => void;
 }
 
-export const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
+export const Drawer = memo(function Drawer({
+  className,
+  children,
+  isOpen,
+  onClose,
+}: DrawerProps) {
   const handleClose = useCallback(() => {
     onClose();
   }, [onClose]);
@@ -40,14 +53,17 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
   }, [handleKeyDown]);
 
   return (
-    <div
-      data-testid="Modal"
-      className={classNames(styles.modal, { [styles.open]: isOpen })}
-    >
-      <Overlay onClick={handleOverlayClick} />
-      <div onClick={handleContentClick} className={styles.content}>
-        {children}
+    <Portal>
+      <div
+        className={classNames(styles.drawer, { [styles.open]: isOpen }, [
+          className,
+        ])}
+      >
+        <Overlay onClick={handleOverlayClick} />
+        <div onClick={handleContentClick} className={styles.content}>
+          {children}
+        </div>
       </div>
-    </div>
+    </Portal>
   );
-};
+});
