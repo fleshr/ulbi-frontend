@@ -1,9 +1,6 @@
 .drawer {
   position: fixed;
   inset: 0;
-  display: none;
-  flex-direction: column;
-  z-index: 10;
 }
 
 .open {
@@ -20,4 +17,15 @@
   background-color: var(--bg-color);
   max-width: 100%;
   max-height: 100%;
+}
+
+.sheet {
+  padding: 20px;
+  background-color: var(--bg-color);
+  z-index: 100;
+  position: fixed;
+  height: calc(100vh + 100px);
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+  touch-action: none;
 }
