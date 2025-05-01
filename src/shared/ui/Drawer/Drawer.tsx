@@ -1,11 +1,6 @@
 import { classNames } from "@/shared/lib";
-import {
-  memo,
-  useCallback,
-  useEffect,
-  type MouseEvent,
-  type ReactNode,
-} from "react";
+import { useModal } from "@/shared/lib/hooks";
+import { memo, type ReactNode } from "react";
 import { Overlay } from "../Overlay/Overlay";
 import { Portal } from "../Portal/Portal";
 import styles from "./Drawer.module.scss";
@@ -15,6 +10,7 @@ interface DrawerProps {
   children?: ReactNode;
   isOpen: boolean;
   onClose: () => void;
+  lazy?: boolean;
 }
 
 export const Drawer = memo(function Drawer({
@@ -22,35 +18,13 @@ export const Drawer = memo(function Drawer({
   children,
   isOpen,
   onClose,
+  lazy = false,
 }: DrawerProps) {
-  const handleClose = useCallback(() => {
-    onClose();
-  }, [onClose]);
+  const { close, isMounted } = useModal({ isOpen, onClose });
 
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        handleClose();
-      }
-    },
-    [handleClose],
-  );
-
-  const handleOverlayClick = useCallback(() => {
-    handleClose();
-  }, [handleClose]);
-
-  const handleContentClick = useCallback((e: MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [handleKeyDown]);
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>
@@ -59,10 +33,8 @@ export const Drawer = memo(function Drawer({
           className,
         ])}
       >
-        <Overlay onClick={handleOverlayClick} />
-        <div onClick={handleContentClick} className={styles.content}>
-          {children}
-        </div>
+        <Overlay onClick={close} />
+        <div className={styles.content}>{children}</div>
       </div>
     </Portal>
   );

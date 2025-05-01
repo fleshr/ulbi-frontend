@@ -1,53 +1,37 @@
 import { classNames } from "@/shared/lib";
-import type { FC, MouseEvent, PropsWithChildren } from "react";
-import { useCallback, useEffect } from "react";
+import { useModal } from "@/shared/lib/hooks";
+import type { FC, PropsWithChildren } from "react";
 import { Overlay } from "../Overlay/Overlay";
+import { Portal } from "../Portal/Portal";
 import styles from "./Modal.module.scss";
 
 interface ModalProps extends PropsWithChildren {
   isOpen: boolean;
   onClose: () => void;
+  lazy?: boolean;
 }
 
-export const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
-  const handleClose = useCallback(() => {
-    onClose();
-  }, [onClose]);
+export const Modal: FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  children,
+  lazy = false,
+}) => {
+  const { close, isMounted } = useModal({ isOpen, onClose });
 
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        handleClose();
-      }
-    },
-    [handleClose],
-  );
-
-  const handleOverlayClick = useCallback(() => {
-    handleClose();
-  }, [handleClose]);
-
-  const handleContentClick = useCallback((e: MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [handleKeyDown]);
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
-    <div
-      data-testid="Modal"
-      className={classNames(styles.modal, { [styles.open]: isOpen })}
-    >
-      <Overlay onClick={handleOverlayClick} />
-      <div onClick={handleContentClick} className={styles.content}>
-        {children}
+    <Portal>
+      <div
+        data-testid="Modal"
+        className={classNames(styles.modal, { [styles.open]: isOpen })}
+      >
+        <Overlay onClick={close} />
+        <div className={styles.content}>{children}</div>
       </div>
-    </div>
+    </Portal>
   );
 };
