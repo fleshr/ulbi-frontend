@@ -1,4 +1,4 @@
-import { rootReducer } from "@/app/providers/StoreProvider/config/store";
+import { rootReducer } from "@/app/providers";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import type { AddCommentFormState } from "./types";

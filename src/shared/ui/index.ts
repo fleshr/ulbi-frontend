@@ -19,4 +19,3 @@ export { Spinner } from "./Spinner/Spinner";
 export { StarRating } from "./StarRating/StarRating";
 export { Tabs, type TabItem } from "./Tabs/Tabs";
 export { Text } from "./Text/Text";
-export { ThemeSwitcher } from "./ThemeSwitcher/ThemeSwitcher";

@@ -1,12 +1,7 @@
+import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { classNames } from "@/shared/lib";
 import { useAppSelector } from "@/shared/model";
-import {
-  Button,
-  HStack,
-  LangSwitcher,
-  ThemeSwitcher,
-  VStack,
-} from "@/shared/ui";
+import { Button, HStack, LangSwitcher, VStack } from "@/shared/ui";
 import { memo, useCallback, useMemo, useState } from "react";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems";
 import { SidebarItem } from "../SidebarItem/SidebarItem";

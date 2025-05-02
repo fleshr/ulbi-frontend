@@ -1,6 +1,6 @@
+import { withTheme } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ThemeSwitcher } from "./ThemeSwitcher";
-import { withTheme } from "@/shared/lib/decorators";
 
 const meta = {
   title: "shared/ThemeSwitcher",

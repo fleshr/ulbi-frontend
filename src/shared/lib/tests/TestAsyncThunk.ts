@@ -1,4 +1,4 @@
-import type { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
+import type { ThunkOptions } from "@/shared/types";
 import type { AsyncThunkAction, Dispatch } from "@reduxjs/toolkit";
 import axios from "axios";
 

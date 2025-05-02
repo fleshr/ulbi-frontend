@@ -1,5 +1,5 @@
-import type { ThunkOptions } from "@/app/providers/StoreProvider/config/store";
 import type { Profile } from "@/entities/Profile";
+import type { ThunkOptions } from "@/shared/types";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ValidateError } from "../../constants/validateError";
 import { profileFormSelectors } from "../selectors/profileFormSelectors";

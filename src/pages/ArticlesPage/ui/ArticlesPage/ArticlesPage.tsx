@@ -1,4 +1,4 @@
-import { rootReducer } from "@/app/providers/StoreProvider/config/store";
+import { rootReducer } from "@/app/providers";
 import { useAppDispatch } from "@/shared/model";
 import { VStack } from "@/shared/ui";
 import { Page } from "@/widgets/Page";

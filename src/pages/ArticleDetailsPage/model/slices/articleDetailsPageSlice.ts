@@ -1,4 +1,4 @@
-import { rootReducer } from "@/app/providers/StoreProvider/config/store";
+import { rootReducer } from "@/app/providers";
 import { combineSlices } from "@reduxjs/toolkit";
 import { articleCommentsReducer } from "./articleCommentsSlice";
 import { articleRecomendationsReducer } from "./articleRecomendationsSlice";

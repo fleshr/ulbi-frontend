@@ -1,4 +1,4 @@
-import { rootReducer } from "@/app/providers/StoreProvider/config/store";
+import { rootReducer } from "@/app/providers";
 import type { Profile } from "@/entities/Profile";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";

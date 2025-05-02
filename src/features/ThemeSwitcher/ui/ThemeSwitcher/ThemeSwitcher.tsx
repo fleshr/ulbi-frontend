@@ -1,11 +1,10 @@
-import { memo } from "react";
+import { useTheme } from "@/app/providers";
+import ThemeDarkIcon from "@/shared/assets/icons/theme-dark.svg";
+import ThemeLighIcon from "@/shared/assets/icons/theme-light.svg";
 import { classNames } from "@/shared/lib";
+import { Button } from "@/shared/ui";
+import { memo } from "react";
 import styles from "./ThemeSwitcher.module.scss";
-import { Button } from "../Button/Button";
-import { useTheme } from "@/app/providers/ThemeProvider";
-import ThemeDarkIcon from "../../assets/icons/theme-dark.svg";
-import ThemeLighIcon from "../../assets/icons/theme-light.svg";
-import { Theme } from "@/app/providers/ThemeProvider/lib/ThemeContext";
 
 interface ThemeSwitcherProps {
   className?: string;
@@ -21,7 +20,7 @@ export const ThemeSwitcher = memo(function ThemeSwitcher({
       onClick={toogleTheme}
       className={classNames(styles.themeSwitcher, {}, [className])}
     >
-      {theme === Theme.DARK ? <ThemeLighIcon /> : <ThemeDarkIcon />}
+      {theme === "dark" ? <ThemeLighIcon /> : <ThemeDarkIcon />}
     </Button>
   );
 });

@@ -1,8 +1,8 @@
+import { rootReducer } from "@/app/providers";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
-import type { LoginState } from "./types";
 import { loginByUsername } from "./services/loginByUsername";
-import { rootReducer } from "@/app/providers/StoreProvider/config/store";
+import type { LoginState } from "./types";
 
 const initialState: LoginState = {
   username: "",

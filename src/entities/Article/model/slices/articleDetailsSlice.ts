@@ -1,4 +1,4 @@
-import { rootReducer } from "@/app/providers/StoreProvider/config/store";
+import { rootReducer } from "@/app/providers";
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchArticleDetails } from "../services/fetchArticleDetails";
 import type { ArticleState } from "../types/article";

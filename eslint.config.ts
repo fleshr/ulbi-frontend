@@ -29,7 +29,8 @@ export default tseslint.config([
   {
     plugins: { myPlugin },
     rules: {
-      "myPlugin/import-relative-path": "error",
+      "myPlugin/import-relative-path": ["error", { alias: "@" }],
+      "myPlugin/public-api-import": ["error", { alias: "@" }],
     },
   },
   {
