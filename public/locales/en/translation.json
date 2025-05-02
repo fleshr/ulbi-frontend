@@ -50,5 +50,9 @@
   },
   "ArticlesList": {
     "Статьи не найдены": "Articles not found"
+  },
+  "RatingCard": {
+    "Отмена": "Cancel",
+    "Отправить": "Send"
   }
 }

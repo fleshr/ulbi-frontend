@@ -1,6 +1,7 @@
 export { AppLink } from "./AppLink/AppLink";
 export { Avatar } from "./Avatar/Avatar";
 export { Button } from "./Button/Button";
+export { Card } from "./Card/Card";
 export { Code } from "./Code/Code";
 export { Drawer } from "./Drawer/Drawer";
 export { Dropdown, type DropdownItem } from "./Dropdown/Dropdown";
@@ -15,6 +16,7 @@ export { Portal } from "./Portal/Portal";
 export { Select, type SelectOption } from "./Select/Select";
 export { Skeleton } from "./Skeleton/Skeleton";
 export { Spinner } from "./Spinner/Spinner";
+export { StarRating } from "./StarRating/StarRating";
 export { Tabs, type TabItem } from "./Tabs/Tabs";
 export { Text } from "./Text/Text";
 export { ThemeSwitcher } from "./ThemeSwitcher/ThemeSwitcher";

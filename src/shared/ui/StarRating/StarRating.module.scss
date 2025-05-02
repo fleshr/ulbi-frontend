@@ -1,0 +1,9 @@
+.star {
+  padding: 4px;
+  box-sizing: content-box;
+  cursor: pointer;
+}
+
+.selected {
+  fill: var(--primary-color);
+}
