@@ -1,4 +1,5 @@
 import { ArticleDetails } from "@/entities/Article";
+import { ArticleRating } from "@/features/ArticleRating";
 import { ArticleRecomendationsList } from "@/features/ArticleRecomendationsList";
 import { Text, VStack } from "@/shared/ui";
 import { Page } from "@/widgets/Page";
@@ -24,6 +25,7 @@ export const ArticleDetailsPage: FC = memo(function ArticleDetailsPage() {
       <VStack gap={32}>
         <AritcleDetailsHeader articleId={id} />
         <ArticleDetails id={id} />
+        <ArticleRating articleId={id} />
         <ArticleRecomendationsList />
         <ArticleDetailsComments articleId={id} />
       </VStack>

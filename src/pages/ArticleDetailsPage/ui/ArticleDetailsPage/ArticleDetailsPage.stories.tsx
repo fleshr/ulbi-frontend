@@ -1,4 +1,5 @@
 import { mockArticle, mockArticles } from "@/entities/Article";
+import { mockRating } from "@/entities/Rating";
 import avatar from "@/shared/assets/tests/avatar.jpg";
 import { withRouterProvider, withStoreProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
@@ -59,6 +60,16 @@ const recomendations: ArticleRecomendationsState = {
 const meta = {
   title: "pages/ArticleDetailsPage/ArticleDetailsPage",
   component: ArticleDetailsPage,
+  parameters: {
+    mockData: [
+      {
+        url: "http://localhost:8000/article-ratings?userId=1&articleId=1",
+        method: "GET",
+        status: 200,
+        response: [mockRating],
+      },
+    ],
+  },
 } satisfies Meta<typeof ArticleDetailsPage>;
 
 export default meta;

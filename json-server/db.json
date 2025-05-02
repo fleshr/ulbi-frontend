@@ -620,5 +620,40 @@
       "username": "admin213",
       "avatar": "https://pyxis.nymag.com/v1/imgs/885/ea9/02d1f2cd6caeff95f72bfc996c2a6a1e1a-lofi-girl.1x.rsquare.w1400.jpg"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rating": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rating": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "rating": 2,
+      "feedback": "good",
+      "id": "bPGsOz8"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "rating": 1,
+      "id": "7A3IDoB"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "rating": 1,
+      "id": "tmghYBZ"
+    }
   ]
 }

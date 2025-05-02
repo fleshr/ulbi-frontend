@@ -4,5 +4,9 @@
   "AritcleDetailsHeader": {
     "Назад к статьям": "Back to articles",
     "Редактировать статью": "Edit article"
+  },
+  "ArticleRating": {
+    "Оцените статью": "Rate this article",
+    "Напишите отзыв": "Write a review"
   }
 }

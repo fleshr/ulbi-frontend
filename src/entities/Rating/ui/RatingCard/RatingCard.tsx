@@ -20,6 +20,7 @@ interface RatingCardProps {
   feedbackTitle?: string;
   onCancel?: (starNumber: number) => void;
   onAccept?: (starNumber: number, feedback?: string) => void;
+  defaultRating?: number;
 }
 
 export const RatingCard = memo(function RatingCard({
@@ -29,11 +30,12 @@ export const RatingCard = memo(function RatingCard({
   feedbackTitle,
   onAccept,
   onCancel,
+  defaultRating,
 }: RatingCardProps) {
   const { t } = useTranslation("translation", { keyPrefix: "RatingCard" });
   const [feedback, setFeedback] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const [star, setStar] = useState(0);
+  const [star, setStar] = useState(defaultRating ?? 0);
 
   const handleModalAccept = useCallback(() => {
     onAccept?.(star, feedback);
