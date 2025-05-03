@@ -1,6 +1,6 @@
 import type { UserRole } from "@/entities/User";
 import { userSelectors } from "@/entities/User";
-import { RoutePath } from "@/shared/config";
+import { RoutePath } from "@/shared/constants";
 import { useAppSelector } from "@/shared/model";
 import type { FC, PropsWithChildren } from "react";
 import { useMemo } from "react";

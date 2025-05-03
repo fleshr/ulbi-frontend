@@ -1,5 +1,5 @@
 import EyeIcon from "@/shared/assets/icons/eye.svg";
-import { RoutePath } from "@/shared/config";
+import { RoutePath } from "@/shared/constants";
 import { classNames } from "@/shared/lib";
 import { AppLink, Avatar, HStack, Text, VStack } from "@/shared/ui";
 import type { HTMLAttributeAnchorTarget } from "react";

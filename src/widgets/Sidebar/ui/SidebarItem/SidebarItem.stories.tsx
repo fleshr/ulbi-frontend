@@ -1,5 +1,5 @@
 import MainIcon from "@/shared/assets/icons/main.svg";
-import { RoutePath } from "@/shared/config";
+import { RoutePath } from "@/shared/constants";
 import { withRouterProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
 import { SidebarItem } from "./SidebarItem";

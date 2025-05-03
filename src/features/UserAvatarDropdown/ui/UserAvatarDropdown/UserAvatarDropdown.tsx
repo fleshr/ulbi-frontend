@@ -1,5 +1,5 @@
 import { getIsUserAdmin, userActions, userSelectors } from "@/entities/User";
-import { RoutePath } from "@/shared/config";
+import { RoutePath } from "@/shared/constants";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
 import { Avatar, Dropdown } from "@/shared/ui";
 import { memo, useCallback } from "react";

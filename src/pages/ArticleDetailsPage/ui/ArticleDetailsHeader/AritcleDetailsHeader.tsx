@@ -1,4 +1,4 @@
-import { RoutePath } from "@/shared/config";
+import { RoutePath } from "@/shared/constants";
 import { useAppSelector } from "@/shared/model";
 import { AppLink, HStack } from "@/shared/ui";
 import { memo } from "react";
