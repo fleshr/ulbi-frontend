@@ -1,8 +1,15 @@
 import { withStyles } from "@/shared/lib/decorators";
-import type { Preview } from "@storybook/react";
+import { withThemeByClassName } from "@storybook/addon-themes";
+import type { Preview, ReactRenderer } from "@storybook/react";
 
 const preview: Preview = {
-  decorators: [withStyles],
+  decorators: [
+    withStyles,
+    withThemeByClassName<ReactRenderer>({
+      themes: { light: "", dark: "dark" },
+      defaultTheme: "light",
+    }),
+  ],
 };
 
 export default preview;
