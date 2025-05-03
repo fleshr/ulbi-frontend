@@ -20,7 +20,7 @@ export const getConfig = (options: BuildOptions): Configuration => {
       clean: true,
     },
     plugins: getPlugins(options),
-    devtool: isDev ? "inline-source-map" : undefined,
+    devtool: isDev ? "eval-source-map" : undefined,
     devServer: isDev ? getDevServer(options) : undefined,
   };
 };

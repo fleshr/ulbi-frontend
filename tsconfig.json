@@ -1,17 +1,21 @@
 {
   "compilerOptions": {
-    "isolatedModules": true,
-    "outDir": "./dist",
-    "target": "ES2015",
+    "target": "ES2022",
     "module": "ESNext",
-    "esModuleInterop": true,
+    "skipLibCheck": true,
+
     "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "allowJs": true,
+
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "allowJs": true,
-    "jsx": "react-jsx",
-    "skipLibCheck": true,
+
+    "paths": { "@/*": ["./src/*"] },
+
     "plugins": [
       {
         "name": "typescript-plugin-css-modules",
@@ -20,10 +24,7 @@
           "classnameTransform": "camelCaseOnly"
         }
       }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    ]
   },
   "include": [
     "**/*.ts",
@@ -35,7 +36,9 @@
   "exclude": ["node_modules", "dist"],
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
+      "module": "CommonJS",
+      "esModuleInterop": true,
+      "verbatimModuleSyntax": false
     }
   }
 }

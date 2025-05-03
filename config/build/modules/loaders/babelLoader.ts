@@ -8,7 +8,7 @@ export const getBabelLoader = (): RuleSetRule => {
     use: {
       loader: "babel-loader",
       options: {
-        targets: "defaults",
+        cacheDirectory: true,
         presets: [
           ["@babel/preset-env"],
           [

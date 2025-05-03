@@ -40,8 +40,8 @@ const getLibs = () => {
 };
 
 export const AnimationProvider: FC<PropsWithChildren> = ({ children }) => {
-  const springRef = useRef<SpringType>(null);
-  const gestureRef = useRef<GestureType>(null);
+  const springRef = useRef<SpringType | null>(null);
+  const gestureRef = useRef<GestureType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
