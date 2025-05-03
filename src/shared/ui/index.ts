@@ -7,7 +7,6 @@ export { Drawer } from "./Drawer/Drawer";
 export { Dropdown, type DropdownItem } from "./Dropdown/Dropdown";
 export { HStack, VStack } from "./Flex";
 export { Input } from "./Input/Input";
-export { LangSwitcher } from "./LangSwitcher/LangSwitcher";
 export { Listbox, type ListboxItem } from "./Listbox/Listbox";
 export { Modal } from "./Modal/Modal";
 export { PageLoader } from "./PageLoader/PageLoader";

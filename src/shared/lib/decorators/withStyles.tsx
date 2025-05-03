@@ -1,5 +1,5 @@
 import type { Decorator } from "@storybook/react";
-// eslint-disable-next-line myPlugin/public-api-import
+// eslint-disable-next-line myPlugin/public-api-import, myPlugin/layers-import
 import "@/app/styles/index.scss";
 
 export const withStyles: Decorator = (Story) => {

@@ -1,3 +1,4 @@
+// eslint-disable-next-line myPlugin/layers-import
 import { StoreProvider, ThemeProvider } from "@/app/providers";
 import { i18nForTests } from "@/shared/config/i18n/i18nForTests";
 import { render } from "@testing-library/react";

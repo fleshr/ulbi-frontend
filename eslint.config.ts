@@ -31,6 +31,10 @@ export default tseslint.config([
     rules: {
       "myPlugin/import-relative-path": ["error", { alias: "@" }],
       "myPlugin/public-api-import": ["error", { alias: "@" }],
+      "myPlugin/layers-import": [
+        "error",
+        { alias: "@", ignoreImportPatterns: ["app/providers"] },
+      ],
     },
   },
   {
