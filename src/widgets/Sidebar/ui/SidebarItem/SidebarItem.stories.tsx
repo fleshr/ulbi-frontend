@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SidebarItem } from "./SidebarItem";
 
 const item = {
-  path: RoutePath.main,
+  path: RoutePath.getMainRoute(),
   text: "Главная",
   Icon: MainIcon,
 } as const;

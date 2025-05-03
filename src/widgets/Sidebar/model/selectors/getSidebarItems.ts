@@ -12,12 +12,12 @@ export const getSidebarItems = createSelector(
   (user) => {
     const sidebarItems: SidebarItemType[] = [
       {
-        path: RoutePath.main,
+        path: RoutePath.getMainRoute(),
         text: "Главная",
         Icon: MainIcon,
       },
       {
-        path: RoutePath.about,
+        path: RoutePath.getAboutRoute(),
         text: "О нас",
         Icon: AboutIcon,
       },
@@ -26,13 +26,13 @@ export const getSidebarItems = createSelector(
     if (user) {
       sidebarItems.push(
         {
-          path: `${RoutePath.profile}/${user.id}`,
+          path: RoutePath.getProfileRoute(user.id),
           text: "Профиль",
           Icon: ProfileIcon,
           authOnly: true,
         },
         {
-          path: RoutePath.articles,
+          path: RoutePath.getArticlesRoute(),
           text: "Статьи",
           Icon: ArticleIcon,
           authOnly: true,

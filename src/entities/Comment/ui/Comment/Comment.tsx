@@ -32,7 +32,7 @@ export const Comment = memo(function Comment({
     <VStack gap={4} className={classNames(styles.comment, {}, [className])}>
       <AppLink
         className={classNames(styles.header, {}, [])}
-        to={`${RoutePath.profile}/${user.id}`}
+        to={RoutePath.getProfileRoute(user.id)}
       >
         <HStack gap={8}>
           {user.avatar && <Avatar size={30} src={user.avatar} />}

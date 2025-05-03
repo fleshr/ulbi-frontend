@@ -34,13 +34,13 @@ export const UserAvatarDropdown = memo(function UserAvatarDropdown({
           ? [
               {
                 content: t("Панель администратора"),
-                href: RoutePath.admin_panel,
+                href: RoutePath.getAdminPanelRoute(),
               },
             ]
           : []),
         {
           content: t("Профиль"),
-          href: `${RoutePath.profile}/${user.id}`,
+          href: RoutePath.getProfileRoute(user.id),
         },
         { content: t("Выйти"), onClick: handleLogout },
       ]}

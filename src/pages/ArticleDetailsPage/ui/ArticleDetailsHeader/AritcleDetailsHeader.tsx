@@ -21,12 +21,12 @@ export const AritcleDetailsHeader = memo(function AritcleDetailsHeader({
 
   return (
     <HStack justify="between" className={className}>
-      <AppLink to={RoutePath.articles} variant="outline">
+      <AppLink to={RoutePath.getArticlesRoute()} variant="outline">
         {t("Назад к статьям")}
       </AppLink>
       {canEdit && (
         <AppLink
-          to={RoutePath.article_edit.replace(":id", articleId)}
+          to={RoutePath.getArticleEditRoute(articleId)}
           variant="outline"
         >
           {t("Редактировать статью")}

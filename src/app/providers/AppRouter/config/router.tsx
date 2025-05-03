@@ -17,39 +17,52 @@ interface RouteItem extends PathRouteProps {
 }
 
 export const routeConfig: RouteItem[] = [
-  { path: RoutePath.main, element: <MainPageLazy /> },
-  { path: RoutePath.about, element: <AboutPageLazy /> },
   {
-    path: `${RoutePath.profile}/:id`,
+    path: RoutePath.getMainRoute(),
+    element: <MainPageLazy />,
+  },
+  {
+    path: RoutePath.getAboutRoute(),
+    element: <AboutPageLazy />,
+  },
+  {
+    path: RoutePath.getProfileRoute(":id"),
     element: <ProfilePageLazy />,
     authOnly: true,
   },
-  { path: RoutePath.articles, element: <ArticlesPageLazy />, authOnly: true },
   {
-    path: `${RoutePath.articles}/:id`,
+    path: RoutePath.getArticlesRoute(),
+    element: <ArticlesPageLazy />,
+    authOnly: true,
+  },
+  {
+    path: RoutePath.getArticleRoute(":id"),
     element: <ArticleDetailsPageLazy />,
     authOnly: true,
   },
   {
-    path: RoutePath.article_create,
+    path: RoutePath.getArticleCreateRoute(),
     element: <ArticleEditPageLazy />,
     authOnly: true,
   },
   {
-    path: RoutePath.article_edit,
+    path: RoutePath.getArticleEditRoute(":id"),
     element: <ArticleEditPageLazy />,
     authOnly: true,
   },
   {
-    path: RoutePath.admin_panel,
+    path: RoutePath.getAdminPanelRoute(),
     element: <AdminPanelPageLazy />,
     authOnly: true,
     roles: [UserRole.ADMIN],
   },
   {
-    path: RoutePath.forbidden,
+    path: RoutePath.getForbiddenRoute(),
     element: <ForbiddenPageLazy />,
     authOnly: true,
   },
-  { path: RoutePath.not_found, element: <NotFoundPageLazy /> },
+  {
+    path: RoutePath.getNotFoundRoute(),
+    element: <NotFoundPageLazy />,
+  },
 ];

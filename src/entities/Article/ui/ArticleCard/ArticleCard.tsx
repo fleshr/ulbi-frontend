@@ -50,7 +50,7 @@ export const ArticleCard = memo(function ArticleCard({
           {firstParagraph && <Text text={firstParagraph} />}
           <AppLink
             target={target}
-            to={`${RoutePath.articles}/${id}`}
+            to={RoutePath.getArticleRoute(id)}
             className={styles.button}
             variant="outline"
           >
@@ -64,7 +64,7 @@ export const ArticleCard = memo(function ArticleCard({
   return (
     <Link
       target={target}
-      to={`${RoutePath.articles}/${id}`}
+      to={RoutePath.getArticleRoute(id)}
       className={classNames(styles.article, {}, [className, styles.small])}
     >
       <div className={styles.imgWrapper}>

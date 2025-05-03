@@ -17,11 +17,11 @@ export const PrivateRoute: FC<PrivateRouteProps> = ({ children, roles }) => {
   }, [user, roles]);
 
   if (!user) {
-    return <Navigate to={RoutePath.main} replace={true} />;
+    return <Navigate to={RoutePath.getMainRoute()} replace={true} />;
   }
 
   if (roles && !isUserHasRoles) {
-    return <Navigate to={RoutePath.forbidden} replace={true} />;
+    return <Navigate to={RoutePath.getForbiddenRoute()} replace={true} />;
   }
 
   return children;
