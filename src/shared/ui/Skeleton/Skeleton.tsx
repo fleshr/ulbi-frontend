@@ -15,13 +15,10 @@ export const Skeleton = memo(function Skeleton({
   height = width ?? 30,
   radius,
 }: SkeletonProps) {
-  const style = useMemo(() => {
-    return {
-      width,
-      height,
-      borderRadius: radius,
-    };
-  }, [width, height, radius]);
+  const style = useMemo(
+    () => ({ width, height, borderRadius: radius }),
+    [width, height, radius],
+  );
 
   return (
     <div

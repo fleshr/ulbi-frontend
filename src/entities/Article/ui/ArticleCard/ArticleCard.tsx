@@ -1,7 +1,8 @@
 import EyeIcon from "@/shared/assets/icons/eye.svg";
 import { RoutePath } from "@/shared/constants";
 import { classNames } from "@/shared/lib";
-import { AppLink, Avatar, HStack, Text, VStack } from "@/shared/ui";
+import { AppLink, Avatar, HStack, Skeleton, Text, VStack } from "@/shared/ui";
+import { AppImage } from "@/shared/ui/AppImage/AppImage";
 import type { HTMLAttributeAnchorTarget } from "react";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
@@ -24,6 +25,7 @@ export const ArticleCard = memo(function ArticleCard({
   target = "_self",
 }: ArticleCardProps) {
   const { t } = useTranslation("translation", { keyPrefix: "ArticleCard" });
+  const fallback = <Skeleton height={200} />;
 
   if (view === "big") {
     const firstParagraph = blocks.find(
@@ -44,7 +46,12 @@ export const ArticleCard = memo(function ArticleCard({
           <Text className={styles.tags} text={type.join(", ")} />
         </div>
         <div className={styles.imgWrapper}>
-          <img className={styles.img} src={img} alt={title} />
+          <AppImage
+            fallback={fallback}
+            className={styles.img}
+            src={img}
+            alt={title}
+          />
         </div>
         <VStack gap={8} className={styles.content}>
           {firstParagraph && <Text text={firstParagraph} />}
@@ -69,7 +76,12 @@ export const ArticleCard = memo(function ArticleCard({
     >
       <div className={styles.imgWrapper}>
         <Text className={styles.date} text={createdAt} />
-        <img className={styles.img} src={img} alt={title} />
+        <AppImage
+          fallback={fallback}
+          className={styles.img}
+          src={img}
+          alt={title}
+        />
       </div>
       <div className={styles.content}>
         <HStack gap={32}>
