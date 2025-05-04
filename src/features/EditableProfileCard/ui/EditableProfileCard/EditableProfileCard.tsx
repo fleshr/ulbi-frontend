@@ -2,7 +2,7 @@ import type { Profile } from "@/entities/Profile";
 import { ProfileCard } from "@/entities/Profile";
 import { useInitialEffect } from "@/shared/lib/hooks";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import type { DataTestId } from "@/shared/types";
+import type { TestProps } from "@/shared/types";
 import { Text, VStack } from "@/shared/ui";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
@@ -12,7 +12,7 @@ import { fetchProfileData } from "../../model/services/fetchProfileData";
 import { profileFormActions } from "../../model/slices/profileFormSlice";
 import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
 
-interface EditableProfileCardProps extends DataTestId {
+interface EditableProfileCardProps extends TestProps {
   className?: string;
   profileId: string;
 }

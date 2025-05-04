@@ -1,6 +1,6 @@
 import { userSelectors } from "@/entities/User";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import type { DataTestId } from "@/shared/types";
+import type { TestProps } from "@/shared/types";
 import { Button, HStack, Text } from "@/shared/ui";
 import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
@@ -8,7 +8,7 @@ import { profileFormSelectors } from "../../model/selectors/profileFormSelectors
 import { updateProfileData } from "../../model/services/updateProfileData";
 import { profileFormActions } from "../../model/slices/profileFormSlice";
 
-interface EditableProfileCardHeaderProps extends DataTestId {
+interface EditableProfileCardHeaderProps extends TestProps {
   className?: string;
 }
 

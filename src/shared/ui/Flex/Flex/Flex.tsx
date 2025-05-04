@@ -1,5 +1,5 @@
 import { classNames } from "@/shared/lib";
-import type { DataTestId } from "@/shared/types";
+import type { TestProps } from "@/shared/types";
 import type { FC, HTMLAttributes, ReactNode } from "react";
 import styles from "./Flex.module.scss";
 
@@ -8,7 +8,7 @@ type FlexAlign = "stretch" | "start" | "center" | "end";
 type FlexJustify = "start" | "center" | "between" | "end";
 type FlexGap = 0 | 4 | 8 | 16 | 32;
 
-export interface FlexProps extends HTMLAttributes<HTMLDivElement>, DataTestId {
+export interface FlexProps extends HTMLAttributes<HTMLDivElement>, TestProps {
   children?: ReactNode;
   className?: string;
   direction?: FlexDirection;

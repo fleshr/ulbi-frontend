@@ -21,7 +21,7 @@ export const ArticlesPage: FC = memo(function ArticlesPage() {
   }, [dispatch]);
 
   return (
-    <Page onScrollEnd={handleScrollEnd}>
+    <Page data-testid="ArticlesPage" onScrollEnd={handleScrollEnd}>
       <VStack gap={32}>
         <ArticlesPageFilter />
         <ArticlesInfiniteList />

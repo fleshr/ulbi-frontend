@@ -1,5 +1,5 @@
 import { classNames } from "@/shared/lib";
-import type { DataTestId } from "@/shared/types";
+import type { TestProps } from "@/shared/types";
 import { memo } from "react";
 import styles from "./Text.module.scss";
 
@@ -14,7 +14,7 @@ const HeadingMap: Record<TextSize, HeadingType> = {
   lg: "h1",
 };
 
-interface TextProps extends DataTestId {
+interface TextProps extends TestProps {
   className?: string;
   variant?: TextVariant;
   title?: string;

@@ -8,7 +8,7 @@ export const AdminPanelPage: FC = memo(function AdminPanelPage() {
   const { t } = useTranslation("adminPanelPage");
 
   return (
-    <Page>
+    <Page data-testid="AdminPanelPage">
       <VStack align="center" justify="center" fullHeight>
         <Text title={t("Панель администратора")} />
       </VStack>

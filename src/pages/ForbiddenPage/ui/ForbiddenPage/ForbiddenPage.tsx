@@ -8,7 +8,7 @@ export const ForbiddenPage: FC = memo(function ForbiddenPage() {
   const { t } = useTranslation("forbiddenPage");
 
   return (
-    <Page>
+    <Page data-testid="ForbiddenPage">
       <VStack align="center" justify="center" fullHeight>
         <Text title={t("У вас нет доступа к данной странице")} />
       </VStack>

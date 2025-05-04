@@ -9,17 +9,23 @@ import {
   useThrottle,
 } from "@/shared/lib/hooks";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
+import type { TestProps } from "@/shared/types";
 import type { FC, PropsWithChildren, UIEventHandler } from "react";
 import { useRef } from "react";
 import { useLocation } from "react-router";
 import styles from "./Page.module.scss";
 
-interface PageProps extends PropsWithChildren {
+interface PageProps extends PropsWithChildren, TestProps {
   className?: string;
   onScrollEnd?: () => void;
 }
 
-export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
+export const Page: FC<PageProps> = ({
+  className,
+  children,
+  onScrollEnd,
+  "data-testid": dataTestId = "Page",
+}) => {
   const rootRef = useRef<HTMLDivElement>(null);
   const targetRef = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
@@ -51,6 +57,7 @@ export const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
     <main
       id="PAGE"
       ref={rootRef}
+      data-testid={dataTestId}
       onScroll={handlePageScroll}
       className={classNames(styles.page, {}, [className])}
     >

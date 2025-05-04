@@ -1,5 +1,5 @@
 import { classNames } from "@/shared/lib";
-import type { DataTestId } from "@/shared/types";
+import type { TestProps } from "@/shared/types";
 import type { ChangeEvent, InputHTMLAttributes } from "react";
 import { memo, useCallback, useId } from "react";
 import { HStack } from "../Flex";
@@ -7,7 +7,7 @@ import styles from "./Input.module.scss";
 
 interface InputProps
   extends Omit<
-    InputHTMLAttributes<HTMLInputElement> & DataTestId,
+    InputHTMLAttributes<HTMLInputElement> & TestProps,
     "onChange" | "value"
   > {
   className?: string;

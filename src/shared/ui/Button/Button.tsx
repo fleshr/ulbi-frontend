@@ -1,5 +1,5 @@
 import { classNames } from "@/shared/lib";
-import type { DataTestId } from "@/shared/types";
+import type { TestProps } from "@/shared/types";
 import type { ButtonHTMLAttributes } from "react";
 import { memo } from "react";
 import styles from "./Button.module.scss";
@@ -9,7 +9,7 @@ type Size = "sm" | "md" | "lg" | "xl";
 
 interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-    DataTestId {
+    TestProps {
   variant?: Variant;
   size?: Size;
 }

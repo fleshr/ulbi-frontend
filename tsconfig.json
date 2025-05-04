@@ -5,7 +5,8 @@
     "skipLibCheck": true,
 
     "moduleResolution": "bundler",
-    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "allowJs": true,
@@ -36,9 +37,7 @@
   "exclude": ["node_modules", "dist"],
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS",
-      "esModuleInterop": true,
-      "verbatimModuleSyntax": false
+      "module": "CommonJS"
     }
   }
 }

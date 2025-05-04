@@ -1,2 +1,2 @@
-export type { DataTestId } from "./DataTestId";
+export type { TestProps } from "./TestProps";
 export type { ThunkOptions } from "./ThunkOptions";
