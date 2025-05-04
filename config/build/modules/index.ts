@@ -8,7 +8,7 @@ import { getSvgLoader } from "./loaders/svgLoader";
 export const getModules = ({ isDev }: BuildOptions): ModuleOptions => {
   return {
     rules: [
-      getBabelLoader(),
+      getBabelLoader(isDev),
       getScssLoader(isDev),
       getFileLoader(),
       getSvgLoader(),

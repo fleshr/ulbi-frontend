@@ -56,4 +56,13 @@ describe("AppRouter", () => {
     const page = await findByTestId("AdminPanelPage");
     expect(page).toBeInTheDocument();
   });
+
+  it("Show not found page for unknown route", async () => {
+    const { findByTestId } = renderWithProviders(<AppRouter />, {
+      router: "/asdasd",
+    });
+
+    const page = await findByTestId("NotFoundPage");
+    expect(page).toBeInTheDocument();
+  });
 });

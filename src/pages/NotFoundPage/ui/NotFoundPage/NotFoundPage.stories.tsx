@@ -1,11 +1,15 @@
-import { withFullHeight } from "@/shared/lib/decorators";
+import {
+  withFullHeight,
+  withRouterProvider,
+  withStoreProvider,
+} from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
 import { NotFoundPage } from "./NotFoundPage";
 
 const meta = {
   title: "pages/NotFoundPage/NotFoundPage",
   component: NotFoundPage,
-  decorators: [withFullHeight],
+  decorators: [withFullHeight, withRouterProvider(), withStoreProvider()],
 } satisfies Meta<typeof NotFoundPage>;
 
 export default meta;

@@ -10,19 +10,15 @@ export const ProfilePage: FC = memo(function ProfilePage() {
   const { id } = useParams<{ id: string }>();
   const { t } = useTranslation("profilePage");
 
-  if (!id) {
-    return (
-      <Page>
+  return (
+    <Page data-testid="ProfilePage">
+      {id ? (
+        <EditableProfileCard profileId={id} />
+      ) : (
         <HStack justify="center" fullHeight>
           <Text title={t("Профиль не найден")} />
         </HStack>
-      </Page>
-    );
-  }
-
-  return (
-    <Page>
-      <EditableProfileCard profileId={id} />
+      )}
     </Page>
   );
 });

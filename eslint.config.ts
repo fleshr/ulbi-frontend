@@ -1,5 +1,7 @@
 import pluginJs from "@eslint/js";
 import type { Linter } from "eslint";
+// @ts-expect-error don't have types yet
+import pluginCypress from "eslint-plugin-cypress/flat";
 import pluginI18next from "eslint-plugin-i18next";
 import pluginJest from "eslint-plugin-jest";
 import pluginPrettierRecommended from "eslint-plugin-prettier/recommended";
@@ -22,8 +24,18 @@ export default tseslint.config([
   },
   pluginReactHooks.configs["recommended-latest"],
   pluginI18next.configs["flat/recommended"] as Linter.Config,
-  pluginJest.configs["flat/style"],
-  pluginJest.configs["flat/recommended"],
+  {
+    files: ["**/*.test.{ts,tsx}"],
+    extends: [
+      pluginJest.configs["flat/style"],
+      pluginJest.configs["flat/recommended"],
+    ],
+  },
+  {
+    files: ["**/*.cy.{ts,tsx}"],
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    extends: [pluginCypress.configs.recommended],
+  },
   pluginStorybook.configs["flat/recommended"],
   pluginPrettierRecommended,
   {
@@ -54,7 +66,7 @@ export default tseslint.config([
   {
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        project: ["./tsconfig.json", "./cypress/tsconfig.json"],
         tsconfigRootDir: import.meta.dirname,
       },
     },

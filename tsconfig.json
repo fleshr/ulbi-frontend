@@ -34,7 +34,7 @@
     "stylelint.config.mjs",
     "lint-staged.config.mjs"
   ],
-  "exclude": ["node_modules", "dist"],
+  "exclude": ["node_modules", "dist", "cypress", "cypress.config.ts"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

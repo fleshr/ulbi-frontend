@@ -595,6 +595,13 @@
       "password": "123",
       "roles": ["USER"],
       "avatar": "https://pyxis.nymag.com/v1/imgs/885/ea9/02d1f2cd6caeff95f72bfc996c2a6a1e1a-lofi-girl.1x.rsquare.w1400.jpg"
+    },
+    {
+      "id": "3",
+      "username": "test",
+      "password": "123",
+      "roles": ["ADMIN"],
+      "avatar": "https://pyxis.nymag.com/v1/imgs/885/ea9/02d1f2cd6caeff95f72bfc996c2a6a1e1a-lofi-girl.1x.rsquare.w1400.jpg"
     }
   ],
   "profile": [
