@@ -9,6 +9,12 @@ describe("ArticlesList", () => {
     cy.getByTestId("ArticleCard").should("have.length.greaterThan", 3);
   });
 
+  it("Should exist (fixture)", () => {
+    cy.intercept("GET", "/articles?*", { fixture: "articles-list.json" });
+    cy.getByTestId("ArticlesList").should("exist");
+    cy.getByTestId("ArticleCard").should("have.length.greaterThan", 3);
+  });
+
   afterEach(() => {
     cy.logout();
   });
