@@ -57,9 +57,16 @@ export default tseslint.config([
     },
   },
   {
+    files: ["./cypress/**/*.{ts,tsx}"],
     rules: {
-      "@typescript-eslint/consistent-type-exports": "error",
-      "@typescript-eslint/consistent-type-imports": "error",
+      "@typescript-eslint/no-namespace": [
+        "error",
+        { allowDeclarations: true, allowDefinitionFiles: true },
+      ],
+    },
+  },
+  {
+    rules: {
       "@typescript-eslint/no-invalid-void-type": "warn",
     },
   },

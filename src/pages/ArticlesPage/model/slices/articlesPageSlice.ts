@@ -1,7 +1,7 @@
 import type { ArticleView } from "@/entities/Article";
 import { ArticleType } from "@/entities/Article";
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from "@/shared/constants";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, WithSlice } from "@reduxjs/toolkit";
 import { articlesPageActions } from "../actions/articlePageActions";
 import { fetchArticles } from "../services/fetchArticles";
 import type { ArticlesPageState } from "../types/articlePage";
@@ -76,3 +76,9 @@ export const articlesPageSlice = createSlice({
       });
   },
 });
+
+declare module "@/shared/model/store" {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  export interface LazyLoadedSlices
+    extends WithSlice<typeof articlesPageSlice> {}
+}

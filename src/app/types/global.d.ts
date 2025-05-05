@@ -33,9 +33,6 @@ declare const __IS_DEV__: boolean;
 declare const __API__: string;
 declare const __PROJECT__: "storybook" | "jest" | "frontend";
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
-declare type AppStore = import("../providers/StoreProvider").AppStore;
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
-declare type RootState = import("../providers/StoreProvider").RootState;
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
-declare type AppDispatch = import("../providers/StoreProvider").AppDispatch;
+declare type AppStore = import("@/shared/model").AppStore;
+declare type RootState = import("@/shared/model").RootState;
+declare type AppDispatch = import("@/shared/model").AppDispatch;

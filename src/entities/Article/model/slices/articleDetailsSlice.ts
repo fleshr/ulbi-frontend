@@ -1,5 +1,5 @@
-import { rootReducer } from "@/app/providers";
-import { createSlice } from "@reduxjs/toolkit";
+import { rootReducer } from "@/shared/model";
+import { createSlice, WithSlice } from "@reduxjs/toolkit";
 import { fetchArticleDetails } from "../services/fetchArticleDetails";
 import type { ArticleState } from "../types/article";
 
@@ -36,8 +36,13 @@ export const articleDetailsSlice = createSlice({
   },
 });
 
-export const enjectedArticleDetailsSlice =
-  articleDetailsSlice.injectInto(rootReducer);
-export const articleDetailsReducer = enjectedArticleDetailsSlice.reducer;
-export const articleDetailsActions = enjectedArticleDetailsSlice.actions;
-export const articleDetailsSelectors = enjectedArticleDetailsSlice.selectors;
+export const {
+  actions: articleDetailsActions,
+  selectors: articleDetailsSelectors,
+} = articleDetailsSlice.injectInto(rootReducer);
+
+declare module "@/shared/model/store" {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  export interface LazyLoadedSlices
+    extends WithSlice<typeof articleDetailsSlice> {}
+}

@@ -2,8 +2,8 @@
   padding: 4px;
   box-sizing: content-box;
   cursor: pointer;
-}
 
-.selected {
-  fill: var(--primary-color);
+  &[data-selected="true"] {
+    fill: var(--primary-color);
+  }
 }

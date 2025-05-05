@@ -78,6 +78,7 @@ export const ArticlesList = memo(function ArticlesList({
 
   return (
     <div
+      data-testid="ArticlesList"
       style={{ height: virtualizer.getTotalSize() }}
       className={classNames(styles.container, {}, [className])}
     >

@@ -1,5 +1,5 @@
-import { rootReducer } from "@/app/providers";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import { rootReducer } from "@/shared/model";
+import type { PayloadAction, WithSlice } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import { loginByUsername } from "./services/loginByUsername";
 import type { LoginState } from "./types";
@@ -48,3 +48,8 @@ const injectedLoginSlice = loginSlice.injectInto(rootReducer);
 export const { setUsername, setPassword } = injectedLoginSlice.actions;
 export const { getLoginState } = injectedLoginSlice.selectors;
 export const loginReducer = injectedLoginSlice.reducer;
+
+declare module "@/shared/model/store" {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  export interface LazyLoadedSlices extends WithSlice<typeof loginSlice> {}
+}

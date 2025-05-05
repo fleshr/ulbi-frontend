@@ -1,6 +1,6 @@
-import { rootReducer } from "@/app/providers";
 import type { Profile } from "@/entities/Profile";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import { rootReducer } from "@/shared/model";
+import type { PayloadAction, WithSlice } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchProfileData } from "../services/fetchProfileData";
 import { updateProfileData } from "../services/updateProfileData";
@@ -78,3 +78,9 @@ export const profileFormSlice = createSlice({
 export const injectedProfileSlice = profileFormSlice.injectInto(rootReducer);
 export const profileFormReducer = injectedProfileSlice.reducer;
 export const profileFormActions = injectedProfileSlice.actions;
+
+declare module "@/shared/model/store" {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  export interface LazyLoadedSlices
+    extends WithSlice<typeof profileFormSlice> {}
+}

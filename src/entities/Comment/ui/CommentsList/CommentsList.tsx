@@ -7,24 +7,33 @@ import { Comment } from "../Comment/Comment";
 interface CommentsListProps {
   className?: string;
   isLoading?: boolean;
-  comments: CommentType[];
+  comments?: CommentType[];
 }
 
 export const CommentsList = memo(function CommentsList({
   className,
-  comments,
+  comments = [],
   isLoading = false,
 }: CommentsListProps) {
   const { t } = useTranslation("translation", { keyPrefix: "CommentsList" });
 
   return (
-    <VStack gap={16} className={className}>
+    <VStack data-testid="CommentsList" gap={16} className={className}>
       {comments.length ? (
         comments.map((comment) => (
-          <Comment key={comment.id} comment={comment} isLoading={isLoading} />
+          <Comment
+            data-testid={`CommentsList.Comment.${comment.id}`}
+            key={comment.id}
+            comment={comment}
+            isLoading={isLoading}
+          />
         ))
       ) : (
-        <Text align="center" text={t("Комментарии отсутствуют")} />
+        <Text
+          data-testid="CommentsList.NoComments"
+          align="center"
+          text={t("Комментарии отсутствуют")}
+        />
       )}
     </VStack>
   );

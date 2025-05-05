@@ -6,6 +6,6 @@
     "sourceMap": true,
     "types": ["cypress", "node"]
   },
-  "include": ["./**/*.ts", "../global.d.ts", "../cypress.config.ts"],
+  "include": ["./**/*.ts", "../cypress.config.ts"],
   "exclude": []
 }

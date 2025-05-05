@@ -32,7 +32,7 @@
   "CommentsList": {
     "Комментарии отсутствуют": "No comments"
   },
-  "AddCommentForm": {
+  "CommentForm": {
     "Комментарий": "Comment",
     "Отправить": "Send"
   },

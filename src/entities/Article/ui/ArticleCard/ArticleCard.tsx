@@ -6,7 +6,6 @@ import { AppImage } from "@/shared/ui/AppImage/AppImage";
 import type { HTMLAttributeAnchorTarget } from "react";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import { ArticleBlock } from "../../constants/articleBlock";
 import type { Article, ArticleView } from "../../model/types/article";
 import styles from "./ArticleCard.module.scss";
@@ -33,7 +32,10 @@ export const ArticleCard = memo(function ArticleCard({
     )?.paragraphs[0];
 
     return (
-      <div className={classNames(styles.article, {}, [className, styles.big])}>
+      <div
+        data-testid="ArticleCard"
+        className={classNames(styles.article, {}, [className, styles.big])}
+      >
         <div className={styles.header}>
           <HStack justify="between">
             <HStack gap={4}>
@@ -69,7 +71,8 @@ export const ArticleCard = memo(function ArticleCard({
   }
 
   return (
-    <Link
+    <AppLink
+      data-testid="ArticleCard"
       target={target}
       to={RoutePath.getArticleRoute(id)}
       className={classNames(styles.article, {}, [className, styles.small])}
@@ -93,6 +96,6 @@ export const ArticleCard = memo(function ArticleCard({
         </HStack>
         <Text className={styles.title} title={title} />
       </div>
-    </Link>
+    </AppLink>
   );
 });

@@ -1,4 +1,4 @@
-import type { PayloadAction } from "@reduxjs/toolkit";
+import type { PayloadAction, WithSlice } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import type { ScrollRestorationState } from "./types";
 
@@ -19,3 +19,9 @@ export const scrollRestorationSlice = createSlice({
 
 export const scrollRestorationActions = scrollRestorationSlice.actions;
 export const scrollRestorationSelectors = scrollRestorationSlice.selectors;
+
+declare module "@/shared/model/store" {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  export interface LazyLoadedSlices
+    extends WithSlice<typeof scrollRestorationSlice> {}
+}

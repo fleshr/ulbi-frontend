@@ -1,61 +1,8 @@
-import { mockArticle, mockArticles } from "@/entities/Article";
+import { mockArticle } from "@/entities/Article";
 import { mockRating } from "@/entities/Rating";
-import avatar from "@/shared/assets/tests/avatar.jpg";
 import { withRouterProvider, withStoreProvider } from "@/shared/lib/decorators";
 import type { Meta, StoryObj } from "@storybook/react";
-import type { ArticleRecomendationsState } from "../../model/types/articleRecomendations";
 import { ArticleDetailsPage } from "./ArticleDetailsPage";
-
-const comments = {
-  ids: ["1", "2", "3"],
-  entities: {
-    "1": {
-      id: "1",
-      text: "some comment",
-      articleId: "1",
-      userId: "1",
-      user: {
-        id: "1",
-        username: "admin",
-        password: "123",
-        role: "ADMIN",
-        avatar,
-      },
-    },
-    "2": {
-      id: "2",
-      text: "some comment 2",
-      articleId: "1",
-      userId: "1",
-      user: {
-        id: "1",
-        username: "admin",
-        password: "123",
-        role: "ADMIN",
-        avatar,
-      },
-    },
-    "3": {
-      id: "3",
-      text: "some comment 3",
-      articleId: "1",
-      userId: "1",
-      user: {
-        id: "1",
-        username: "admin",
-        password: "123",
-        role: "ADMIN",
-        avatar,
-      },
-    },
-  },
-  isLoading: false,
-};
-
-const recomendations: ArticleRecomendationsState = {
-  isLoading: false,
-  recomendations: mockArticles.slice(0, 4),
-};
 
 const meta = {
   title: "pages/ArticleDetailsPage/ArticleDetailsPage",
@@ -80,7 +27,6 @@ export const Default: Story = {
     withRouterProvider({ path: "/articles/:id", route: "/articles/1" }),
     withStoreProvider({
       articleDetails: { data: mockArticle, isLoading: false },
-      articleDetailsPage: { comments, recomendations },
     }),
   ],
 };
@@ -90,10 +36,6 @@ export const NoComments: Story = {
     withRouterProvider({ path: "/articles/:id", route: "/articles/1" }),
     withStoreProvider({
       articleDetails: { data: mockArticle, isLoading: false },
-      articleDetailsPage: {
-        comments: { ids: [], entities: {}, isLoading: false },
-        recomendations,
-      },
     }),
   ],
 };

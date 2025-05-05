@@ -1,4 +1,6 @@
-import { StoreProvider, ThemeProvider } from "@/app/providers";
+import { StoreProvider } from "@/app/providers";
+// eslint-disable-next-line myPlugin/layers-import
+import { ThemeProvider } from "@/entities/Theme";
 import { i18nForTests } from "@/shared/config/i18n/i18nForTests";
 import { render } from "@testing-library/react";
 import type { FC, PropsWithChildren, ReactNode } from "react";

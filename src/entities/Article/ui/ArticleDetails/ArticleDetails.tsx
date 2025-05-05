@@ -84,7 +84,7 @@ export const ArticleDetails = memo(function ArticleDetails({
     );
   } else {
     content = (
-      <div>
+      <>
         <Avatar className={styles.avatar} size={150} src={article?.img} />
         <VStack gap={16}>
           <Text size="lg" title={article?.title} text={article?.subtitle} />
@@ -100,9 +100,9 @@ export const ArticleDetails = memo(function ArticleDetails({
           </VStack>
         </VStack>
         {article?.blocks.map(renderBlock)}
-      </div>
+      </>
     );
   }
 
-  return <div>{content}</div>;
+  return <VStack data-testid="ArticleDetails">{content}</VStack>;
 });

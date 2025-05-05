@@ -32,7 +32,7 @@ describe("Routing", () => {
     });
 
     afterEach(() => {
-      window.localStorage.clear();
+      cy.logout();
     });
   });
 });

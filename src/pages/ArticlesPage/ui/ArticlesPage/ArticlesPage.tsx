@@ -1,5 +1,4 @@
-import { rootReducer } from "@/app/providers";
-import { useAppDispatch } from "@/shared/model";
+import { rootReducer, useAppDispatch } from "@/shared/model";
 import { VStack } from "@/shared/ui";
 import { Page } from "@/widgets/Page";
 import type { FC } from "react";

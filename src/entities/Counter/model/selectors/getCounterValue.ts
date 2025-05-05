@@ -3,5 +3,5 @@ import { getCounter } from "./getCounter";
 
 export const getCounterValue = createSelector(
   getCounter,
-  (counter) => counter.value,
+  (counter) => counter?.value ?? 0,
 );

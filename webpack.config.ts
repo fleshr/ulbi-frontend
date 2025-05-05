@@ -13,7 +13,7 @@ export default (env: BuildEnv) => {
   const isDev = mode === "development";
 
   const paths: BuildPaths = {
-    entry: resolve(__dirname, "src", "index.tsx"),
+    entry: resolve(__dirname, "src", "app", "index.tsx"),
     output: resolve(__dirname, "dist"),
     html: resolve(__dirname, "public", "index.html"),
     src: resolve(__dirname, "src"),

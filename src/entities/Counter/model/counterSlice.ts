@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { rootReducer } from "@/shared/model";
+import { createSlice, WithSlice } from "@reduxjs/toolkit";
 
 export interface CounterState {
   value: number;
@@ -21,5 +22,10 @@ export const counterSlice = createSlice({
   },
 });
 
-export const counterReducer = counterSlice.reducer;
-export const { increment, decrement } = counterSlice.actions;
+export const { actions: counterActions, reducer: counterReducer } =
+  counterSlice.injectInto(rootReducer);
+
+declare module "@/shared/model/store" {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  export interface LazyLoadedSlices extends WithSlice<typeof counterSlice> {}
+}

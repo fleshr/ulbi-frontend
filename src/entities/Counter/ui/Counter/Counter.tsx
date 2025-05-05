@@ -1,18 +1,18 @@
-import type { FC } from "react";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
+import type { FC } from "react";
+import { counterActions } from "../../model/counterSlice";
 import { getCounterValue } from "../../model/selectors/getCounterValue";
-import { decrement, increment } from "../../model/counterSlice";
 
 export const Counter: FC = () => {
   const count = useAppSelector(getCounterValue);
   const dispatch = useAppDispatch();
 
   const handleIncrement = () => {
-    dispatch(increment());
+    dispatch(counterActions.increment());
   };
 
   const handleDecrement = () => {
-    dispatch(decrement());
+    dispatch(counterActions.decrement());
   };
 
   return (

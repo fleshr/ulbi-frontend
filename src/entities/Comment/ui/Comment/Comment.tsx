@@ -1,11 +1,12 @@
 import { RoutePath } from "@/shared/constants";
 import { classNames } from "@/shared/lib";
+import { TestProps } from "@/shared/types";
 import { AppLink, Avatar, HStack, Skeleton, Text, VStack } from "@/shared/ui";
 import { memo } from "react";
 import type { Comment as CommentType } from "../../model/types";
 import styles from "./Comment.module.scss";
 
-interface CommentProps {
+interface CommentProps extends TestProps {
   className?: string;
   comment: CommentType;
   isLoading?: boolean;
@@ -15,10 +16,15 @@ export const Comment = memo(function Comment({
   className,
   comment: { user, text },
   isLoading = false,
+  "data-testid": dataTestId = "Comment",
 }: CommentProps) {
   if (isLoading) {
     return (
-      <VStack gap={4} className={classNames(styles.comment, {}, [className])}>
+      <VStack
+        gap={4}
+        data-testid={`${dataTestId}.Skeleton`}
+        className={classNames(styles.comment, {}, [className])}
+      >
         <HStack gap={8}>
           <Skeleton width={30} radius="50%" />
           <Skeleton width={100} height={20} />
@@ -29,14 +35,18 @@ export const Comment = memo(function Comment({
   }
 
   return (
-    <VStack gap={4} className={classNames(styles.comment, {}, [className])}>
+    <VStack
+      gap={4}
+      data-testid={dataTestId}
+      className={classNames(styles.comment, {}, [className])}
+    >
       <AppLink
-        className={classNames(styles.header, {}, [])}
+        className={styles.header}
         to={RoutePath.getProfileRoute(user.id)}
       >
         <HStack gap={8}>
           {user.avatar && <Avatar size={30} src={user.avatar} />}
-          <Text title={user.username} />
+          <Text data-testid={`${dataTestId}.Text`} title={user.username} />
         </HStack>
       </AppLink>
       <Text text={text} />

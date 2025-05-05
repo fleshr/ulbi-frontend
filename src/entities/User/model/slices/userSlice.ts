@@ -1,5 +1,6 @@
 import { USER_LOCALSTORAGE_KEY } from "@/shared/constants";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import { rootReducer } from "@/shared/model";
+import type { PayloadAction, WithSlice } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import type { User, UserState } from "../types/user";
 
@@ -31,6 +32,10 @@ export const userSlice = createSlice({
   },
 });
 
-export const userReducer = userSlice.reducer;
-export const userActions = userSlice.actions;
-export const userSelectors = userSlice.selectors;
+export const { actions: userActions, selectors: userSelectors } =
+  userSlice.injectInto(rootReducer);
+
+declare module "@/shared/model/store" {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  export interface LazyLoadedSlices extends WithSlice<typeof userSlice> {}
+}
