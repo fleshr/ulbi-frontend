@@ -1,6 +1,8 @@
 import { ArticleDetails } from "@/entities/Article";
+import { Counter } from "@/entities/Counter";
 import { ArticleRating } from "@/features/ArticleRating";
 import { ArticleRecomendationsList } from "@/features/ArticleRecomendationsList";
+import { getFeatureFlag } from "@/shared/lib";
 import { Text, VStack } from "@/shared/ui";
 import { Page } from "@/widgets/Page";
 import type { FC } from "react";
@@ -13,6 +15,8 @@ import { AritcleDetailsHeader } from "../ArticleDetailsHeader/AritcleDetailsHead
 export const ArticleDetailsPage: FC = memo(function ArticleDetailsPage() {
   const { id } = useParams<{ id: string }>();
   const { t } = useTranslation("articleDetailsPage");
+  const isArticleRatingEnabled = getFeatureFlag("isArticleRatingEnabled");
+  const isCounterEnabled = getFeatureFlag("isCounterEnabled");
 
   if (!id) {
     return (
@@ -25,7 +29,8 @@ export const ArticleDetailsPage: FC = memo(function ArticleDetailsPage() {
       <VStack gap={32}>
         <AritcleDetailsHeader articleId={id} />
         <ArticleDetails id={id} />
-        <ArticleRating articleId={id} />
+        {isCounterEnabled && <Counter />}
+        {isArticleRatingEnabled && <ArticleRating articleId={id} />}
         <ArticleRecomendationsList />
         <ArticleDetailsComments articleId={id} />
       </VStack>

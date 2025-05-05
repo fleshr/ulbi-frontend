@@ -29,27 +29,24 @@ export const Dropdown = memo(function Dropdown({
       <MenuButton className={classNames(styles.btn, {}, [className])}>
         {trigger}
       </MenuButton>
-      <MenuItems
-        anchor="bottom end"
-        className={styles.items}
-        as={VStack}
-        align="center"
-      >
-        {items.map(({ onClick, content, href }, index) => {
-          if (href) {
+      <MenuItems anchor="bottom end" className={styles.items}>
+        <VStack align="center">
+          {items.map(({ onClick, content, href }, index) => {
+            if (href) {
+              return (
+                <MenuItem key={index} as={AppLink} to={href}>
+                  {content}
+                </MenuItem>
+              );
+            }
+
             return (
-              <MenuItem key={index} as={AppLink} to={href}>
+              <MenuItem key={index} as={Button} onClick={onClick}>
                 {content}
               </MenuItem>
             );
-          }
-
-          return (
-            <MenuItem key={index} as={Button} onClick={onClick}>
-              {content}
-            </MenuItem>
-          );
-        })}
+          })}
+        </VStack>
       </MenuItems>
     </Menu>
   );

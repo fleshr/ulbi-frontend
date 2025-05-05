@@ -1,4 +1,5 @@
 import { USER_LOCALSTORAGE_KEY } from "@/shared/constants";
+import { setFeatureFlags } from "@/shared/lib";
 import { rootReducer } from "@/shared/model";
 import type { PayloadAction, WithSlice } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
@@ -17,11 +18,14 @@ export const userSlice = createSlice({
   reducers: {
     setUser: (state, action: PayloadAction<User | null>) => {
       state.user = action.payload;
+      setFeatureFlags(action.payload?.featureFlags);
     },
     initUser: (state) => {
       const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
       if (user) {
-        state.user = JSON.parse(user) as User;
+        const parserUser = JSON.parse(user) as User;
+        state.user = parserUser;
+        setFeatureFlags(parserUser.featureFlags);
       }
       state._initialized = true;
     },
