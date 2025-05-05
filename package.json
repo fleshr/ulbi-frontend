@@ -96,6 +96,7 @@
     "testplane": "^8.28.0",
     "ts-jest": "^29.3.2",
     "ts-loader": "^9.5.2",
+    "ts-morph": "^25.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.30.1",

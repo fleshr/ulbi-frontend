@@ -1,4 +1,4 @@
-import { FeatureFlags } from "../types";
+import { FeatureFlags } from "../../types";
 
 let featureFlags: FeatureFlags = {};
 
