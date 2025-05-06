@@ -1,6 +1,6 @@
+import { readFileSync } from "fs";
 import jsonServer from "json-server";
 import { join } from "path";
-import db from "./db.json";
 
 const server = jsonServer.create();
 const router = jsonServer.router(join(__dirname, "db.json"));
@@ -22,7 +22,13 @@ server.post("/login", (req, res) => {
       password: string;
     };
 
-    const { users = [] } = db;
+    const users = (JSON.parse(
+      readFileSync(join(__dirname, "db.json"), { encoding: "utf-8" }),
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    ).users ?? []) as {
+      username: string;
+      password: string;
+    }[];
     const userFromBd = users.find(
       (user) => user.username === username && user.password === password,
     );

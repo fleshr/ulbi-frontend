@@ -1,4 +1,4 @@
-import { userActions, userSelectors } from "@/entities/User";
+import { initUser, userSelectors } from "@/entities/User";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
 import { Navbar } from "@/widgets/Navbar";
 import { Sidebar } from "@/widgets/Sidebar";
@@ -11,7 +11,7 @@ export const App = () => {
   const isUserInitialized = useAppSelector(userSelectors.getUserInitialized);
 
   useEffect(() => {
-    dispatch(userActions.initUser());
+    void dispatch(initUser());
   }, [dispatch]);
 
   return (

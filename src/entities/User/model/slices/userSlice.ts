@@ -3,6 +3,7 @@ import { setFeatureFlags } from "@/shared/lib";
 import { rootReducer } from "@/shared/model";
 import type { PayloadAction, WithSlice } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
+import { initUser } from "../services/initUser";
 import { saveJsonSettings } from "../services/saveJsonSettings";
 import type { User, UserState } from "../types/user";
 
@@ -18,18 +19,9 @@ export const userSlice = createSlice({
     getJsonSettings: (state) => state.user?.jsonSettings ?? {},
   },
   reducers: {
-    setUser: (state, action: PayloadAction<User | null>) => {
-      state.user = action.payload;
-      setFeatureFlags(action.payload?.featureFlags);
-    },
-    initUser: (state) => {
-      const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
-      if (user) {
-        const parserUser = JSON.parse(user) as User;
-        state.user = parserUser;
-        setFeatureFlags(parserUser.featureFlags);
-      }
-      state._initialized = true;
+    setUser: (state, { payload }: PayloadAction<User>) => {
+      state.user = payload;
+      setFeatureFlags(payload.featureFlags);
     },
     logout: (state) => {
       state.user = null;
@@ -42,6 +34,17 @@ export const userSlice = createSlice({
         state.user.jsonSettings = payload;
       }
     });
+
+    builder
+      .addCase(initUser.fulfilled, (state, { payload }) => {
+        state.user = payload;
+        state._initialized = true;
+        setFeatureFlags(payload.featureFlags);
+      })
+      .addCase(initUser.rejected, (state) => {
+        state.user = null;
+        state._initialized = true;
+      });
   },
 });
 

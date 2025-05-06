@@ -8,7 +8,7 @@ import type { LoginSchema } from "../types";
 export const loginByUsername = createAsyncThunk<
   User,
   LoginSchema,
-  ThunkOptions<string>
+  ThunkOptions
 >(
   "login/loginByUsername",
   async (args, { rejectWithValue, dispatch, extra: { api } }) => {
@@ -19,7 +19,7 @@ export const loginByUsername = createAsyncThunk<
         return rejectWithValue("error");
       }
 
-      localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data));
+      localStorage.setItem(USER_LOCALSTORAGE_KEY, data.id);
       dispatch(userActions.setUser(data));
 
       return data;
