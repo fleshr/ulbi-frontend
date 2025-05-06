@@ -1,3 +1,4 @@
+import { ArticleGreeting } from "@/features/ArticleGreeting";
 import { rootReducer, useAppDispatch } from "@/shared/model";
 import { VStack } from "@/shared/ui";
 import { Page } from "@/widgets/Page";
@@ -24,6 +25,7 @@ export const ArticlesPage: FC = memo(function ArticlesPage() {
       <VStack gap={32}>
         <ArticlesPageFilter />
         <ArticlesInfiniteList />
+        <ArticleGreeting />
       </VStack>
     </Page>
   );
