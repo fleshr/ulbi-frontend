@@ -1,9 +1,4 @@
 import { createContext } from "react";
-import { Theme } from "../model/types";
-
-interface ThemeContextType {
-  theme: Theme;
-  toogleTheme: () => void;
-}
+import { ThemeContextType } from "../model/types";
 
 export const ThemeContext = createContext<ThemeContextType | null>(null);

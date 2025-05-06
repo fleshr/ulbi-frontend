@@ -2,7 +2,7 @@ import { ArticleDetails } from "@/entities/Article";
 import { Counter } from "@/entities/Counter";
 import { ArticleRating } from "@/features/ArticleRating";
 import { ArticleRecomendationsList } from "@/features/ArticleRecomendationsList";
-import { toogleFeature } from "@/shared/lib/features";
+import { toggleFeature } from "@/shared/lib/features";
 import { Text, VStack } from "@/shared/ui";
 import { Page } from "@/widgets/Page";
 import type { FC } from "react";
@@ -22,13 +22,13 @@ export const ArticleDetailsPage: FC = memo(function ArticleDetailsPage() {
     );
   }
 
-  const counter = toogleFeature({
+  const counter = toggleFeature({
     name: "isCounterEnabled",
     on: () => <Counter />,
     off: () => null,
   });
 
-  const rating = toogleFeature({
+  const rating = toggleFeature({
     name: "isArticleRatingEnabled",
     on: () => <ArticleRating articleId={id} />,
     off: () => null,

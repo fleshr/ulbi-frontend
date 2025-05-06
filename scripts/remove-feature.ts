@@ -25,7 +25,7 @@ sourceFiles.forEach((sourceFile) => {
     if (
       Node.isCallExpression(node) &&
       node.getFirstChildByKind(SyntaxKind.Identifier)?.getText() ===
-        "toogleFeature"
+        "toggleFeature"
     ) {
       const objectOptions = node.getFirstChildByKind(
         SyntaxKind.ObjectLiteralExpression,

@@ -1,16 +1,16 @@
 import { FeatureFlags } from "@/shared/types";
 import { getFeatureFlag } from "./featuresStore";
 
-interface ToogleFeatureArgs<OnReturn, OffReturn> {
+interface ToggleFeatureArgs<OnReturn, OffReturn> {
   name: keyof FeatureFlags;
   on: () => OnReturn;
   off: () => OffReturn;
 }
 
-export const toogleFeature = <OnReturn, OffReturn>({
+export const toggleFeature = <OnReturn, OffReturn>({
   name,
   on,
   off,
-}: ToogleFeatureArgs<OnReturn, OffReturn>) => {
+}: ToggleFeatureArgs<OnReturn, OffReturn>) => {
   return getFeatureFlag(name) ? on() : off();
 };

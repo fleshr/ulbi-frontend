@@ -1,6 +1,7 @@
-export { UserRole } from "./constants/userRole";
+export { UserRole } from "./const/userRole";
 export { mockUser } from "./mock/user";
 export { getIsUserAdmin, getIsUserManager } from "./model/selectors/getRoles";
+export { saveJsonSettings } from "./model/services/saveJsonSettings";
 export {
   userActions,
   userSelectors,

@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { UserRole } from "../../constants/userRole";
+import { UserRole } from "../../const/userRole";
 import { userSelectors } from "../slices/userSlice";
 
 export const getIsUserAdmin = createSelector(userSelectors.getRoles, (roles) =>

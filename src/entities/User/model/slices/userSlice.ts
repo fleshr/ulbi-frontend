@@ -3,6 +3,7 @@ import { setFeatureFlags } from "@/shared/lib";
 import { rootReducer } from "@/shared/model";
 import type { PayloadAction, WithSlice } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
+import { saveJsonSettings } from "../services/saveJsonSettings";
 import type { User, UserState } from "../types/user";
 
 const initialState: UserState = { user: null, _initialized: false };
@@ -14,6 +15,7 @@ export const userSlice = createSlice({
     getRoles: (state) => state.user?.roles,
     getUserData: (state) => state.user,
     getUserInitialized: (state) => state._initialized,
+    getJsonSettings: (state) => state.user?.jsonSettings ?? {},
   },
   reducers: {
     setUser: (state, action: PayloadAction<User | null>) => {
@@ -33,6 +35,13 @@ export const userSlice = createSlice({
       state.user = null;
       localStorage.removeItem(USER_LOCALSTORAGE_KEY);
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(saveJsonSettings.fulfilled, (state, { payload }) => {
+      if (state.user) {
+        state.user.jsonSettings = payload;
+      }
+    });
   },
 });
 
