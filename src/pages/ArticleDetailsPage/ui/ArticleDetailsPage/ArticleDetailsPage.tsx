@@ -1,9 +1,8 @@
 import { ArticleDetails } from "@/entities/Article";
-import { Counter } from "@/entities/Counter";
 import { ArticleRating } from "@/features/ArticleRating";
 import { ArticleRecomendationsList } from "@/features/ArticleRecomendationsList";
-import { toggleFeature } from "@/shared/lib/features";
-import { Text, VStack } from "@/shared/ui";
+import { ToggleFeature } from "@/shared/lib";
+import { Card, Text, VStack } from "@/shared/ui";
 import { Page } from "@/widgets/Page";
 import type { FC } from "react";
 import { memo } from "react";
@@ -22,25 +21,16 @@ export const ArticleDetailsPage: FC = memo(function ArticleDetailsPage() {
     );
   }
 
-  const counter = toggleFeature({
-    name: "isCounterEnabled",
-    on: () => <Counter />,
-    off: () => null,
-  });
-
-  const rating = toggleFeature({
-    name: "isArticleRatingEnabled",
-    on: () => <ArticleRating articleId={id} />,
-    off: () => null,
-  });
-
   return (
     <Page>
       <VStack gap={32}>
         <AritcleDetailsHeader articleId={id} />
         <ArticleDetails id={id} />
-        {counter}
-        {rating}
+        <ToggleFeature
+          name="isArticleRatingEnabled"
+          on={<ArticleRating articleId={id} />}
+          off={<Card>SOON</Card>}
+        />
         <ArticleRecomendationsList />
         <ArticleDetailsComments articleId={id} />
       </VStack>

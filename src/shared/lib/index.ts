@@ -1,2 +1,7 @@
 export { classNames } from "./classNames/classNames";
-export { getFeatureFlag, setFeatureFlags } from "./features";
+export {
+  getFeatureFlag,
+  setFeatureFlags,
+  ToggleFeature,
+  toggleFeature,
+} from "./features";
